@@ -1,0 +1,43 @@
+.signUpContainer {
+	border: 1px solid grey;
+	margin: auto;
+	border-radius: 10px;
+	width: 600px;
+	height: 400px;
+	overflow: hidden;
+	box-shadow: 2px 2px 2px lightgrey;
+}
+
+.signUpHeader {
+	height: 20%;
+	width: 100%;
+	background-color: #5d9fd2;
+}
+
+.signUpHeader > p {
+	font-size: 3em;
+	padding: 10px 0px 0px 20px;
+	margin: auto;
+}
+
+.signUpForm {
+	height: 70%;
+	width: 100%;
+}
+
+.signUpFormContainer {
+	margin: auto;
+	padding: 0px 0px 0px 20px;
+}
+
+.signUpFormContainer > p {
+	font-size: 1.25em;
+}
+
+.signUpButton {
+	height: 10%;
+	width: 100%;
+	margin-top: 10px;
+}
+
+

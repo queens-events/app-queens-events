@@ -1,0 +1,28 @@
+.profileContainer {
+	display: flex;
+	flex-direction: row;
+	height: 100%;
+	width: 100%;
+}
+
+.profileUserInfo {
+	height: 100%;
+	width: 30%;
+}
+
+.profileData {
+	height: 100%;
+	width: 70%;
+}
+
+
+.profileUserImage {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image: url('http://placehold.it/350x150');
+}

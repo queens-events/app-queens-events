@@ -1,0 +1,29 @@
+.venueCard {
+	border: 1px solid grey;
+	border-radius: 10px;
+	width: 400px;
+	height: 400px;
+	overflow: hidden;
+}
+
+.venueTopImage {
+	height: 50%;
+	width: 100%;
+}
+
+.venueTopImage > div {
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.venueBottomData {
+	height: 50%;
+	width: 100%;
+}
+
+.venueBottomData > h1 {
+	padding: 0px 0px 0px 10px;
+}

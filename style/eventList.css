@@ -1,0 +1,12 @@
+.eventListContainer {
+	justify-content: center;
+	/*background-color: orange;*/
+}
+
+.eventList {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: space-around;
+	align-content: space-between;
+	justify-content: space-between;
+}
