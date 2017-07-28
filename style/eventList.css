@@ -8,5 +8,5 @@
 	flex-flow: row wrap;
 	align-items: space-around;
 	align-content: space-between;
-	justify-content: space-between;
+	justify-content: space-around;
 }

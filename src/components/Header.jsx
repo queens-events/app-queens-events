@@ -4,37 +4,60 @@ import headerStly from '../../style/header.css'
 
 const Header = () => {
   return(
-    <div className="navbar">
+    <div className="header">
       <div className="navbarLeftBox">
         <div className="navbarLogo" />
         <div className="navbarLeftLinks">
-          <div className="navbarLink">
-            <Link to='/'>Home</Link><span className="sr-only">(current)</span>
-          </div>
-          <div className="navbarLink">
-            <Link to ='/about'>About</Link>
-          </div>
-          <div className="navbarLink">
-            <Link to='/events'>Events</Link>
-          </div>
-          <div className="navbarLink">
-            <Link to='/organizations'>Organizations</Link>
-          </div>
-          <div className="navbarLink">
-            <Link to='/venues'>Venues</Link>
-          </div>
+          <Link to='/'>
+            <div className="navbarLink">
+              Home
+            </div>
+          </Link>
+
+          <Link to ='/about'>
+            <div className="navbarLink">
+              About
+            </div>
+          </Link>
+
+          <Link to='/events'>
+            <div className="navbarLink">
+              Events
+            </div>
+          </Link>
+
+          <Link to='/organizations'>
+            <div className="navbarLink">
+              Organizations
+            </div>
+          </Link>
+
+          <Link to='/venues'>
+            <div className="navbarLink">
+              Venues
+            </div>
+          </Link>
         </div>
       </div>
+
       <div className="navbarRightBox">
-        <div className="navbarLink">
-          <Link to='/signup'>Sign Up</Link>
-        </div>
-        <div className="navbarLink">
-          <Link to='/login'>Login</Link>
-        </div>
-        <div className="navbarLink">
-          <Link to='/profile'>Profile</Link>
-        </div>
+        <Link to='/signup'>
+          <div className="navbarLink">
+            Sign Up
+          </div>
+        </Link>
+
+        <Link to='/login'>
+          <div className="navbarLink">
+            Login
+          </div>
+        </Link>
+
+        <Link to='/profile'>
+          <div className="navbarLink">
+            Profile
+          </div>
+        </Link>
       </div>
     </div>
   );

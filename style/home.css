@@ -1,7 +1,7 @@
 .landingPageBanner {
     width: 100vw;
     height: 400px;
-    transform: translateX(-115px);
+    transform: translateX(-7vw);
     background-image: url(../img/landingBanner2.jpg);
     background-size: cover;
     background-position: 0% 10%;
@@ -16,7 +16,8 @@
     margin: 0;
     font-size: 4em;
      /* color: #fff; */
-    text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+     color: white;
+    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #fff;
 
 }
 
@@ -35,5 +36,6 @@
     width: 130px;
 }
 
-/* 1c648c */
-/* 2f9acc */
+/* Main Colors */
+/* 1c648c Darker*/
+/* 2f9acc Lighter*/
