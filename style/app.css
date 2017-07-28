@@ -5,3 +5,7 @@
 	margin: auto;
 	width: 1210px;
 }
+
+.navbar.navbar-default {
+	margin: 0;
+}
