@@ -27,3 +27,8 @@
 .orgBottomData > h1 {
 	padding: 0px 0px 0px 10px;
 }
+
+.orgBottomData > p {
+	padding: 0px 0px 0px 10px;
+	color: grey;
+}

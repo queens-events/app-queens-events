@@ -18,11 +18,11 @@ class EventDetail extends Component {
   }
 
   componentWillMount() {
-    api.get(`/events/${this.props.match.params.eventID}`)
-      .then(resp => {
-        console.log(resp);
-      })
-      .catch(err => console.log(err))
+    // api.get(`/events/${this.props.match.params.eventID}`)
+    //   .then(resp => {
+    //     console.log(resp);
+    //   })
+    //   .catch(err => console.log(err))
   }
 
   render() {

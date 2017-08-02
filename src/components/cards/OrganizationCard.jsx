@@ -13,6 +13,8 @@ const OrganizationCard = () => {
       </div>
       <div className="orgBottomData">
         <h1>Queens Events</h1>
+        <p>A brief description of Queens Events goes here.
+        We can see how large it gets before it becomes a problem</p>
       </div>
     </div>
   );

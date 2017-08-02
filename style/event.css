@@ -40,7 +40,7 @@
 .eventTitle {
 	padding: 10px;
 	display: flex;
-	align-items: center;
+	/*align-items: center;*/
 	flex-direction: column;
 	height: 75%;
 	width: 100%;
@@ -58,7 +58,7 @@
 
 .eventOrganization {
 	display: flex;
-	justify-content: space-around;
+	/*justify-content: space-around;*/
 	align-items: center;
 	/*background-color: orange;*/
 	padding: 0 10px 0 10px;
@@ -66,9 +66,18 @@
 	width: 100%;
 }
 
-.eventOrganization > img {
+.orgLogo > img {
 	max-width: 30px;
 	max-height: 100%;
+}
+
+.orgTitle {
+	display: flex;
+	align-items: center;
+	padding-left: 15px;
+	font-size: 1.25em;
+	height: 100%;
+	width: 80%;
 }
 
 .eventDate {
@@ -84,7 +93,9 @@
 .eventDate > h1 {
 	font-size: 5em;
 	margin: 0;
-	color: #dc5d67;
+	color: #cc612f;
+
+	/*old colour --> #dc5d67*/
 }
 
 .eventDate > h3 {
@@ -100,8 +111,39 @@
 .eventButtons {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	font-size: 1em;
 	/*background-color: #7fff00; /*#66023c;*/
 	height: 25%;
 	width: 100%;
+}
+
+.eventCardButton {
+	background-color: #2f9acc;
+    border: 2px solid #1c648c;
+    border-radius: 4px;
+    font-size: 1.25em;
+    color: #fff;
+}
+
+.eventPageBanner {
+    width: 100vw;
+    height: 400px;
+    transform: translateX(-7vw);
+    background-image: url(http://4.bp.blogspot.com/-u7zTZmjR_hY/UqjOIYAIvxI/AAAAAAAAB0M/yQAeKXIfn2g/s1600/FEATURE003.JPG);
+    background-size: cover;
+    background-position: 0% 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* filter: grayscale(100%); */
+}
+
+.eventPageBanner h1 {
+    margin: 0;
+    font-size: 4em;
+     /* color: #fff; */
+     color: white;
+    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #fff;
 }

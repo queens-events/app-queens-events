@@ -3,7 +3,7 @@ import cardStyle from '../../../style/event.css'
 
 const EventCard = () => {
   let cardImageStyle = {
-    backgroundImage: 'url(http://cdn.wallpapersafari.com/89/95/qJQWun.jpg)'
+    backgroundImage: 'url(https://www.resortcollection.com/wp-content/uploads/2015/11/resort-collection-blog-oct15-weekend-events-panama-city-beach-hero-e1447883346302.jpg)'
   }
 
   return(
@@ -14,12 +14,16 @@ const EventCard = () => {
       <div className="bottomInfo">
         <div className="eventInfoLeft">
           <div className="eventTitle">
-            <h1>Handsome Black Men</h1>
+            <h1>Super Fun Event</h1>
             <p>123 Venue St, Kingston ON K5T 1S7</p>
           </div>
           <div className="eventOrganization">
-            <img src="https://s-media-cache-ak0.pinimg.com/originals/7c/1c/46/7c1c46ef1da2cb53922428cbeae03ebe.jpg" />
-            <p>Queen's University People</p>
+            <div className="orgLogo">
+              <img src="http://queensevents.ca/wp-content/uploads/cropped-QE-Logo-colour-270x270.png" />
+            </div>
+            <div className="orgTitle">
+              <p>Queen's Events</p>
+            </div>
           </div>
         </div>
         <div className="eventInfoRight">
@@ -29,6 +33,7 @@ const EventCard = () => {
             <p>7:30PM-8:30 PM</p>
           </div>
           <div className="eventButtons">
+            <button className="eventCardButton">More Info</button>
           </div>
         </div>
       </div>

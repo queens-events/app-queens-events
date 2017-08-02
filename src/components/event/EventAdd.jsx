@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
+import DayPickerInput from 'react-day-picker/DayPickerInput'
 import api from '../../http/api.js';
+
+import "react-day-picker/lib/style.css"
 
 class EventAdd extends Component {
   constructor(props) {
@@ -9,14 +12,22 @@ class EventAdd extends Component {
       title: '',
       description: '',
       item_url: '',
-      fb_event_url: ''
+      fb_event_url: '',
+      selectedDay: '',
       // image_url: '',
       // cost: '',
+
       // capacity: '',
       // startTime: '',
       // endTime: ''
     };
   }
+
+  handleDayClick(day, { selected }) {
+    this.setState({
+      selectedDay: selected ? undefined : day,
+    });
+  };
 
   render(){
     return(
@@ -26,6 +37,7 @@ class EventAdd extends Component {
           event.target.reset()
           console.log(this.state);
           let postData = this.state;
+          postData.date = undefined;
           api.post('/events', postData)
             .then(resp => {
               if (resp.status == "success") {
@@ -42,6 +54,12 @@ class EventAdd extends Component {
         <input
           value={this.state.title}
           onChange={event => this.setState({title: event.target.value})} />
+        </p>
+
+        Date:
+        <br />
+        <p>
+        <DayPickerInput placeholder="DD/MM/YYYY" format="DD/MM/YYYY" onDayClick={this.handleDayClick}/>
         </p>
 
         Description:

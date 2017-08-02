@@ -15,7 +15,6 @@ class Home extends Component {
             <button className="landingButton">Login</button>
           </div>
         </div>
-
         <EventList />
         <OrganizationList />
         <VenueList />

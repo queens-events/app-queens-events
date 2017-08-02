@@ -6,20 +6,10 @@ const Header = () => {
   return(
     <div className="header">
       <div className="navbarLeftBox">
-        <div className="navbarLogo" />
+        <Link to='/'>
+          <div className="navbarLogo" />
+        </Link>
         <div className="navbarLeftLinks">
-          <Link to='/'>
-            <div className="navbarLink">
-              Home
-            </div>
-          </Link>
-
-          <Link to ='/about'>
-            <div className="navbarLink">
-              About
-            </div>
-          </Link>
-
           <Link to='/events'>
             <div className="navbarLink">
               Events
@@ -35,6 +25,12 @@ const Header = () => {
           <Link to='/venues'>
             <div className="navbarLink">
               Venues
+            </div>
+          </Link>
+
+          <Link to ='/about'>
+            <div className="navbarLink">
+              About
             </div>
           </Link>
         </div>

@@ -5,7 +5,7 @@ import orgListStyle from '../../../style/organizationList.css'
 const OrganizationList = () => {
   return(
     <div className="orgListContainer">
-      <h1>Organization List</h1>
+      <h1>Organizations</h1>
       <div className="orgList">
         <OrganizationCard />
         <OrganizationCard />
