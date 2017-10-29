@@ -1,48 +1,22 @@
-* {
-	color: white;
-	text-align: center;
-}
-
-
 .element {
 	font-size: 1.5em;
-	margin: auto;
 	width: 20%;
-	background-color: #4eb0e7;
-	border-radius: 5px;
-	border-style: double;
-	border-color: #1c648c;
 }
 
-.table {
-	text-align: center;
+.flexbox {
+	width: 100%;
 }
-
 
 .headings {
-	background-color: #4eb0e7;
 	width:45%;
 	padding-top: 25px;
 	padding-bottom: 25px;
 	vertical-align: middle;
-	text-align: center;
-	margin: auto;
-	border-radius: 10px;
-	border-style: double;
-	border-color: #1c648c;
-}
-
-
-.col1 {
-	text-align: center;
-	width: 50%;
+	border-radius: 10px;	
 }
 
 .col2 {
-	
 	vertical-align: top;
-	text-align: center;
-	width: 50%;
 }
 
 .textbox {
@@ -56,12 +30,9 @@
 	padding-top: 1em;
 }
 
-.submit {
+.submitLink {
 	font-size: 2em;
 	font-weight: bold;
-	border-radius: 5px;
-	border-style: double;
-	border-color: #1c648c;
 	background-color: #2f9acc;
 	width: 25%;
 	
@@ -69,4 +40,28 @@
 
 .submitWrapper {
 	padding-top: 3em;
+}
+
+.element, .headings {
+	background-color: #4eb0e7;
+	margin: auto;
+}
+
+.element, .submitLink {
+	border-radius: 5px;
+}
+
+.element, .headings, .submitLink {	
+	border-style: double;
+	border-color: #1c648c;
+
+}
+
+.headings, .flexbox {
+	text-align: center;
+	color: white;
+}
+
+.col1, .col2 {
+	width: 50%;
 }
