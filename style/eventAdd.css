@@ -1,0 +1,67 @@
+.element {
+	font-size: 1.5em;
+	width: 20%;
+}
+
+.flexbox {
+	width: 100%;
+}
+
+.headings {
+	width:45%;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	vertical-align: middle;
+	border-radius: 10px;	
+}
+
+.col2 {
+	vertical-align: top;
+}
+
+.textbox {
+	border-radius: 5px;
+	color: black;
+	text-align: left;
+	vertical-align: 1em;
+}
+
+.textWrapper {
+	padding-top: 1em;
+}
+
+.submitLink {
+	font-size: 2em;
+	font-weight: bold;
+	background-color: #2f9acc;
+	width: 25%;
+	
+}
+
+.submitWrapper {
+	padding-top: 3em;
+}
+
+.element, .headings {
+	background-color: #4eb0e7;
+	margin: auto;
+}
+
+.element, .submitLink {
+	border-radius: 5px;
+}
+
+.element, .headings, .submitLink {	
+	border-style: double;
+	border-color: #1c648c;
+
+}
+
+.headings, .flexbox {
+	text-align: center;
+	color: white;
+}
+
+.col1, .col2 {
+	width: 50%;
+}
