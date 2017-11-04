@@ -11,10 +11,17 @@ class EventAdd extends Component {
 
     this.state = {
       title: '',
-      description: '',
-      item_url: '',
-      fb_event_url: '',
       selectedDay: '',
+      description: '',
+      category: '';
+      tag: '';
+      cost: '';
+      organization: '';
+      venue: '';
+      
+      //item_url: '',
+      //fb_event_url: '',
+      
       // image_url: '',
       // cost: '',
 
@@ -48,13 +55,11 @@ class EventAdd extends Component {
             })
             .catch((err) => console.log(err))
             }}
+      >
 
-            
-        >
+      
         
-        
-        
-    </form>
+      </form>
     );
   }
 }
