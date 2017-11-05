@@ -1,4 +1,4 @@
-input, textarea {
+input, textarea, DropDown {
 	font-size: 20px;
 }
 
@@ -16,7 +16,7 @@ input, textarea {
 	
 }
 
-#eventDate, #eventTags, #eventVenue {
+#eventDate, #eventTags, #eventOrg {
 	padding-left: 45px;
 }
 
@@ -26,4 +26,10 @@ input, textarea {
 
 #eventDescription {
 
+}
+
+#submit {
+	font-weight: bold;
+	flex-grow: 10;
+	text-align: center;
 }

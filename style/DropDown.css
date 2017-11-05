@@ -1,0 +1,8 @@
+.dropDownList {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	list-style-type: none;
+	padding-left: 0%;
+	font-size: 20px;
+}

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import DayPickerInput from 'react-day-picker/DayPickerInput'
+import DropDown from '../DropDown.jsx'
 import api from '../../http/api.js';
 
 import "react-day-picker/lib/style.css"
@@ -98,7 +99,7 @@ class EventAdd extends Component {
             </div>
 
             <div id="eventCategory">
-                <h1>Category</h1>
+                <h1>Category:</h1>
                 <div>
                     <input
                         value={this.state.category}
@@ -121,6 +122,13 @@ class EventAdd extends Component {
                     <input
                         value={this.state.cost}
                         onChange={event => this.setState({ cost: event.target.value })} />
+                </div>
+            </div>
+
+            <div id="eventOrg">
+                <h1>Organization:</h1>
+                <div>
+                    <DropDown listItems={[1, 2, 3, 4, 'poop', 'ihatemylife']}/>
                 </div>
             </div>
 
