@@ -19,8 +19,8 @@ class DropDown extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.toggleHidden.bind(this)}>
-                    Choose Organization
+                <button onClick={this.toggleHidden.bind(this)} className="dropDownBtn">
+                    {this.props.dropText}
                 </button>
                 {!this.state.isHidden && <Child list={this.props.listItems} />}
             </div>
@@ -35,7 +35,7 @@ class Child extends Component {
 
             <ul className="dropDownList">
                 {this.props.list.map(function (listValue) {
-                    return <li>{listValue}</li>;
+                    return <li className="dropDownItem">{listValue}</li>;
                 })}
             </ul>
 

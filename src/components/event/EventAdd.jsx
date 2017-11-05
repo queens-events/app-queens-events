@@ -101,9 +101,7 @@ class EventAdd extends Component {
             <div id="eventCategory">
                 <h1>Category:</h1>
                 <div>
-                    <input
-                        value={this.state.category}
-                        onChange={event => this.setState({ category: event.target.value })} />
+                    <DropDown listItems={['Concert', 'Public Lecture', 'Fundraiser']} dropText="Choose Category" />
                 </div>
             </div>
 
@@ -119,6 +117,7 @@ class EventAdd extends Component {
             <div id="eventCost">
                 <h1>Cost:</h1>
                 <div>
+                    $ 
                     <input
                         value={this.state.cost}
                         onChange={event => this.setState({ cost: event.target.value })} />
@@ -128,16 +127,14 @@ class EventAdd extends Component {
             <div id="eventOrg">
                 <h1>Organization:</h1>
                 <div>
-                    <DropDown listItems={[1, 2, 3, 4, 'poop', 'ihatemylife']}/>
+                    <DropDown listItems={['Org1', 'Org2', 'Org3']} dropText="Choose Organization" />
                 </div>
             </div>
 
             <div id="eventVenue">
                 <h1>Venue:</h1>
                 <div>
-                    <input
-                        value={this.state.venue}
-                        onChange={event => this.setState({ venue: event.target.value })} />
+                    <DropDown listItems={['Venue1', 'Venue2', 'Venue3']} dropText="Choose Venue" />
                 </div>
             </div>
 

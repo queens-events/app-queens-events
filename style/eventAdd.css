@@ -1,5 +1,9 @@
-input, textarea, DropDown {
+input, textarea, #eventCategory, #eventOrg, #eventCost {
 	font-size: 20px;
+}
+
+input {
+	margin-left: 5px;
 }
 
 .container {
