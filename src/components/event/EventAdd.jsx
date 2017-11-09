@@ -87,6 +87,8 @@ class EventAdd extends Component {
                 </div>
             </div>
 
+            <div id="photoView"></div>
+
             <div id="eventDescription">
                 <h1>Description:</h1>
                 <div>

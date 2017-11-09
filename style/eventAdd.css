@@ -1,4 +1,4 @@
-input, textarea, #eventCategory, #eventOrg, #eventCost {
+input, textarea, #eventCost {
 	font-size: 20px;
 }
 
@@ -25,7 +25,7 @@ input {
 }
 
 #eventPhoto {
-	flex-grow: 10;
+	flex-grow: 1;
 }
 
 #eventDescription {

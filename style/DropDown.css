@@ -9,14 +9,20 @@
 }
 
 .dropDownItem {
-	border: 1px solid grey;
 	padding-left: 5px;
+}
+
+.dropDownItem:hover {
+
+	color: white;
+	background-color: #2f9acc;
 }
 
 .dropDownBtn {
 	background: none;
 	border: 1px solid grey;
 	height: 35px;
+	font-weight: bold;
 }
 
 .dropDownBtn, .dropDownItem, .dropDownList {

@@ -15,32 +15,34 @@ class DropDown extends Component {
             isHidden: !this.state.isHidden
         })
     }
-
+    
     render() {
         return (
             <div>
                 <button onClick={this.toggleHidden.bind(this)} className="dropDownBtn">
                     {this.props.dropText}
                 </button>
-                {!this.state.isHidden && <Child list={this.props.listItems} />}
+                {!this.state.isHidden && <DropDownChild list={this.props.listItems} />}
             </div>
         )
     }
 }
 
-class Child extends Component {
+class DropDownChild extends Component {
+
+    
+
+    
 
     render() {
-        return (
+    return (
 
-            <ul className="dropDownList">
-                {this.props.list.map(function (listValue) {
-                    return <li className="dropDownItem">{listValue}</li>;
-                })}
-            </ul>
-
+        <ul className="dropDownList">
+            {this.props.list.map(function (listValue) {
+                return <li className="dropDownItem" key={listValue}>{listValue}</li>
+            })}
+        </ul>
         )
-
     }
 }
 
