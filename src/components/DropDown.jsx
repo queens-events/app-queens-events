@@ -32,9 +32,9 @@ class DropDown extends Component {
             )
     }
 
-    updateText() {
+    updateText(listVal) {
         this.setState({
-            displayText: "hye"
+            displayText: listVal
         })
     }
     
@@ -48,7 +48,7 @@ class DropDown extends Component {
 
                 <ul className="dropDownList">
                     {this.props.listItems.map((listValue) =>
-                        <li className="dropDownItem" key={listValue} onClick={this.updateText.bind(this)} > { listValue }</li>
+                        <li className="dropDownItem" key={listValue} onClick={() => this.updateText(listValue)} > {listValue}</li>
                     )}
                   
                 </ul>
