@@ -3,16 +3,38 @@ import '../../style/DropDown.css'
 
 class DropDown extends Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
-            isHidden: true
+            isHidden: true,
+            displayText: this.props.dropText
         }
+
+        
     }
 
     toggleHidden() {
         this.setState({
-            isHidden: !this.state.isHidden
+            isHidden: !this.state.isHidden     
+        })
+    }
+
+    displayList() {
+        return (
+
+            <ul className="dropDownList">
+                {/*{this.props.listItems.map(function (listValue) {
+                    return <li className="dropDownItem" key={listValue} onClick={console.log("Clicked")}><div onClick={console.log("click2")}>{listValue}</div></li>
+                })}*/}
+
+                <li className="dropDownItem" key={this.props.listItems[0]} onClick={console.log("hi")}>{this.props.listItems[0]}</li>
+            </ul>
+            )
+    }
+
+    updateText() {
+        this.setState({
+            displayText: "hye"
         })
     }
     
@@ -20,30 +42,21 @@ class DropDown extends Component {
         return (
             <div>
                 <button onClick={this.toggleHidden.bind(this)} className="dropDownBtn">
-                    {this.props.dropText}
+                    {console.log(this.state.displayText)}
+                    {this.state.displayText}
                 </button>
-                {!this.state.isHidden && <DropDownChild list={this.props.listItems} />}
+
+                <ul className="dropDownList">
+                    {this.props.listItems.map((listValue) =>
+                        <li className="dropDownItem" key={listValue} onClick={this.updateText.bind(this)} > { listValue }</li>
+                    )}
+                  
+                </ul>
             </div>
         )
     }
 }
 
-class DropDownChild extends Component {
 
-    
-
-    
-
-    render() {
-    return (
-
-        <ul className="dropDownList">
-            {this.props.list.map(function (listValue) {
-                return <li className="dropDownItem" key={listValue}>{listValue}</li>
-            })}
-        </ul>
-        )
-    }
-}
 
 export default DropDown
