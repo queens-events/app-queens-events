@@ -23,11 +23,10 @@ class DropDown extends Component {
         return (
 
             <ul className="dropDownList">
-                {/*{this.props.listItems.map(function (listValue) {
-                    return <li className="dropDownItem" key={listValue} onClick={console.log("Clicked")}><div onClick={console.log("click2")}>{listValue}</div></li>
-                })}*/}
+                {this.props.listItems.map((listValue) =>
+                    <li className="dropDownItem" key={listValue} onClick={() => this.updateText(listValue)} > {listValue}</li>
+                )}
 
-                <li className="dropDownItem" key={this.props.listItems[0]} onClick={console.log("hi")}>{this.props.listItems[0]}</li>
             </ul>
             )
     }
@@ -46,12 +45,7 @@ class DropDown extends Component {
                     {this.state.displayText}
                 </button>
 
-                <ul className="dropDownList">
-                    {this.props.listItems.map((listValue) =>
-                        <li className="dropDownItem" key={listValue} onClick={() => this.updateText(listValue)} > {listValue}</li>
-                    )}
-                  
-                </ul>
+                {!this.state.isHidden && this.displayList()}
             </div>
         )
     }
