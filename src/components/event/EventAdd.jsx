@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import DayPickerInput from 'react-day-picker/DayPickerInput'
 import DropDown from '../DropDown.jsx'
+import Tags from '../Tags.jsx'
 import api from '../../http/api.js';
 
 import "react-day-picker/lib/style.css"
@@ -110,9 +111,7 @@ class EventAdd extends Component {
             <div id="eventTags">
                 <h1>Tags:</h1>
                 <div>
-                    <input
-                        value={this.state.tag}
-                        onChange={event => this.setState({ tag: event.target.value })} />
+                    <Tags tagItems={["event", "lecture", "music", "19+", "night"]}/>
                 </div>
             </div>
 

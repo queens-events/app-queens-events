@@ -24,7 +24,7 @@ input {
 	padding-left: 45px;
 }
 
-#eventPhoto {
+#eventPhoto, #eventOrg {
 	flex-grow: 1;
 }
 
