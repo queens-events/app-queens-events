@@ -14,6 +14,7 @@ input {
 	border-radius: 10px;
 	margin-top: 40px;
 	width: 700px;
+	background-color: white;
 }
 
 #eventName {
@@ -37,3 +38,17 @@ input {
 	flex-grow: 10;
 	text-align: center;
 }
+
+.popup {
+	position: fixed;
+	top: 0;
+  	left: 0;
+  	right: 0;
+  	bottom: 0;
+	margin: auto;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0, 0.5);
+	overflow-y: auto;
+}
+
