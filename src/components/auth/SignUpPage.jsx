@@ -13,23 +13,47 @@ class SignUpPage extends Component {
         email: '',
         username: '',
         password: '',
+        confirm_password: '',
+        token: '',
+        failedSignUp: '',
       }
     };
 
-    this.processForm = this.processForm.bind(this);
-    this.changeUser = this.changeUser.bind(this);
+    this.processForm = this.processForm.bind(this)
+    this.changeUser = this.changeUser.bind(this)
+    this.failedSignUp = this.failedSignUp.bind(this)
   }
 
-  processForm(event) {
-    // prevent default action. in this case, action is the form submission event
+  async processForm(event) {
     event.preventDefault();
-    event.target.reset()
+    //event.target.reset()
 
-    let postData = { email: this.state.user.email, password: this.state.user.password };
+    const {email, password, confirm_password} = this.state.user
 
-    console.log('email:', this.state.user.email);
-    console.log('username:', this.state.user.username);
-    console.log('password:', this.state.user.password);
+    let postData = { email, password };
+
+    try {
+      if (password == confirm_password) {
+        const loginData = await axios.post('https://stopmissingout.ca/authenticate/signup', postData);
+
+      } else {
+        const user = { email: '', password: '', failedLogin: true }
+        this.setState({user})
+      }
+      if (loginData.data.success == true) {
+        const token = loginData.data.payload;
+        const user = this.state.user;
+        user['token'] = token;
+  
+        this.setState({user})
+      }
+      else {
+        const user = { email: '', password: '', failedLogin: true }
+        this.setState({user})
+      }
+    } catch(err) {
+      console.log('Error thrown', err)
+    }
   }
 
   changeUser(event) {
@@ -44,11 +68,20 @@ class SignUpPage extends Component {
     console.log(this.state.user);
   }
 
+  failedSignUp() {
+    return(
+      <div className="alert alert-danger">
+        <strong>Failed SignUp!</strong> Password and confirm passrod do not match.
+      </div>
+    )
+  }
+
   render() {
     return(
       <SignUpForm
         onSubmit={this.processForm}
         onChange={this.changeUser}
+        onFail={this.failedSignUp}
         errors={this.state.errors}
         user={this.state.user}
       />

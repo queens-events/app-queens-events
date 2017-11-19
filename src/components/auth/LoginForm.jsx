@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import { Link } from 'react-router-dom';
 import signUpStyle from '../../../style/auth.css'
 
-const LoginForm = ({onSubmit, onChange, errors, user}) => {
+const LoginForm = ({onSubmit, onChange, onFail, errors, user}) => {
 // {errors.summary && <p className="error-message">{errors.summary}</p>}
   return(
     <div className="signUpContainer">
@@ -21,6 +21,7 @@ const LoginForm = ({onSubmit, onChange, errors, user}) => {
             <p>Password</p>
             <input
             name="password"
+            type="password"
             value={user.password}
             onChange={onChange}
             />
@@ -28,6 +29,8 @@ const LoginForm = ({onSubmit, onChange, errors, user}) => {
               <button>Login</button>
             </div>
             <p>Don't have an account? <Link to='/signup'>Create One</Link></p>
+
+            { user.failedLogin ? onFail() : null }
           </div>
         </div>
       </form>

@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import signUpStyle from '../../../style/auth.css'
 
-const SignUpForm = ({onSubmit, onChange, errors, users}) => {
+const SignUpForm = ({onSubmit, onChange, onFail, errors, user}) => {
   return (
     <div className="signUpContainer">
       <div className="signUpHeader">
@@ -24,18 +24,22 @@ const SignUpForm = ({onSubmit, onChange, errors, users}) => {
           <p>Password</p>
           <input
             name="password"
+            type="password"
             onChange={onChange}
             onSubmit={onSubmit}
           />
           <p>Confirm Password</p>
           <input
             name="confirm_password"
+            type="password"
             onChange={onChange}
             onSubmit={onSubmit}
           />
           <div className="signUpButton">
             <button>Create Account</button>
           </div>
+
+          { user.failedSignUp ? onFail() : null }
         </div>
       </div>
     </div>
