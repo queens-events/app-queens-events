@@ -1,5 +1,7 @@
+import _ from 'lodash'
 import React, { Component } from 'react'
 import SignUpForm from './SignUpForm.jsx'
+import validator from '../../helpers/validator.js'
 import axios from 'axios'
 
 class SignUpPage extends Component {
@@ -31,23 +33,42 @@ class SignUpPage extends Component {
     const { email, password, confirm_password } = this.state.user
 
     const postData = { email, password };
-    console.log(postData)
-    try {
-      if (password === confirm_password) {
-        console.log('We make it here')
-        const loginData = await axios.post('https://stopmissingout.ca/authenticate/signup', postData);
-        console.log(loginData);
-        
-        if (loginData.data.success == true) {
-          const token = loginData.data.payload;
-          const user = this.state.user;
-          user.token = token;
-        }
 
-        this.setState({resetUser})
+    try {
+      if(validator.validateEmail(email)){
+        if (password === confirm_password) {
+          const loginData = await axios.post('https://stopmissingout.ca/authenticate/signup', postData);
+          console.log(loginData);
+          
+          if (loginData.data.success == true) {
+            const token = loginData.data.payload;
+            const user = this.state.user;
+            user.token = token;
+          
+            this.setState({user})
+          }
+        }
+        else {
+          const user = { 
+            id: '',
+            email: '',
+            username: '',
+            password: '',
+            confirm_password: '',
+            token: '',
+            failedSignUp: true,
+          }
+          
+          const errors = this.state.errors
+          errors.passwordMismatch = 'Password and confirm password do not match.'
+  
+          this.setState({errors, user})
+        }
       }
       else {
-        console.log('here??')
+        const errors = this.state.errors
+        errors.invalidEmail = 'The email given is invalid (perhaps doesn not include @ or domain name)'
+
         const user = { 
           id: '',
           email: '',
@@ -58,7 +79,7 @@ class SignUpPage extends Component {
           failedSignUp: true,
         }
 
-        this.setState({user})
+        this.setState({errors, user})
       }
     } catch(err) {
       console.log('Error thrown', err)
@@ -78,22 +99,38 @@ class SignUpPage extends Component {
   }
 
   failedSignUp() {
+
+   let errorHTML = []
+   _.forEach(this.state.errors, (error, key) => {
+      errorHTML.push(
+        <div key={key} className="alert alert-danger">
+          <strong>Failed SignUp!</strong> {error}
+        </div>
+      )
+    })    
+
     return(
-      <div className="alert alert-danger">
-        <strong>Failed SignUp!</strong> Password and confirm password do not match.
-      </div>
+      errorHTML
     )
   }
 
   render() {
+    let responseStyle = {
+      height: '600px',
+    }
+
     return(
-      <SignUpForm
-        onSubmit={this.processForm}
-        onChange={this.changeUser}
-        onFail={this.failedSignUp}
-        errors={this.state.errors}
-        user={this.state.user}
-      />
+      this.state.user.token ? 
+      <div style={responseStyle}>
+        <h1>Sign Up successful! Check your email and verify your account</h1>
+      </div> :
+        <SignUpForm
+          onSubmit={this.processForm}
+          onChange={this.changeUser}
+          onFail={this.failedSignUp}
+          errors={this.state.errors}
+          user={this.state.user}
+        />
     );
   }
 }
