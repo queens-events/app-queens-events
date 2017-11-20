@@ -41,6 +41,7 @@ const LoginForm = ({onSubmit, onChange, onFail, errors, user}) => {
 LoginForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
+  onFail: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired
 }

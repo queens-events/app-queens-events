@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import SignUpForm from './SignUpForm.jsx'
-import api from '../../http/api.js'
+import axios from 'axios'
 
 class SignUpPage extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class SignUpPage extends Component {
         password: '',
         confirm_password: '',
         token: '',
-        failedSignUp: '',
+        failedSignUp: false,
       }
     };
 
@@ -26,29 +26,38 @@ class SignUpPage extends Component {
 
   async processForm(event) {
     event.preventDefault();
-    //event.target.reset()
+    event.target.reset()
+    
+    const { email, password, confirm_password } = this.state.user
 
-    const {email, password, confirm_password} = this.state.user
-
-    let postData = { email, password };
-
+    const postData = { email, password };
+    console.log(postData)
     try {
-      if (password == confirm_password) {
+      if (password === confirm_password) {
+        console.log('We make it here')
         const loginData = await axios.post('https://stopmissingout.ca/authenticate/signup', postData);
+        console.log(loginData);
+        
+        if (loginData.data.success == true) {
+          const token = loginData.data.payload;
+          const user = this.state.user;
+          user.token = token;
+        }
 
-      } else {
-        const user = { email: '', password: '', failedLogin: true }
-        this.setState({user})
-      }
-      if (loginData.data.success == true) {
-        const token = loginData.data.payload;
-        const user = this.state.user;
-        user['token'] = token;
-  
-        this.setState({user})
+        this.setState({resetUser})
       }
       else {
-        const user = { email: '', password: '', failedLogin: true }
+        console.log('here??')
+        const user = { 
+          id: '',
+          email: '',
+          username: '',
+          password: '',
+          confirm_password: '',
+          token: '',
+          failedSignUp: true,
+        }
+
         this.setState({user})
       }
     } catch(err) {
@@ -71,7 +80,7 @@ class SignUpPage extends Component {
   failedSignUp() {
     return(
       <div className="alert alert-danger">
-        <strong>Failed SignUp!</strong> Password and confirm passrod do not match.
+        <strong>Failed SignUp!</strong> Password and confirm password do not match.
       </div>
     )
   }
