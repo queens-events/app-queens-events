@@ -4,6 +4,7 @@ input, textarea, #eventCost {
 
 input {
 	margin-left: 5px;
+	width: 220px;
 }
 
 .container {
@@ -17,25 +18,28 @@ input {
 	background-color: white;
 }
 
-#eventName {
-	
-}
-
-#eventDate, #eventTags, #eventOrg {
-	padding-left: 45px;
-}
-
-#eventPhoto, #eventOrg {
+#eventName, #eventPhoto, #submitDate {
 	flex-grow: 1;
 }
 
-#eventDescription {
 
+/*All display elements*/
+#eventName, #eventPhoto, #eventDescription, #eventCategory, #eventCost, #eventOrg, #eventVenue, #submitDate, #eventTags {
+	padding-left: 45px;
 }
 
-#submit {
+#submitForm {
+	padding-top: 45px;
 	font-weight: bold;
 	flex-grow: 10;
+	text-align: center;
+}
+
+#submitForm > .landingButton {
+	width: 400px !important;	
+}
+
+#submitDate {
 	text-align: center;
 }
 

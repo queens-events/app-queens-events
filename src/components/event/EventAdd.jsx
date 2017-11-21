@@ -18,12 +18,15 @@ class EventAdd extends Component {
       selectedDay: '',
       description: '',
       category: '',
-      tag: '',
+      tagList: [],
       cost: '',
       organization: '',
       venue: '',
-      isHidden: true
-      
+      startTime: '',
+      endTime: '',
+      isHidden: true,
+      scheduleHidden: true
+
       //item_url: '',
       //fb_event_url: '',
       
@@ -36,8 +39,27 @@ class EventAdd extends Component {
   }
 
   toggleHidden() {
+
+      
       this.setState({
           isHidden: !this.state.isHidden
+      })
+
+      
+
+  }
+
+  toggleSchedule() {
+      this.setState({
+          scheduleHidden: !this.state.scheduleHidden
+      })
+
+  }
+
+  nextForm() {
+      this.setState ({
+          isHidden: !this.state.isHidden,
+          scheduleHidden: !this.state.scheduleHidden
       })
   }
 
@@ -72,17 +94,7 @@ class EventAdd extends Component {
                               onChange={event => this.setState({ title: event.target.value })} />
                       </div>
                   </div>
-
-
-                  <div id="eventDate">
-                      <h1>Date:</h1>
-                      <div>
-                          <DayPickerInput placeholder="DD/MM/YYYY" format="DD/MM/YYYY" onDayClick={this.handleDayClick} />
-                      </div>
-                  </div>
-
-                  <br />
-
+                             
                   <div id="eventPhoto">
                       <h1>Event Photo:</h1>
                       <div>
@@ -106,17 +118,24 @@ class EventAdd extends Component {
                   <div id="eventCategory">
                       <h1>Category:</h1>
                       <div>
-                          <DropDown listItems={['Concert', 'Public Lecture', 'Fundraiser']} dropText="Choose Category" />
+                          <DropDown
+                              listItems={['Concert', 'Public Lecture', 'Fundraiser']}
+                              dropText="Choose Category"
+                              onChange={event => this.setState({ category: event.target.dropText })} />
                       </div>
                   </div>
 
                   <div id="eventTags">
                       <h1>Tags:</h1>
                       <div>
-                          <Tags tagItems={["event", "lecture", "music", "19+", "night"]} />
+                          <Tags
+                              listItems={['19+', 'free', 'In the Community', 'Live Music', 'All ages']}
+                              dropText="This is droptext"
+                              //Onchange needs to add droptext to tags state (in a list)
+                              />
                       </div>
                   </div>
-
+                          
                   <div id="eventCost">
                       <h1>Cost:</h1>
                       <div>
@@ -130,23 +149,87 @@ class EventAdd extends Component {
                   <div id="eventOrg">
                       <h1>Organization:</h1>
                       <div>
-                          <DropDown listItems={['Org1', 'Org2', 'Org3']} dropText="Choose Organization" />
+                          <DropDown
+                              listItems={['Org1', 'Org2', 'Org3']}
+                              dropText="Choose Organization"
+                              onChange={event => this.setState({ organization: event.target.dropText })} />
+                          
                       </div>
                   </div>
 
                   <div id="eventVenue">
                       <h1>Venue:</h1>
                       <div>
-                          <DropDown listItems={['Venue1', 'Venue2', 'Venue3']} dropText="Choose Venue" />
+                          <DropDown
+                              listItems={['Venue1', 'Venue2', 'Venue3']}
+                              dropText="Choose Venue"
+                              onChange={event => this.setState({ venue: event.target.dropText })} />
                       </div>
                   </div>
 
-                  <div id="submit">
-                      <button className="landingButton" onClick={this.toggleHidden.bind(this)} > <h1>Create Event</h1></button>
+                  <div id="submitForm">
+                      <button className="landingButton" onClick={this.nextForm.bind(this)}><h1>Next</h1></button>                  
                   </div>
               </form>
           </div>
       )    
+  }
+
+  scheduleForm() {
+      return (
+          <div className="popup">
+              <form
+                  onSubmit={event => {
+                      event.preventDefault()
+                      event.target.reset()
+                      console.log(this.state);
+                      let postData = this.state;
+                      postData.date = undefined;
+                      api.post('/events', postData)
+                          .then(resp => {
+                              if (resp.status == "success") {
+                                  let data = JSON.parse(resp);
+                                  console.log('Posted!')
+                              }
+                          })
+                          .catch((err) => console.log(err))
+                  }}
+                  className="container">
+
+                  <div id="eventStart">
+                      <h1>Starting Time:</h1>
+                      <div>
+                          <input
+                              type="time"
+                              value={this.state.startTime}
+                              onChange={event => this.setState({ startTime: event.target.value })} />
+                      </div>
+                  </div>
+
+                  <div id="eventEnd">
+                      <h1>Ending Time:</h1>
+                      <div>
+                          <input
+                              type="time"
+                              value={this.state.endTime}
+                              onChange={event => this.setState({ endTime: event.target.value })} />
+                      </div>
+                  </div>
+
+                  <div id="eventDate">
+                      <h1>Date:</h1>
+                      <div>
+                          <DayPickerInput placeholder="DD/MM/YYYY" format="DD/MM/YYYY" onDayClick={this.handleDayClick} />
+                      </div>
+                  </div>
+
+                  <div id="submitDate">
+                      <button className="landingButton" onClick={this.toggleSchedule.bind(this)}><h1>Submit Event</h1></button>
+                  </div>
+
+              </form>
+          </div>
+      )
   }
 
   handleDayClick(day, { selected }) {
@@ -163,6 +246,7 @@ class EventAdd extends Component {
         </button>
 
         {!this.state.isHidden ? this.displayForm() : null}
+        {!this.state.scheduleHidden && this.scheduleForm()}
       </div>
     );
   }

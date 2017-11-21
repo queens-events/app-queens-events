@@ -38,6 +38,12 @@ class DropDown extends Component {
     }
     
     render() {
+
+        var props = {
+            onChange: this.updateText,
+            dropText: this.state.displayText
+        }
+
         return (
             <div>
                 <button onClick={this.toggleHidden.bind(this)} className="dropDownBtn">
