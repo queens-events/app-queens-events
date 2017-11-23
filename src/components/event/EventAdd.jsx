@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import DayPickerInput from 'react-day-picker/DayPickerInput'
 import DropDown from '../DropDown.jsx'
-import api from '../../http/api.js';
+import EventScheduleAdd from './EventScheduleAdd.jsx'
 
 import "react-day-picker/lib/style.css"
 import "../../../style/eventAdd.css"
@@ -14,15 +14,12 @@ class EventAdd extends Component {
 
     this.state = {
       title: '',
-      selectedDay: '',
       description: '',
       category: '',
       tags: [],
       cost: '',
       organization: '',
       venue: '',
-      startTime: '',
-      endTime: '',
       isHidden: true,
       scheduleHidden: true
 
@@ -124,9 +121,9 @@ class EventAdd extends Component {
                       <h1>Tags:</h1>
                       <div>
                           <DropDown
-                              listItems={['19+', 'free', 'In the Community', 'Live Music', 'All ages']}
-                              dropText="This is droptext"
-                              onChange={event => { if (this.state.tags.indexOf(event.target.textContent) === -1) { this.setState({ tags: this.state.tags.concat([event.target.textContent]) }) } }} />
+                              listItems={['19+', 'Free', 'In the Community', 'Live Music', 'All ages']}
+                              dropText="Select Tags"
+                              onChange={event => { (this.state.tags.indexOf(event.target.textContent) === -1) ? this.setState({ tags: this.state.tags.concat([event.target.textContent]) }) : null }} />
                           {console.log(this.state.tags)}
                       </div>
                   </div>
@@ -170,61 +167,9 @@ class EventAdd extends Component {
       )    
   }
 
-  scheduleForm() {
-      return (
-          <div className="popup">
-              <form
-                  onSubmit={event => {
-                      event.preventDefault()
-                      event.target.reset()
-                      console.log(this.state);
-                      let postData = this.state;
-                      postData.date = undefined;
-                      
-                  }}
-                  className="container">
+  
 
-                  <div id="eventStart">
-                      <h1>Starting Time:</h1>
-                      <div>
-                          <input
-                              type="time"
-                              value={this.state.startTime}
-                              onChange={event => this.setState({ startTime: event.target.value })} />
-                      </div>
-                  </div>
-
-                  <div id="eventEnd">
-                      <h1>Ending Time:</h1>
-                      <div>
-                          <input
-                              type="time"
-                              value={this.state.endTime}
-                              onChange={event => this.setState({ endTime: event.target.value })} />
-                      </div>
-                  </div>
-
-                  <div id="eventDate">
-                      <h1>Date:</h1>
-                      <div>
-                          <DayPickerInput placeholder="DD/MM/YYYY" format="DD/MM/YYYY" onDayClick={this.handleDayClick} />
-                      </div>
-                  </div>
-
-                  <div id="submitDate">
-                      <button className="landingButton" onClick={this.toggleSchedule.bind(this)}><h1>Submit Event</h1></button>
-                  </div>
-
-              </form>
-          </div>
-      )
-  }
-
-  handleDayClick(day, { selected }) {
-    this.setState({
-      selectedDay: selected ? undefined : day,
-    });
-  };
+ 
 
   render(){
     return(
@@ -234,7 +179,7 @@ class EventAdd extends Component {
         </button>
 
         {!this.state.isHidden ? this.displayForm() : null}
-        {!this.state.scheduleHidden && this.scheduleForm()}
+        {!this.state.scheduleHidden && <EventScheduleAdd onSubmit={this.toggleSchedule.bind(this)} />}
       </div>
     );
   }
