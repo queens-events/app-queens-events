@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import DayPickerInput from 'react-day-picker/DayPickerInput'
 import DropDown from '../DropDown.jsx'
-import Tags from '../Tags.jsx'
 import api from '../../http/api.js';
 
 import "react-day-picker/lib/style.css"
@@ -18,7 +17,7 @@ class EventAdd extends Component {
       selectedDay: '',
       description: '',
       category: '',
-      tagList: [],
+      tags: [],
       cost: '',
       organization: '',
       venue: '',
@@ -63,6 +62,8 @@ class EventAdd extends Component {
       })
   }
 
+
+  
   displayForm() {
       return (
           <div className='popup'>
@@ -73,14 +74,7 @@ class EventAdd extends Component {
                       console.log(this.state);
                       let postData = this.state;
                       postData.date = undefined;
-                      api.post('/events', postData)
-                          .then(resp => {
-                              if (resp.status == "success") {
-                                  let data = JSON.parse(resp);
-                                  console.log('Posted!')
-                              }
-                          })
-                          .catch((err) => console.log(err))
+                     
                   }}
 
                   className="container">
@@ -98,7 +92,7 @@ class EventAdd extends Component {
                   <div id="eventPhoto">
                       <h1>Event Photo:</h1>
                       <div>
-                          <button className="landingButton">Upload Event Photo</button>
+                          <button className="landingButton"> Upload Event Photo</button>
                       </div>
                   </div>
 
@@ -112,27 +106,28 @@ class EventAdd extends Component {
                               onChange={event => this.setState({ description: event.target.value })}
                               cols="52" rows="10"
                               placeholder="Describe your event here! Make sure to include external links." />
+                          {console.log(this.state.description)}
                       </div>
                   </div>
 
                   <div id="eventCategory">
                       <h1>Category:</h1>
                       <div>
-                          <DropDown
+                          <DropDown className="k"
                               listItems={['Concert', 'Public Lecture', 'Fundraiser']}
                               dropText="Choose Category"
-                              onChange={event => this.setState({ category: event.target.dropText })} />
+                              onChange={event => this.setState({ category: event.target.textContent })} />
                       </div>
                   </div>
 
                   <div id="eventTags">
                       <h1>Tags:</h1>
                       <div>
-                          <Tags
+                          <DropDown
                               listItems={['19+', 'free', 'In the Community', 'Live Music', 'All ages']}
                               dropText="This is droptext"
-                              //Onchange needs to add droptext to tags state (in a list)
-                              />
+                              onChange={event => { if (this.state.tags.indexOf(event.target.textContent) === -1) { this.setState({ tags: this.state.tags.concat([event.target.textContent]) }) } }} />
+                          {console.log(this.state.tags)}
                       </div>
                   </div>
                           
@@ -152,7 +147,7 @@ class EventAdd extends Component {
                           <DropDown
                               listItems={['Org1', 'Org2', 'Org3']}
                               dropText="Choose Organization"
-                              onChange={event => this.setState({ organization: event.target.dropText })} />
+                              onChange={event => this.setState({ organization: event.target.textContent })} />
                           
                       </div>
                   </div>
@@ -163,7 +158,7 @@ class EventAdd extends Component {
                           <DropDown
                               listItems={['Venue1', 'Venue2', 'Venue3']}
                               dropText="Choose Venue"
-                              onChange={event => this.setState({ venue: event.target.dropText })} />
+                              onChange={event => this.setState({ venue: event.target.textContent })} />
                       </div>
                   </div>
 
@@ -185,14 +180,7 @@ class EventAdd extends Component {
                       console.log(this.state);
                       let postData = this.state;
                       postData.date = undefined;
-                      api.post('/events', postData)
-                          .then(resp => {
-                              if (resp.status == "success") {
-                                  let data = JSON.parse(resp);
-                                  console.log('Posted!')
-                              }
-                          })
-                          .catch((err) => console.log(err))
+                      
                   }}
                   className="container">
 

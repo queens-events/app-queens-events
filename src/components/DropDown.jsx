@@ -6,8 +6,9 @@ class DropDown extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            isHidden: true,
-            displayText: this.props.dropText
+            hidden: true,
+            displayText: this.props.dropText,
+            onChange: this.props.onChange
         }
 
         
@@ -15,43 +16,46 @@ class DropDown extends Component {
 
     toggleHidden() {
         this.setState({
-            isHidden: !this.state.isHidden     
+            hidden: !this.state.hidden     
         })
     }
 
     displayList() {
+
         return (
 
             <ul className="dropDownList">
                 {this.props.listItems.map((listValue) =>
-                    <li className="dropDownItem" key={listValue} onClick={() => this.updateText(listValue)} > {listValue}</li>
+                    <li className="dropDownItem" key={listValue} onClick={() => this.updateText(listValue)}>
+                        <div onClick={this.props.onChange.bind(this)}>
+                            {listValue}
+                        </div>
+                    </li>
                 )}
 
             </ul>
-            )
+        )
     }
 
     updateText(listVal) {
         this.setState({
             displayText: listVal
         })
-    }
-    
-    render() {
 
-        var props = {
-            onChange: this.updateText,
-            dropText: this.state.displayText
-        }
+       
+        
+    }
+
+    render() {
 
         return (
             <div>
                 <button onClick={this.toggleHidden.bind(this)} className="dropDownBtn">
-                    {console.log(this.state.displayText)}
                     {this.state.displayText}
+                    
                 </button>
 
-                {!this.state.isHidden && this.displayList()}
+                {!this.state.hidden && this.displayList()}
             </div>
         )
     }
