@@ -13,13 +13,13 @@ class EventAddScheduleForm extends Component {
     this.state = {
       startTime: '',
       endTime: '',
-      selectedDay: ''
+      selectedDay: 0.0
     }
   }
 
   handleDayClick(day, { selected }) {
     this.setState({
-      selectedDay: selected ? undefined : day,
+      selectedDay: selected ? undefined : day
     });
   };
 
@@ -61,7 +61,6 @@ class EventAddScheduleForm extends Component {
             <div>
               <DayPickerInput placeholder="DD/MM/YYYY" format="DD/MM/YYYY" onDayClick={this.handleDayClick} />
             </div>
-            {console.log(this.state.selectedDay)}
           </div>
 
           <div id="submitDate">
