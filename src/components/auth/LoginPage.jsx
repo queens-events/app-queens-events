@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import LoginForm from './LoginForm.jsx';
-import api from '../../http/api.js';
-import { Redirect } from 'react-router-dom';
+import React, { Component } from 'react'
+import LoginForm from './LoginForm.jsx'
+import axios from 'axios'
+import { Redirect } from 'react-router-dom'
 
 class LoginPage extends Component {
   constructor(props) {
@@ -10,41 +10,41 @@ class LoginPage extends Component {
     this.state = {
       errors: {},
       user: {
-        id: '',
         email: '',
         password: '',
-        isAuth: false,
+        token: '',
+        failedLogin: false,
       }
     };
 
-    this.processForm = this.processForm.bind(this);
-    this.changeUser = this.changeUser.bind(this);
+    this.processForm = this.processForm.bind(this)
+    this.changeUser = this.changeUser.bind(this)
+    this.failedLogin = this.failedLogin.bind(this)
   }
 
-  processForm(event) {
-    // prevent default action. in this case, action is the form submission event
+  async processForm(event) {
     event.preventDefault();
     event.target.reset()
 
     let postData = { email: this.state.user.email, password: this.state.user.password };
-    api.post('/authLogin', postData)
-      .then(resp => {
-        console.log(resp.data);
-        if (resp.data.success == true) {
-          let { id, email, password } = resp.data.payload;
-          let user = { id, email, password, isAuth: true}
 
-          console.log('Logged in!')
-          this.setState({
-            user
-          })
-          console.log(this.state);
-        }
-      })
-      .catch((err) => console.log(err))
+    try {
+      const loginData = await axios.post('https://stopmissingout.ca/authenticate', postData);
 
-    console.log('email:', this.state.user.email);
-    console.log('password:', this.state.user.password);
+      if (loginData.data.success == true) {
+        const token = loginData.data.payload;
+        const user = this.state.user;
+        user['token'] = token;
+  
+        this.setState({user})
+      }
+      else {
+        const user = { email: '', password: '', failedLogin: true }
+        this.setState({user})
+      }
+    } catch(err) {
+      console.log('Error thrown', err)
+    }
   }
 
   changeUser(event) {
@@ -52,16 +52,19 @@ class LoginPage extends Component {
     const user = this.state.user;
     user[field] = event.target.value;
 
-    this.setState({
-      user
-    });
-
-    console.log(this.state.user);
+    this.setState({user})
   }
 
+  failedLogin(){
+    return(
+      <div className="alert alert-danger">
+        <strong>Failed Login!</strong> The username or password given is incorrect.
+      </div>
+    )
+  }
 
   render(){
-    if(this.state.user.isAuth) {
+    if(this.state.user.token) {
       return <Redirect to='/' />
     }
 
@@ -69,10 +72,11 @@ class LoginPage extends Component {
       <LoginForm
         onSubmit={this.processForm}
         onChange={this.changeUser}
+        onFail={this.failedLogin}
         errors={this.state.errors}
         user={this.state.user}
       />
-    );
+    )
   }
 }
 
