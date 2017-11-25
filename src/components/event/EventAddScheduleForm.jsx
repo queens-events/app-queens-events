@@ -2,12 +2,10 @@
 import DayPickerInput from 'react-day-picker/DayPickerInput'
 import DropDown from '../DropDown.jsx'
 
-
 import "react-day-picker/lib/style.css"
 import "../../../style/eventAdd.css"
-import '../../../style/event.css'
 
-class EventScheduleAdd extends Component {
+class EventAddScheduleForm extends Component {
 
   constructor(props) {
     super(props)
@@ -63,6 +61,7 @@ class EventScheduleAdd extends Component {
             <div>
               <DayPickerInput placeholder="DD/MM/YYYY" format="DD/MM/YYYY" onDayClick={this.handleDayClick} />
             </div>
+            {console.log(this.state.selectedDay)}
           </div>
 
           <div id="submitDate">
@@ -75,4 +74,4 @@ class EventScheduleAdd extends Component {
   }
 }
 
-export default EventScheduleAdd
+export default EventAddScheduleForm
