@@ -5,6 +5,8 @@
 	height: 400px;
 	overflow: hidden;
 	box-shadow: 2px 2px 2px lightgrey;
+	display: inline-block;
+	margin-right: 10px;
 }
 
 .eventTopImage {
@@ -60,7 +62,6 @@
 	display: flex;
 	/*justify-content: space-around;*/
 	align-items: center;
-	/*background-color: orange;*/
 	padding: 0 10px 0 10px;
 	height: 25%;
 	width: 100%;

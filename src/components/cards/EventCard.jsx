@@ -15,7 +15,8 @@ const EventCard = () => {
         <div className="eventInfoLeft">
           <div className="eventTitle">
             <h1>Super Fun Event</h1>
-            <p>123 Venue St, Kingston ON K5T 1S7</p>
+            <p>123 Venue St, Kingston</p>
+            <p>ON K5T 1S7</p>
           </div>
           <div className="eventOrganization">
             <div className="orgLogo">
