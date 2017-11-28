@@ -12,7 +12,16 @@ const VenueCard = () => {
         <div style={cardImageStyle} />
       </div>
       <div className="venueBottomData">
+        <div className="venueLeftData">
         <h1>Stauffer Hall</h1>
+        <p>123 Venue St, Kingston ON K5T 1S7</p>
+          <div className="venueButton">
+              <button className="venueCardButton">More Info</button>
+          </div>
+        </div>
+        <div className="venueRightData">
+        add map here
+        </div>
       </div>
     </div>
   );
