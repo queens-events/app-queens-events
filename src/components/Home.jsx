@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import EventList from './event/EventList.jsx'
 import VenueList from './venue/VenueList.jsx'
 import OrganizationList from './organization/OrganizationList.jsx'
