@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import DayPickerInput from 'react-day-picker/DayPickerInput'
-import api from '../../http/api.js';
+import authHTTP from '../../middleware/authHTTP';
 
 import "react-day-picker/lib/style.css"
 
