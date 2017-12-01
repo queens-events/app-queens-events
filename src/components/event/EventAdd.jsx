@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import DayPickerInput from 'react-day-picker/DayPickerInput'
-import api from '../../http/api.js';
 
 import "react-day-picker/lib/style.css"
 
@@ -38,14 +37,6 @@ class EventAdd extends Component {
           console.log(this.state);
           let postData = this.state;
           postData.date = undefined;
-          api.post('/events', postData)
-            .then(resp => {
-              if (resp.status == "success") {
-                let data = JSON.parse(resp);
-                console.log('Posted!')
-              }
-            })
-            .catch((err) => console.log(err))
         }}
       >
         Title:

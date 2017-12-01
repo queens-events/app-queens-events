@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import LoginForm from './LoginForm.jsx';
-import api from '../../http/api.js';
 import { Redirect } from 'react-router-dom';
 
 class LoginPage extends Component {
@@ -27,21 +26,6 @@ class LoginPage extends Component {
     event.target.reset()
 
     let postData = { email: this.state.user.email, password: this.state.user.password };
-    api.post('/authLogin', postData)
-      .then(resp => {
-        console.log(resp.data);
-        if (resp.data.success == true) {
-          let { id, email, password } = resp.data.payload;
-          let user = { id, email, password, isAuth: true}
-
-          console.log('Logged in!')
-          this.setState({
-            user
-          })
-          console.log(this.state);
-        }
-      })
-      .catch((err) => console.log(err))
 
     console.log('email:', this.state.user.email);
     console.log('password:', this.state.user.password);

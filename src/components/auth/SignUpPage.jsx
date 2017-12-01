@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import SignUpForm from './SignUpForm.jsx'
-import api from '../../http/api.js'
 
 class SignUpPage extends Component {
   constructor(props) {
