@@ -61,7 +61,7 @@ class ProfilePage extends Component {
       <div className="profileContainer">
         <div className="profileUserInfo">
           <div className="profileUserImage" />
-          <h1>FirstName LastName</h1>
+          <h2>FirstName LastName</h2>
           <p>Profile Description</p>
         </div>
         <div className="profileData">

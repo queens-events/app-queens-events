@@ -40,16 +40,8 @@ li {
 	display: inline;
 }
 
-a {
+a, a:hover {
 	color: black;
 	text-decoration: none;
 }
 
-a:hover {
-	text-decoration: none;
-	color: black;
-}
-
-a:action {
-	color: black;
-}
