@@ -3,19 +3,28 @@
 	flex-direction: row;
 	height: 100%;
 	width: 100%;
+	padding-top: 5%;
 }
 
 .profileUserInfo {
 	height: 100%;
-	width: 30%;
+	width: 25%;
+	/*background-color: blue;*/
 }
 
 .profileData {
-	height: 100%;
-	width: 70%;
+	height: 100px;
+	width: 75%;
+	/*background-color: red;*/
+	text-align: center;
 }
 
-
+.profileElement {
+	font-size: 24px;
+	padding: 5px 10px 5px 10px;
+	text-align: center;
+	border: 1px solid grey;
+}
 .profileUserImage {
   display: inline-block;
   width: 150px;
@@ -25,4 +34,18 @@
   background-position: center center;
   background-size: cover;
   background-image: url('http://placehold.it/350x150');
+}
+
+li {
+	list-style-type: none;
+	display: inline;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
 }

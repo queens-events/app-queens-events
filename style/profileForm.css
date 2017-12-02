@@ -1,0 +1,47 @@
+.profileChangeContainer {
+	width: 100%;
+	border: 1px solid grey;
+	display: flex;
+	flex-direction: row;
+}
+
+.leftContainer {
+	width: 60%;
+	background-color: red;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+.rightContainer {
+	width: 40%;
+	background-color: blue;
+}
+
+
+.formTitle {
+	text-align: left;
+	width: 100%;
+}
+
+.formElement {
+	background-color: green;
+	width: 45%;
+}
+
+.formElement, .formTitle {
+	padding-left: 20px;
+}
+
+
+input {
+	width: 100%;
+	padding-left: 0px;
+	margin-left: 0px;
+}
+
+h2 {
+	text-align: left;
+	
+}
