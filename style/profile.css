@@ -9,13 +9,11 @@
 .profileUserInfo {
 	height: 100%;
 	width: 25%;
-	/*background-color: blue;*/
 }
 
 .profileData {
-	height: 100px;
+	height: 100%;
 	width: 75%;
-	/*background-color: red;*/
 	text-align: center;
 }
 
@@ -25,6 +23,7 @@
 	text-align: center;
 	border: 1px solid grey;
 }
+
 .profileUserImage {
   display: inline-block;
   width: 150px;

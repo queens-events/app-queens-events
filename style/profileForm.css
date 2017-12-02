@@ -1,47 +1,75 @@
 .profileChangeContainer {
-	width: 100%;
+	height: 100%;
 	border: 1px solid grey;
-	display: flex;
-	flex-direction: row;
 }
 
 .leftContainer {
 	width: 60%;
-	background-color: red;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
 	justify-content: flex-start;
 }
 
 .rightContainer {
 	width: 40%;
-	background-color: blue;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
 }
 
-
-.formTitle {
-	text-align: left;
-	width: 100%;
+.profileChangeContainer, .leftContainer, .rightContainer, .publicSelector {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
 }
 
-.formElement {
-	background-color: green;
+.profileChangeContainer, .leftContainer, .publicSelector {
+	flex-direction: row;
+}
+
+.formLeftElement {
 	width: 45%;
 }
 
-.formElement, .formTitle {
+.formRightElement, .publicSelector, .biography {
+	width: 90%;
+}
+
+.formLeftElement, .formRightElement, .publicSelector, .biography, .formTitle{
 	padding-left: 20px;
 }
 
-
-input {
-	width: 100%;
-	padding-left: 0px;
-	margin-left: 0px;
+.formLeftElement, .formRightElement, .publicSelector,.biography  {
+	height: 15%;
+	margin-top: 0px;
 }
 
-h2 {
+.radioText {
+	width: 20%;
+}
+
+.checkboxItem {
+	width: 5%;
+	text-align: center;
+}
+
+.biography {
+	height: 25%;
+	margin-bottom: 300px;
+}
+
+.formTitle {
+	height: 10%;
+	margin-bottom: 0px;
+}
+
+.formTitle, .radioText, h2 {
 	text-align: left;
-	
+}
+
+.profileChangeContainer, .formTitle, h2, textarea, input {
+	width: 100%;
+}
+
+input {
+	padding-left: 0px;
+	margin-left: 0px;
 }

@@ -7,7 +7,7 @@ import cardStyle from '../../../style/profile.css'
 
 class ProfilePage extends Component {
   render(){
-    return(
+    return (
       <div className="profileContainer">
         <div className="profileUserInfo">
           <div className="profileUserImage" />
