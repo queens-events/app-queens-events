@@ -7,9 +7,53 @@ import cardStyle from '../../../style/profile.css'
 
 class ProfilePage extends Component {
 
+  constructor() {
+    super()
+
+    this.state = {
+      editProfilecolored: 'white',
+      myEventscolored: 'white',
+      myOrganizationscolored: 'white'
+    }
+
+    this.changeColor = this.changeColor.bind(this)
+  }
+
   changeColor(e) {
 
-    e.target.style="background-color: grey;"
+    switch (e.target.id) {
+      case "edit":
+        this.setState({
+          editProfilecolored: 'grey',
+          myEventscolored: 'white',
+          myOrganizationscolored: 'white'
+        })
+        break;
+
+      case "events":
+        this.setState({
+          editProfilecolored: 'white',
+          myEventscolored: 'grey',
+          myOrganizationscolored: 'white'
+        })
+        break;
+
+      case "orgs":
+        this.setState({
+          editProfilecolored: 'white',
+          myEventscolored: 'white',
+          myOrganizationscolored: 'grey'
+        })
+        break;
+
+      default:
+        this.setState({
+          editProfilecolored: 'white',
+          myEventscolored: 'white',
+          myOrganizationscolored: 'white'
+        })
+    
+    }
   }
 
   render(){
@@ -17,14 +61,14 @@ class ProfilePage extends Component {
       <div className="profileContainer">
         <div className="profileUserInfo">
           <div className="profileUserImage" />
-          <h1>Name</h1>
-          <p>Profile Description </p>
+          <h1>FirstName LastName</h1>
+          <p>Profile Description</p>
         </div>
         <div className="profileData">
           <ul>
-            <li><Link to='/profile/edit-profile' className="profileElement" onClick={this.changeColor}>My Profile</Link></li>
-            <li><Link to='/profile/my-events' className="profileElement" onClick={this.changeColor}>My Events</Link></li>
-            <li><Link to='/profile/my-organizations' className="profileElement" onClick={this.changeColor}>My Organizations</Link></li>
+            <li><Link to='/profile/edit-profile' className="profileElement" id="edit" style={{ backgroundColor: this.state.editProfilecolored }} onClick={this.changeColor.bind(this)}>My Profile</Link></li>
+            <li><Link to='/profile/my-events' className="profileElement" id="events" style={{ backgroundColor: this.state.myEventscolored }} onClick={this.changeColor.bind(this)}>My Events</Link></li>
+            <li><Link to='/profile/my-organizations' className="profileElement" id="orgs" style={{ backgroundColor: this.state.myOrganizationscolored }} onClick={this.changeColor.bind(this) }>My Organizations</Link></li>
           </ul>
 
           <Switch>
@@ -34,7 +78,7 @@ class ProfilePage extends Component {
           </Switch>
         </div>
       </div>
-    );
+    )
   }
 }
 
