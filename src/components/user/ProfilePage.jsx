@@ -6,6 +6,12 @@ import OrganizationList from '../organization/OrganizationList.jsx'
 import cardStyle from '../../../style/profile.css'
 
 class ProfilePage extends Component {
+
+  changeColor(e) {
+
+    e.target.style="background-color: grey;"
+  }
+
   render(){
     return (
       <div className="profileContainer">
@@ -16,9 +22,9 @@ class ProfilePage extends Component {
         </div>
         <div className="profileData">
           <ul>
-            <li className="profileElement"><Link to='/profile/edit-profile'>My Profile</Link></li>
-            <li className="profileElement"><Link to='/profile/my-events'>My Events</Link></li>
-            <li className="profileElement"><Link to='/profile/my-organizations'>My Organizations</Link></li>
+            <li><Link to='/profile/edit-profile' className="profileElement" onClick={this.changeColor}>My Profile</Link></li>
+            <li><Link to='/profile/my-events' className="profileElement" onClick={this.changeColor}>My Events</Link></li>
+            <li><Link to='/profile/my-organizations' className="profileElement" onClick={this.changeColor}>My Organizations</Link></li>
           </ul>
 
           <Switch>

@@ -47,4 +47,9 @@ a {
 
 a:hover {
 	text-decoration: none;
+	color: black;
+}
+
+a:action {
+	color: black;
 }
