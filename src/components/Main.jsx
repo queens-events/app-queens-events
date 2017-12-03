@@ -4,8 +4,7 @@ import Home from './Home.jsx'
 import About from './About.jsx'
 import Event from './event/Event.jsx'
 import Venue from './venue/Venue.jsx'
-import LoginPage from './auth/LoginPage.jsx'
-import LoginContainer from './auth/LoginContainer.jsx'
+import Login from './auth/LoginContainer.jsx'
 import SignUpPage from './auth/SignUpPage.jsx'
 import ProfilePage from './user/ProfilePage.jsx'
 import Organization from './organization/Organization.jsx'
@@ -18,7 +17,7 @@ const Main = () => {
       <Route path='/events' component={Event} />
       <Route path='/organizations' component={Organization} />
       <Route path='/venues' component={Venue} />
-      <Route path='/login' component={LoginContainer} />
+      <Route path='/login' component={Login} />
       <Route path='/signup' component={SignUpPage} />
       <Route path='/profile' component={ProfilePage} />
     </Switch>
