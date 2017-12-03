@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 import auth from './auth'
 
 const queensEventsApp = combineReducers({
-  auth
+  auth,
 })
 
 export default queensEventsApp

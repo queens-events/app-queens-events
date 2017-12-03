@@ -1,47 +1,62 @@
-import React, { PropTypes } from 'react'
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react'
+import { Link, Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types'
 import signUpStyle from '../../../style/auth.css'
 
-const LoginForm = ({onSubmit, onChange, onFail, errors, user}) => {
-// {errors.summary && <p className="error-message">{errors.summary}</p>}
-  return(
-    <div className="signUpContainer">
-      <form onSubmit={onSubmit}>
-        <div className="signUpHeader">
-          <p>Login</p>
-        </div>
-        <div className="signUpForm">
-          <div className="signUpFormContainer">
-            <p>Username/Email</p>
-            <input
-            name="email"
-            value={user.email}
-            onChange={onChange}
-            />
-            <p>Password</p>
-            <input
-            name="password"
-            type="password"
-            value={user.password}
-            onChange={onChange}
-            />
-            <div className="signUpButton">
-              <button>Login</button>
-            </div>
-            <p>Don't have an account? <Link to='/signup'>Create One</Link></p>
+class LoginForm extends Component {
+  onFail(errorMessage) {
+    return(
+      <div className="alert alert-danger">
+        <strong>Failed Login!</strong> {errorMessage}
+      </div>
+    )
+  }
 
-            { user.failedLogin ? onFail() : null }
+  render() {
+    const { onSubmit, onChange, user, errors } = this.props
+
+    if(user.token) {
+      return <Redirect to='/' />
+    }
+
+    return(
+      <div className="signUpContainer">
+        <form onSubmit={onSubmit}>
+          <div className="signUpHeader">
+            <p>Login</p>
           </div>
-        </div>
-      </form>
-    </div>
-  );
+          <div className="signUpForm">
+            <div className="signUpFormContainer">
+              <p>Username/Email</p>
+              <input
+              name="email"
+              value={user.email}
+              onChange={onChange}
+              />
+              <p>Password</p>
+              <input
+              name="password"
+              type="password"
+              value={user.password}
+              onChange={onChange}
+              />
+              <div className="signUpButton">
+                <button>Login</button>
+              </div>
+              <p>Don't have an account? <Link to='/signup'>Create One</Link></p>
+
+              { errors.failedLogin ? this.onFail(errors.message) : null }
+            </div>
+          </div>
+        </form>
+      </div>
+    );
+  }
 }
 
 LoginForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
-  onFail: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired
 }
