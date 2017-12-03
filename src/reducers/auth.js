@@ -5,7 +5,7 @@ const auth = (state = { user: {}, errors: {} }, action) => {
         user: { email: action.user.email, token: action.user.token},
         errors: {}
       })
-    
+
     case 'LOGIN_FAILURE':
       const { email, password } = action.user
 
