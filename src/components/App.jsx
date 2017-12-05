@@ -5,10 +5,6 @@ import Main from './Main.jsx';
 import appStyle from '../../style/app.css';
 
 class App extends Component {
-  constructor(props){
-    super(props)
-  }
-
   render() {
     return(
       <div>

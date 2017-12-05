@@ -38,7 +38,7 @@ class EventAdd extends Component {
           console.log(this.state);
           let postData = this.state;
           postData.date = undefined;
-          api.post('/events', postData)
+          authHTTP.post('/events', postData)
             .then(resp => {
               if (resp.status == "success") {
                 let data = JSON.parse(resp);
