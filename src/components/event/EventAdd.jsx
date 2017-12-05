@@ -1,96 +1,48 @@
-import React, {Component} from 'react';
-import DayPickerInput from 'react-day-picker/DayPickerInput'
-import authHTTP from '../../middleware/authHTTP';
+import React, { Component } from 'react';
+import EventAddForm from './EventAddForm.jsx'
+import EventAddScheduleForm from './EventAddScheduleForm.jsx'
 
-import "react-day-picker/lib/style.css"
 
 class EventAdd extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      title: '',
-      description: '',
-      item_url: '',
-      fb_event_url: '',
-      selectedDay: '',
-      // image_url: '',
-      // cost: '',
-
-      // capacity: '',
-      // startTime: '',
-      // endTime: ''
+      hidden: true,
+      scheduleHidden: true
     };
   }
 
-  handleDayClick(day, { selected }) {
+  toggleHidden() {
     this.setState({
-      selectedDay: selected ? undefined : day,
-    });
-  };
+      hidden: !this.state.hidden
+    })
+  }
 
-  render(){
-    return(
-      <form
-        onSubmit={event => {
-          event.preventDefault()
-          event.target.reset()
-          console.log(this.state);
-          let postData = this.state;
-          postData.date = undefined;
-          authHTTP.post('/events', postData)
-            .then(resp => {
-              if (resp.status == "success") {
-                let data = JSON.parse(resp);
-                console.log('Posted!')
-              }
-            })
-            .catch((err) => console.log(err))
-        }}
-      >
-        Title:
-        <br />
-        <p>
-        <input
-          value={this.state.title}
-          onChange={event => this.setState({title: event.target.value})} />
-        </p>
+  toggleSchedule() {
+    this.setState({
+      scheduleHidden: !this.state.scheduleHidden
+    })
 
-        Date:
-        <br />
-        <p>
-        <DayPickerInput placeholder="DD/MM/YYYY" format="DD/MM/YYYY" onDayClick={this.handleDayClick}/>
-        </p>
+  }
 
-        Description:
-        <br />
-        <p>
-        <textarea
-          value={this.state.description}
-          onChange={event => this.setState({description: event.target.value})}
-          cols="50" rows="10" />
-        </p>
+  nextForm() {
+    this.setState({
+      hidden: !this.state.hidden,
+      scheduleHidden: !this.state.scheduleHidden
+    })
+  }
 
-        Event URL:
-        <br />
-        <p>
-        <input
-          value={this.state.item_url}
-          onChange={event => this.setState({item_url: event.target.value})} />
-        </p>
-
-        FB Event URL:
-        <br />
-        <p>
-        <input
-          value={this.state.fb_event_url}
-          onChange={event => this.setState({fb_event_url: event.target.value})} />
-        </p>
-
-        <p>
-          <button>Submit Event</button>
-        </p>
-      </form>
+  render() {
+    return (
+      <div>
+        <button onClick={this.toggleHidden.bind(this)} className="landingButton">
+          Create Event
+        </button>
+ 
+        {!this.state.hidden ? <EventAddForm onSubmit={this.nextForm.bind(this)} /> : null}
+        {!this.state.scheduleHidden ? <EventAddScheduleForm onSubmit={this.toggleSchedule.bind(this)} /> : null}
+      </div> 
     );
   }
 }
