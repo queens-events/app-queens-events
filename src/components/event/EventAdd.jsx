@@ -3,8 +3,6 @@ import EventAddForm from './EventAddForm.jsx'
 import EventAddScheduleForm from './EventAddScheduleForm.jsx'
 
 
-
-
 class EventAdd extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +14,6 @@ class EventAdd extends Component {
   }
 
   toggleHidden() {
-
     this.setState({
       hidden: !this.state.hidden
     })

@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const createAuthHttp = async (token) => {
     const authHttp = axios.create({
-        baseURL: 'localhost:1337',
+        baseURL: 'https://stopmissingout.ca',
         headers: {
             Authorization: token
         }

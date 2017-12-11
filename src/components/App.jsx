@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Header from './Header.jsx';
+import Header from './HeaderContainer.jsx';
 import Footer from './Footer.jsx';
 import Main from './Main.jsx';
 import appStyle from '../../style/app.css';
@@ -13,7 +13,6 @@ class App extends Component {
           <Main />
         </div>
         <Footer />
-
       </div>
     );
   }
