@@ -30,11 +30,9 @@ const auth = (state = { user: {}, errors: {} }, action) => {
       })
 
     case 'SIGN_UP_FAILURE':
-      //let { email, password } = action.user
-    
       return Object.assign({}, state, {
         user: { email: action.user.email, password: action.user.password },
-        errors: { failedSignUp: true, message: 'Sign Up failed' }
+        errors: { failedSignUp: true, message: action.errors.message }
       })
 
     case 'UPDATE_SIGN_UP_INFO':

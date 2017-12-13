@@ -1,3 +1,7 @@
+.errorResponse {
+	height: 600px;
+}
+
 .signUpContainer {
 	border: 1px solid grey;
 	margin: auto;

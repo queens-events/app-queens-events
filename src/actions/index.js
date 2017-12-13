@@ -46,21 +46,32 @@ export const updateLoginInfo = (event) => {
 const fetchSignUp = (postData) => {
   return async (dispatch) => {
     try {
-      const { email } = postData
-      const loginData = await axios.post('https://stopmissingout.ca/authenticate/signup', postData);
-      console.log(loginData);
-      if (loginData.data.success == true) {
-        const token = loginData.data.payload;
-        dispatch({ type: SIGN_UP_SUCCESS, user: { email, token } })
+      let { email, password, confirm_password } = postData
+      const blankUser = {
+        email: '',
+        password: '',
+        confirm_password: ''
+      }
+
+      if (!validator.validateEmail(email)){
+        let message = "The email given is invalid (perhaps doesn not include @ or domain name)"
+        dispatch({ type: SIGN_UP_FAILURE, user: blankUser, errors: { message } })
+      }
+      else if (password !== confirm_password) {
+        let message = "Password and confirm password do not match."
+        dispatch({ type: SIGN_UP_FAILURE, user: blankUser, errors: { message } })
       }
       else {
-        const user = {
-          email: '', 
-          password: '',
-          confirm_password: ''
-        }
+        const loginData = await axios.post('https://stopmissingout.ca/authenticate/signup', postData);
+        console.log(loginData);
 
-        dispatch({ type: SIGN_UP_FAILURE, user })
+        if (loginData.data.success == true) {
+          const token = loginData.data.payload;
+          dispatch({ type: SIGN_UP_SUCCESS, user: { email, token } })
+        }
+        else {
+          dispatch({ type: SIGN_UP_FAILURE, user: blankUser })
+        }
       }
     } catch (err) {
       console.log(err)

@@ -14,14 +14,10 @@ class SignUpForm extends Component {
   
   render(){
     const { onSubmit, onChange, user, errors } = this.props
-    
-    let responseStyle = {
-      height: '600px',
-    }
 
     if(user.token) {
       return (
-        <div style={responseStyle}>
+        <div className="errorResponse">
           <h1>Sign up successful! Check your email and verify your account</h1>
         </div>
       )
