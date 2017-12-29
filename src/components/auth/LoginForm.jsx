@@ -13,42 +13,55 @@ class LoginForm extends Component {
   }
 
   render() {
-    const { onSubmit, onChange, user, errors } = this.props
+    const { 
+      onSubmit,
+      onChange,
+      toggleLogin,
+      user,
+      errors 
+    } = this.props
 
     if(user.token) {
       return <Redirect to='/' />
     }
 
     return(
-      <div className="signUpContainer">
-        <form onSubmit={onSubmit}>
-          <div className="signUpHeader">
-            <p>Login</p>
-          </div>
-          <div className="signUpForm">
-            <div className="signUpFormContainer">
-              <p>Username/Email</p>
-              <input
-              name="email"
-              value={user.email}
-              onChange={onChange}
-              />
-              <p>Password</p>
-              <input
-              name="password"
-              type="password"
-              value={user.password}
-              onChange={onChange}
-              />
-              <div className="signUpButton">
-                <button>Login</button>
+      <div className="popup">
+        {/* <div "> */}
+          <form onSubmit={onSubmit} className="signUpContainer">
+            <div className="signUpHeader">
+              <div className="signUpHeaderText">
+                <p>Login</p>
               </div>
-              <p>Don't have an account? <Link to='/signup'>Create One</Link></p>
-
-              { errors.failedLogin ? this.onFail(errors.message) : null }
+              <div className="signUpHeaderExit" onClick={toggleLogin}>
+                <p>&times;</p>
+              </div>
             </div>
-          </div>
-        </form>
+            <div className="signUpForm">
+              <div className="signUpFormContainer">
+                <p>Username/Email</p>
+                <input
+                name="email"
+                value={user.email}
+                onChange={onChange}
+                />
+                <p>Password</p>
+                <input
+                name="password"
+                type="password"
+                value={user.password}
+                onChange={onChange}
+                />
+                <div className="signUpButton">
+                  <button>Login</button>
+                </div>
+                <p>Don't have an account? <Link to='/signup'>Create One</Link></p>
+
+                { errors.failedLogin ? this.onFail(errors.message) : null }
+              </div>
+            </div>
+          </form>
+        {/* </div> */}
       </div>
     );
   }
@@ -57,6 +70,7 @@ class LoginForm extends Component {
 LoginForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
+  toggleLogin: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired
 }

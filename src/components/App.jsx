@@ -1,16 +1,20 @@
-import React, { Component } from 'react';
-import Header from './HeaderContainer.jsx';
-import Footer from './Footer.jsx';
-import Main from './Main.jsx';
-import appStyle from '../../style/app.css';
+import React, { Component } from 'react'
+import Header from './HeaderContainer.jsx'
+import Footer from './Footer.jsx'
+import Body from './BodyContainer.jsx'
+import appStyle from '../../style/app.css'
 
 class App extends Component {
+  // constructor(props) {
+  //   super(props)
+  // }
+
   render() {
     return(
       <div>
         <Header />
         <div className="app">
-          <Main />
+          <Body />
         </div>
         <Footer />
       </div>

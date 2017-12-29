@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import headerStyle from '../../style/header.css'
@@ -45,11 +46,11 @@ class Header extends Component {
             Sign Up
           </div>
         </Link>
-        <Link to='/login'>
-          <div className="navbarLink">
+        {/* <Link to='/login'> */}
+          <div className="navbarLink" onClick={this.props.toggleLoginForm}>
             Login
           </div>
-        </Link>
+        {/* </Link> */}
       </div>
     )
   }
@@ -90,6 +91,13 @@ class Header extends Component {
       </div>
     );
   }
+}
+
+Header.propTypes = {
+  toggleLoginForm: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired
 }
 
 export default Header

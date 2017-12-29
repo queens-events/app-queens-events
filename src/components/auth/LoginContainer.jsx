@@ -1,4 +1,4 @@
-import { loadLogin, updateLoginInfo } from '../../actions'
+import { loadLogin, updateLoginInfo, toggleLoginHidden } from '../../actions'
 import { connect } from 'react-redux'
 import LoginForm from './LoginForm.jsx'
 
@@ -17,6 +17,9 @@ const mapDispatchToProps = dispatch => {
       const {name, value} = event.target
       dispatch(updateLoginInfo({ name, value }))
     },
+    toggleLogin: () => {
+      dispatch(toggleLoginHidden())
+    }
   })
 }
 

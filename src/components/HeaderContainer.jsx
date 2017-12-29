@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { LOG_OFF, TOGGLE_LOGIN_HIDDEN } from '../actions/index'
 import Header from './Header.jsx'
 
 const mapStateToProps = state => {
@@ -8,7 +9,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return ({
     onClick: () => {
-      dispatch({ type: 'LOG_OFF' });
+      dispatch({ type: LOG_OFF });
+    },
+    toggleLoginForm: () => {
+      dispatch({ type: TOGGLE_LOGIN_HIDDEN })
     }
   })
 }
