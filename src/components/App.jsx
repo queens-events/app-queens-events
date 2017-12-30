@@ -1,14 +1,10 @@
 import React, { Component } from 'react'
-import Header from './HeaderContainer.jsx'
-import Footer from './Footer.jsx'
-import Body from './BodyContainer.jsx'
+import Header from './header/HeaderContainer.jsx'
+import Footer from './footer/Footer.jsx'
+import Body from './main/BodyContainer.jsx'
 import appStyle from '../../style/app.css'
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props)
-  // }
-
   render() {
     return(
       <div>

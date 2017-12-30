@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Switch, Route, Link } from 'react-router-dom'
 import ProfileEdit from './ProfileEdit.jsx'
-import EventList from '../event/EventList.jsx'
-import OrganizationList from '../organization/OrganizationList.jsx'
-import cardStyle from '../../../style/profile.css'
+import EventList from '../event/eventList/EventList.jsx'
+import OrganizationList from '../organization/organizationList/OrganizationList.jsx'
+import cardStyle from './profile.css'
 
 class ProfilePage extends Component {
 

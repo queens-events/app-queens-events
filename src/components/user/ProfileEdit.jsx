@@ -1,5 +1,5 @@
 ﻿import React, { Component } from 'react'
-import '../../../style/profileForm.css'
+import './profileForm.css'
 
 class ProfileEdit extends Component {
 

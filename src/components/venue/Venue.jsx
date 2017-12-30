@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import {Switch,Route,Link} from 'react-router-dom'
-import VenueAdd from './VenueAdd.jsx'
-import VenueList from './VenueList.jsx'
-import VenueDetail from './VenueDetail.jsx'
+import VenueAdd from './venueAdd/VenueAdd.jsx'
+import VenueList from './venueList/VenueList.jsx'
+import VenueDetail from './venueDetail/VenueDetail.jsx'
 
 class Venue extends Component {
   render() {

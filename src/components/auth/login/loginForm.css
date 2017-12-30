@@ -1,0 +1,88 @@
+.errorResponse {
+	height: 600px;
+}
+
+.userFormInput {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 2px solid #5d9fd2;
+}
+
+.popupLogin {
+	position: fixed;
+	top: 0;
+  	left: 0;
+  	right: 0;
+  	bottom: 0;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0, 0.5);
+	overflow-y: auto;
+}
+
+.loginContainer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	border: 1px solid grey;
+	border-radius: 10px;
+	margin-top: 40px;
+	width: 600px;
+	height: 400px;
+	overflow: hidden;
+	background-color: white;
+}
+
+.loginHeader {
+	height: 20%;
+	width: 100%;
+	display: flex;
+	/* background-color: #5d9fd2; */
+}
+
+.loginHeader > p {
+	height: 20%;
+	width: 100%;
+	display: flex;
+	padding: 10px 0px 0px 20px;
+	/* background-color: #5d9fd2; */
+}
+
+.loginHeaderText {
+	width: 93%;
+	font-size: 3em;
+	padding: 10px 0px 0px 20px; /* 20px */
+	margin: auto;
+}
+
+.loginHeaderExit {
+	width: 7%;
+	font-size: 2em;
+	justify-content: center;
+	margin: auto;
+	cursor: pointer;
+}
+
+.loginForm {
+	height: 70%;
+	width: 100%;
+}
+
+.loginFormContainer {
+	margin: auto;
+	padding: 0px 20px 0px 20px;
+}
+
+.loginFormContainer > p {
+	font-size: 1.25em;
+}
+
+.loginButton {
+	height: 10%;
+	width: 100%;
+	margin-top: 10px;
+}
