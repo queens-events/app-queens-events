@@ -1,4 +1,4 @@
-import React,{Component} from 'react'
+import React,{ Component } from 'react'
 import EventCard from '../card/EventCard.jsx'
 import eventListStyle from './eventList.css'
 
@@ -6,7 +6,6 @@ import eventListStyle from './eventList.css'
 const EventList = () => {
   return(
     <div className="eventListContainer">
-      <h1>Events</h1>
       <div className="eventList">
         <EventCard />
         <EventCard />
