@@ -1,0 +1,127 @@
+.eventContainer {
+	width: 100%;
+	height: 81vh;
+	display: flex;
+	padding: 15px 0px 0px 0px;
+}
+
+.eventFilters {
+	width: 25%;
+	height: 100%;
+	border: 2px solid grey;
+	border-radius: 10px;
+	padding: 10px;
+	/* display: flex; */
+	/* background-color: red; */
+}
+
+.eventFilterButton {
+	background-color: #2f9acc;
+    border: 2px solid #1c648c;
+    border-radius: 4px;
+    font-size: 1.25em;
+    color: #fff;
+}
+
+.eventFilters * p {
+	font-size: 1.5em;
+	font-weight: bold;
+	line-height: 1em;
+}
+
+.eventContent {
+	width: 75%;
+	height: 100%;
+	/* background-color: green; */
+	overflow-y: scroll;
+}
+
+.eventFilterList {
+	width: 100%;
+	height: 20%;
+	/* background-color: orange; */
+}
+
+.eventFilterCategories {
+	width: 100%;
+	height: 25%;
+	/* background-color: green; */
+}
+
+.eventFilterCategoryContainer {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.eventFilterCategoryPill {
+	height: 100%;
+	border: 2px solid gray;
+	border-radius: 20px;
+	padding: 10px;
+	cursor: pointer;
+	background-color: lightgray;
+	color: white;
+	font-size: 1em;
+	font-weight: bold;
+}
+
+.blue {
+	background-color: #93d9ff;
+}
+
+.green {
+	background-color: #75ffb0;
+}
+
+.red {
+	background-color: #ff7575;
+}
+
+.purple {
+	background-color: #ca75ff;
+}
+
+.orange {
+	background-color: #ffd072;
+}
+
+.yellow {
+	background-color: #ffee75;
+}
+
+.eventFilterTags {
+	width: 100%;
+	height: 15%;
+	/* background-color: orange; */
+}
+
+.eventFilterSortBy {
+	width: 100%;
+	height: 15%;
+	/* background-color: green; */
+}
+
+.eventFilterSortByContainer {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+/* .sortByRadio {
+	margin: 0 10px 0 10px;
+} */
+
+input[type="radio"]{
+	margin: 0 10px 0 10px;
+}
+
+/* .eventFileterOrg {
+	width: 100%;
+	height: 10%;
+	background-color: orange;
+}  */
+
+.eventFilterVenue {
+	width: 100%;
+	height: 30%;
+	/* background-color: orange;  */
+}

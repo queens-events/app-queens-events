@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Home from '../home/Home.jsx'
-import Event from '../event/Event.jsx'
+import Event from '../event/main/Event.jsx'
 import Venue from '../venue/Venue.jsx'
 import ProfilePage from '../user/ProfilePage.jsx'
 import Organization from '../organization/Organization.jsx'

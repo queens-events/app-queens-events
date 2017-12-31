@@ -40,20 +40,20 @@
 .eventTitle {
 	padding: 10px;
 	display: flex;
-	/*align-items: center;*/
+	/* align-items: center; */
 	flex-direction: column;
 	height: 75%;
 	width: 100%;
 }
 
-.eventTitle > h1 {
+.eventTitle > h4 {
 	font-size: 2em;
 	font-weight: bold;
 	line-height: 1em;
 }
 
 .eventTitle > p {
-	font-size: 1.3em;
+	font-size: 1.1em;
 }
 
 .eventOrganization {
