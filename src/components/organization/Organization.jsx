@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import {Switch,Route,Link} from 'react-router-dom'
-import OrganizationAdd from './OrganizationAdd.jsx'
-import OrganizationList from './OrganizationList.jsx'
-import OrganizationDetail from './OrganizationDetail.jsx'
+import OrganizationAdd from './organizationAdd/OrganizationAdd.jsx'
+import OrganizationList from './organizationList/OrganizationList.jsx'
+import OrganizationDetail from './organizationDetail/OrganizationDetail.jsx'
 
 class Organization extends Component {
   render() {

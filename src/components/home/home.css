@@ -1,0 +1,41 @@
+.landingPageBanner {
+    width: 100vw;
+    height: 400px;
+    transform: translateX(-7vw);
+    background-image: url(../../../img/landingBanner2.jpg);
+    background-size: cover;
+    background-position: 0% 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* filter: grayscale(100%); */
+}
+
+.landingPageBanner h1 {
+    margin: 0;
+    font-size: 4em;
+     /* color: #fff; */
+    color: white;
+    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #fff;
+
+}
+
+.landingButtons {
+    display: flex;
+    justify-content: center;
+}
+
+.landingButton {
+    margin: 10px 10px 0 10px;
+    background-color: #2f9acc;
+    border: 2px solid #1c648c;
+    border-radius: 4px;
+    font-size: 1.5em;
+    color: #fff;
+    width: 150px;
+}
+
+/* Main Colors */
+/* 1c648c Darker*/
+/* 2f9acc Lighter*/
