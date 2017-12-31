@@ -13,12 +13,12 @@ class SignUpForm extends Component {
   }
   
   render(){
-    const { 
+    const {
       onSubmit,
       onChange,
       toggleSignUp,
       user,
-      errors 
+      errors
     } = this.props
 
     if(user.token) {

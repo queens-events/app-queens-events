@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import cardStyle from '../venue.css'
+import cardStyle from './venueCard.css'
 
 const VenueCard = () => {
   let cardImageStyle = {
