@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Switch, Route, Link } from 'react-router-dom'
-import EventList from '../eventList/EventList.jsx'
-import EventFilters from './EventFilters.jsx'
+import EventList from '../eventList/EventListContainer.jsx'
+import EventFilters from './EventFiltersContainer.jsx'
 import EventDetail from '../eventDetail/EventDetail.jsx'
 import EventAdd from '../eventAdd/EventAdd.jsx'
 import DropDown from '../../DropDown.jsx';
@@ -14,6 +14,7 @@ class Event extends Component {
         <EventFilters />
         <div className="eventContent">
           <EventList />
+          <EventAdd />
         </div>
       </div>
     )

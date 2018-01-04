@@ -1,8 +1,34 @@
 import React, { Component } from 'react'
 import DropDown from '../../DropDown.jsx';
 import eventStyle from './event.css'
+import classNames from 'classnames'
 
 class EventFilters extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      buttonCategories: {
+        HEALTH: true,
+        EDUCATION: true,
+        SPORTS: true,
+        CONCERTS: true,
+        ARTS_AND_THEATRE: true,
+        SOCIALS: true
+      }
+    }
+  }
+
+  componentWillMount() {
+    this.props.initFilters()
+  }
+  
+  onCategoryClick(buttonState, category){
+    buttonState[category] = !buttonState[category]
+    this.props.toggleCategory(buttonState)
+    this.setState(buttonState)
+  }
+  
   render() {
     return(
       <div className="eventFilters">
@@ -15,22 +41,28 @@ class EventFilters extends Component {
         <div className="eventFilterCategories">
           <p>Categories</p>
           <div className="eventFilterCategoryContainer">
-            <div className="eventFilterCategoryPill blue">
+            <div id="HEALTH" onClick={() => this.onCategoryClick(this.state.buttonCategories, 'HEALTH')}
+            className={ classNames('eventFilterCategoryPill', { 'blue': this.state.buttonCategories.HEALTH }) }>
               Health
             </div>
-            <div className="eventFilterCategoryPill green">
+            <div id="EDUCATION" onClick={() => this.onCategoryClick(this.state.buttonCategories, 'EDUCATION')}
+            className={ classNames('eventFilterCategoryPill', { 'green': this.state.buttonCategories.EDUCATION }) }>
               Education
             </div>
-            <div className="eventFilterCategoryPill red">
+            <div id="SPORTS" onClick={() => this.onCategoryClick(this.state.buttonCategories, 'SPORTS')}
+            className={ classNames('eventFilterCategoryPill', { 'red': this.state.buttonCategories.SPORTS }) }>
               Sports
             </div>
-            <div className="eventFilterCategoryPill purple">
+            <div id="CONCERTS" onClick={() => this.onCategoryClick(this.state.buttonCategories, 'CONCERTS')}
+            className={ classNames('eventFilterCategoryPill', { 'purple': this.state.buttonCategories.CONCERTS }) }>
               Concerts
             </div>
-            <div className="eventFilterCategoryPill orange">
+            <div id="ARTS_AND_THEATRE" onClick={() => this.onCategoryClick(this.state.buttonCategories, 'ARTS_AND_THEATRE')}
+            className={ classNames('eventFilterCategoryPill', { 'orange': this.state.buttonCategories.ARTS_AND_THEATRE }) }>
               Arts & Theatre
             </div>
-            <div className="eventFilterCategoryPill yellow">
+            <div id="SOCIALS" onClick={() => this.onCategoryClick(this.state.buttonCategories, 'SOCIALS')}
+            className={ classNames('eventFilterCategoryPill', { 'yellow': this.state.buttonCategories.SOCIALS }) }>
               Socials
             </div>
           </div>
@@ -38,14 +70,14 @@ class EventFilters extends Component {
 
         <div className="eventFilterTags">
           <p>Tags</p>
-          <div className="eventFilterCategoryContainer">
+          <div id="ALL_AGES" className="eventFilterCategoryContainer">
             <div className="eventFilterCategoryPill">
               All Ages
             </div>
-            <div className="eventFilterCategoryPill">
+            <div id="19+_SOCIALS" className="eventFilterCategoryPill">
               19+ Socials
             </div>
-            <div className="eventFilterCategoryPill">
+            <div id="FREE" className="eventFilterCategoryPill">
               FREE
             </div>
           </div>

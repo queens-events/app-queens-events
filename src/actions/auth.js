@@ -74,7 +74,6 @@ const fetchSignUp = (postData) => {
       }
       else {
         const loginData = await axios.post('https://stopmissingout.ca/authenticate/signup', postData);
-        console.log(loginData);
 
         if (loginData.data.success == true) {
           const token = loginData.data.payload;

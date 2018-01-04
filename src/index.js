@@ -7,7 +7,6 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { BrowserRouter as Router } from 'react-router-dom'
 import queensEventsApp from './reducers'
 import App from './components/App.jsx'
-//import App from './components/AppContainer.jsx'
 
 let store = createStore(
   queensEventsApp,
