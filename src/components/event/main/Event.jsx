@@ -14,7 +14,6 @@ class Event extends Component {
         <EventFilters />
         <div className="eventContent">
           <EventList />
-          <EventAdd />
         </div>
       </div>
     )

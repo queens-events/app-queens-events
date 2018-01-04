@@ -17,6 +17,9 @@ const mapDispatchToProps = dispatch => {
     toggleCategory: (filterState, category) => {
       dispatch({ type: TOGGLE_CATEGORY_FILTER, filterState })
     },
+    // toggleTag: (filterState, category) => {
+
+    // }
   })
 }
 

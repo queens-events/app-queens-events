@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import DropDown from '../../DropDown.jsx';
 import eventStyle from './event.css'
 import classNames from 'classnames'
+import EventAdd from '../eventAdd/EventAdd.jsx'
 
 class EventFilters extends Component {
   constructor(props) {
@@ -15,6 +16,11 @@ class EventFilters extends Component {
         CONCERTS: true,
         ARTS_AND_THEATRE: true,
         SOCIALS: true
+      },
+      buttonTag: {
+        ALL_AGES: true,
+        '19+_SOCIALS': true,
+        FREE: true
       }
     }
   }
@@ -26,6 +32,12 @@ class EventFilters extends Component {
   onCategoryClick(buttonState, category){
     buttonState[category] = !buttonState[category]
     this.props.toggleCategory(buttonState)
+    this.setState(buttonState)
+  }
+
+  onTagClick(buttonState, category){
+    buttonState[category] = !buttonState[category]
+    //this.props.
     this.setState(buttonState)
   }
   
@@ -70,14 +82,17 @@ class EventFilters extends Component {
 
         <div className="eventFilterTags">
           <p>Tags</p>
-          <div id="ALL_AGES" className="eventFilterCategoryContainer">
-            <div className="eventFilterCategoryPill">
+          <div className="eventFilterCategoryContainer">
+            <div id="ALL_AGES" onClick={() => this.onTagClick(this.state.buttonTag, 'ALL_AGES')}
+              className={ classNames('eventFilterCategoryPill', { 'qe-blue': this.state.buttonTag.ALL_AGES }) }>
               All Ages
             </div>
-            <div id="19+_SOCIALS" className="eventFilterCategoryPill">
+            <div id="19+_SOCIALS" onClick={() => this.onTagClick(this.state.buttonTag, '19+_SOCIALS')}
+              className={ classNames('eventFilterCategoryPill', { 'qe-blue': this.state.buttonTag['19+_SOCIALS'] }) }>
               19+ Socials
             </div>
-            <div id="FREE" className="eventFilterCategoryPill">
+            <div id="FREE" onClick={() => this.onTagClick(this.state.buttonTag, 'FREE')}
+              className={ classNames('eventFilterCategoryPill', { 'qe-blue': this.state.buttonTag.FREE }) }>
               FREE
             </div>
           </div>
@@ -106,7 +121,9 @@ class EventFilters extends Component {
           <p>Venue</p>
           <DropDown />
         </div>
-
+        <div className="eventFilterAddEvent">
+          <EventAdd />
+        </div>
       </div>
     );
   }
