@@ -24,6 +24,9 @@ class EventAddScheduleForm extends Component {
   };
 
   render() {
+
+    const { onSubmit } = this.props
+
     return (
       <div className="popup">
         <form
@@ -64,7 +67,7 @@ class EventAddScheduleForm extends Component {
           </div>
 
           <div id="submitDate">
-            <button className="landingButton" onClick={this.props.onSubmit.bind(this)}><h1>Submit Event</h1></button>
+            <button className="landingButton" onClick={this.onSubmit.bind(this)}><h1>Submit Event</h1></button>
           </div>
 
         </form>

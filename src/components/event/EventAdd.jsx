@@ -1,11 +1,29 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import EventAddForm from './EventAddForm.jsx'
 import EventAddScheduleForm from './EventAddScheduleForm.jsx'
 
+const mapStateToProps = state => {
+  return state.auth
+}
+
+const mapDispatchToProps = dispatch => {
+  return ({
+    onSubmit: event => {
+      event.preventDefault();
+      event.target.reset()
+      dispatch(loadSignUp())
+    },
+    onChange: event => {
+      const { name, value } = event.target
+      dispatch(updateSignUpInfo({ name, value }))
+    },
+  })
+}
 
 class EventAdd extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       hidden: true,

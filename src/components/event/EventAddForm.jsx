@@ -7,32 +7,14 @@ import "../../../style/eventAdd.css"
 
 class EventAddForm extends Component {
 
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      title: '',
-      description: '',
-      category: '',
-      tags: [],
-      cost: '',
-      organization: '',
-      venue: ''
-    }
-  }
-
   render() {
+
+    const { onSubmit, onChange, userEvent } = this.props
+
     return (
       <div className='popup'>
         <form
-          onSubmit={event => {
-            event.preventDefault()
-            event.target.reset()
-            console.log(this.state);
-            let postData = this.state;
-            postData.date = undefined;
-
-          }}
+          onSubmit={onSubmit}
 
           className="container">
 
@@ -41,8 +23,9 @@ class EventAddForm extends Component {
             <h1>Title:</h1>
             <div>
               <input
-                value={this.state.title}
-                onChange={event => this.setState({ title: event.target.value })} />
+                name="eventname"
+                value={userEvent.eventname}
+                onChange={onChange} />
             </div>
           </div>
 
@@ -59,21 +42,22 @@ class EventAddForm extends Component {
             <h1>Description:</h1>
             <div>
               <textarea
-                value={this.state.description}
-                onChange={event => this.setState({ description: event.target.value })}
+                name="description"
+                value={userevent.eventname}
+                onChange={onChange}
                 cols="52" rows="10"
                 placeholder="Describe your event here! Make sure to include external links." />
-              {console.log(this.state.description)}
             </div>
           </div>
 
           <div id="eventCategory">
             <h1>Category:</h1>
             <div>
-              <DropDown className="k"
+              <DropDown
+                name="category"
                 listItems={['Concert', 'Public Lecture', 'Fundraiser']}
                 dropText="Choose Category"
-                onChange={event => this.setState({ category: event.target.textContent })} />
+                onChange={onChange} />
             </div>
           </div>
 
@@ -81,6 +65,7 @@ class EventAddForm extends Component {
             <h1>Tags:</h1>
             <div>
               <DropDown
+                name="tags"
                 listItems={['19+', 'Free', 'In the Community', 'Live Music', 'All ages']}
                 dropText="Select Tags"
                 onChange={event => { (this.state.tags.indexOf(event.target.textContent) === -1) ? this.setState({ tags: this.state.tags.concat([event.target.textContent]) }) : null }} />
@@ -92,9 +77,10 @@ class EventAddForm extends Component {
             <h1>Cost:</h1>
             <div>
               $
-                    <input
-                value={this.state.cost}
-                onChange={event => this.setState({ cost: event.target.value })} />
+                <input
+                  name="cost"
+                  value={this.state.cost}
+                  onChange={onChange} />
             </div>
           </div>
 
@@ -102,10 +88,10 @@ class EventAddForm extends Component {
             <h1>Organization:</h1>
             <div>
               <DropDown
+                name="organization"
                 listItems={['Org1', 'Org2', 'Org3']}
                 dropText="Choose Organization"
-                onChange={event => this.setState({ organization: event.target.textContent })} />
-
+                onChange={onChange} />
             </div>
           </div>
 
@@ -113,14 +99,15 @@ class EventAddForm extends Component {
             <h1>Venue:</h1>
             <div>
               <DropDown
+                name="venue"
                 listItems={['Venue1', 'Venue2', 'Venue3']}
                 dropText="Choose Venue"
-                onChange={event => this.setState({ venue: event.target.textContent })} />
+                onChange={onChange} />
             </div>
           </div>
 
           <div id="submitForm">
-            <button className="landingButton" onClick={this.props.onSubmit.bind(this)}><h1>Next</h1></button>
+            <button className="landingButton" onClick={this.onSubmit.bind(this)}><h1>Next</h1></button>
           </div>
         </form>
       </div>
