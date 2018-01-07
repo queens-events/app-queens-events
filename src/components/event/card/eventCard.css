@@ -9,16 +9,30 @@
 
 .eventTopImage {
 	/*border-bottom: 1px solid black;*/
+	position: relative;
 	width: 100%;
 	height: 50%;
 }
 
-.eventTopImage > div {
+.eventBackgroundImage {
 	width: 100%;
 	height: 100%;
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
+}
+
+.eventCategory {
+	/* position: absolute; */
+	float: left;
+	position: absolute;
+	right: -1px;
+	top: -1px;
+	z-index: 1;
+	padding: 5px 10px 5px 15px;
+	color: #FFFFFF;
+	font-weight: bold;
+	border: 1px solid black;
 }
 
 .bottomInfo {

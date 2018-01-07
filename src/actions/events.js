@@ -5,6 +5,7 @@ export const REQUEST_EVENTS_SUCCESS = 'REQUEST_EVENTS_SUCCESS'
 export const REQUEST_EVENTS_FAILED = 'REQUEST_EVENTS_FAILED'
 export const INIT_FILTERS = 'INIT_FILTERS'
 export const TOGGLE_CATEGORY_FILTER = 'TOGGLE_CATEGORY_FILTER'
+export const TOGGLE_TAG_FILTER = 'TOGGLE_TAG_FILTER'
 export const CREATE_EVENT = 'CREATE_EVENT'
 export const EDIT_EVENT = 'EDIT_EVENT'
 export const DELETE_EVENT = 'DELETE_EVENT'
@@ -32,11 +33,12 @@ export const initFilters = () => (dispatch) => {
       EDUCATION: true,
       SPORTS: true,
       CONCERTS: true,
-      ARTS_AND_THEATRE: true,
+      ARTS_AND_THEATER: true,
       SOCIALS: true
     },
     tags: {
       FREE: true,
+      '19+_SOCIALS': true,
       ALL_AGES: true
     },
     sortBy: null,

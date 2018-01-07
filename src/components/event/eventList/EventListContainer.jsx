@@ -10,9 +10,8 @@ const filterEvents = (events, filters) => {
   let filteredEvents;
   
   if (filters) {
-    filteredEvents = _.filter(events, (event) => {
-      return filters.categories[event.category]
-    })
+    filteredEvents = filterEventsCategories(events, filters)
+    filteredEvents = filterEventsTags(filteredEvents, filters)
 
     console.log(filteredEvents)
   } 
@@ -20,6 +19,18 @@ const filterEvents = (events, filters) => {
     filteredEvents = events
   }
   return filteredEvents
+}
+
+const filterEventsCategories = (events, filters) => {
+  return _.filter(events, (event) => {
+    return filters.categories[event.category]
+  })
+}
+
+const filterEventsTags = (events, filters) => {
+  return _.filter(events, (event) => {
+    return !filters.tags[event.tag]
+  })
 }
 
 const mapStateToProps = (state) => {

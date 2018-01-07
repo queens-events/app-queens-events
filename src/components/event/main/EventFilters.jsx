@@ -14,7 +14,7 @@ class EventFilters extends Component {
         EDUCATION: true,
         SPORTS: true,
         CONCERTS: true,
-        ARTS_AND_THEATRE: true,
+        ARTS_AND_THEATER: true,
         SOCIALS: true
       },
       buttonTag: {
@@ -37,7 +37,7 @@ class EventFilters extends Component {
 
   onTagClick(buttonState, category){
     buttonState[category] = !buttonState[category]
-    //this.props.
+    this.props.toggleTag(buttonState)
     this.setState(buttonState)
   }
   
@@ -69,8 +69,8 @@ class EventFilters extends Component {
             className={ classNames('eventFilterCategoryPill', { 'purple': this.state.buttonCategories.CONCERTS }) }>
               Concerts
             </div>
-            <div id="ARTS_AND_THEATRE" onClick={() => this.onCategoryClick(this.state.buttonCategories, 'ARTS_AND_THEATRE')}
-            className={ classNames('eventFilterCategoryPill', { 'orange': this.state.buttonCategories.ARTS_AND_THEATRE }) }>
+            <div id="ARTS_AND_THEATER" onClick={() => this.onCategoryClick(this.state.buttonCategories, 'ARTS_AND_THEATER')}
+            className={ classNames('eventFilterCategoryPill', { 'orange': this.state.buttonCategories.ARTS_AND_THEATER }) }>
               Arts & Theatre
             </div>
             <div id="SOCIALS" onClick={() => this.onCategoryClick(this.state.buttonCategories, 'SOCIALS')}

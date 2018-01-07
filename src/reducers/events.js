@@ -2,6 +2,7 @@ import {
     REQUEST_EVENTS_SUCCESS,
     REQUESTS_EVENTS_FAILURE,
     TOGGLE_CATEGORY_FILTER,
+    TOGGLE_TAG_FILTER,
     INIT_FILTERS,
     POST_EVENT,
     EDIT_EVENT,
@@ -23,6 +24,10 @@ const events = (state = { events: { events: {}, filters: {} }}, action) => {
       case TOGGLE_CATEGORY_FILTER:
         return Object.assign({}, state, {
           filters: Object.assign({}, state.filters, { categories: action.filterState })
+        })
+      case TOGGLE_TAG_FILTER:
+        return Object.assign({}, state, {
+          filters: Object.assign({}, state.filters, { tags: action.filterState })
         })
       default:
         return state

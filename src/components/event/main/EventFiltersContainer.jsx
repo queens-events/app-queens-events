@@ -1,7 +1,8 @@
 import { connect } from 'react-redux'
 import {
   initFilters,
-  TOGGLE_CATEGORY_FILTER
+  TOGGLE_CATEGORY_FILTER,
+  TOGGLE_TAG_FILTER
 } from '../../../actions/index'
 import EventFilters from './EventFilters.jsx'
 
@@ -14,12 +15,12 @@ const mapDispatchToProps = dispatch => {
     initFilters: () => {
       dispatch(initFilters())
     },
-    toggleCategory: (filterState, category) => {
+    toggleCategory: (filterState) => {
       dispatch({ type: TOGGLE_CATEGORY_FILTER, filterState })
     },
-    // toggleTag: (filterState, category) => {
-
-    // }
+    toggleTag: (filterState) => {
+      dispatch({ type: TOGGLE_TAG_FILTER, filterState })
+    }
   })
 }
 

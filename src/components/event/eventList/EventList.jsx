@@ -30,8 +30,8 @@ class EventList extends Component {
 
             let venue = event.venueString || event.venue
 
-            return <EventCard key={event.id} name={event.name} imageUrl={event.imageUrl} venue={venue}
-            date={date} month={month} startTime={startTime} endTime={endTime} />
+            return <EventCard key={event.id} name={event.name} imageUrl={event.imageUrl} category={event.category} 
+            venue={venue} date={date} month={month} startTime={startTime} endTime={endTime} />
             }) 
           }
         </div>

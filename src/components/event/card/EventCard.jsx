@@ -1,21 +1,43 @@
 import React, { Component } from 'react'
 import cardStyle from './eventCard.css'
+import classNames from 'classnames'
 
-const EventCard = ({name, imageUrl, venue, date, month, startTime, endTime}) => {
+const EventCard = ({name, imageUrl, category, venue, date, month, startTime, endTime}) => {
   let cardImageStyle = {
     backgroundImage: `url(${imageUrl})` || 'url(https://www.resortcollection.com/wp-content/uploads/2015/11/resort-collection-blog-oct15-weekend-events-panama-city-beach-hero-e1447883346302.jpg)'
+  }
+
+  const categoryColorMap = {
+    HEALTH: "blue",
+    EDUCATION: "green",
+    SPORTS: "red",
+    CONCERTS: "purple",
+    ARTS_AND_THEATER: "orange",
+    SOCIALS: "yellow"
+  }
+
+  const categoryStringMap = {
+    HEALTH: "HEALTH",
+    EDUCATION: "EDUACTION",
+    SPORTS: "SPORTS",
+    CONCERTS: "CONCERTS",
+    ARTS_AND_THEATER: "ARTS AND THEATER",
+    SOCIALS: "SOCIALS"
   }
 
   return(
     <div className="eventCard">
       <div className="eventTopImage">
-        <div style={cardImageStyle} />
+        <div className="eventBackgroundImage" style={cardImageStyle} />
+        <div className={ classNames("eventCategory", categoryColorMap[category] ) }>
+          {categoryStringMap[category]}
+        </div>
       </div>
       <div className="bottomInfo">
         <div className="eventInfoLeft">
           <div className="eventTitle">
             <h4>{name}</h4>
-            <p>{venue}</p> {/* 123 Venue St, Kingston ON K5T 1S7 */}
+            <p>{venue}</p>
           </div>
           <div className="eventOrganization">
             <div className="orgLogo">

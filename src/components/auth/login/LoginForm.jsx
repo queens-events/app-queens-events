@@ -54,10 +54,10 @@ class LoginForm extends Component {
                 value={user.password}
                 onChange={onChange}
                 />
-                <div className="loginButton">
-                  <button>Login</button>
+                <div className="loginButtonContainer">
+                  <button className="loginQEButton">Login</button>
                 </div>
-                <p>Don't have an account? <Link to='/signup'>Create One</Link></p>
+                <p>Don't have an account? Create One</p>
 
                 { errors.failedLogin ? this.onFail(errors.message) : null }
               </div>
