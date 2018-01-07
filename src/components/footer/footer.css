@@ -1,0 +1,26 @@
+.landingPageFooter {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 50px;
+    margin-top: 2vw;
+    bottom: 0;
+    background-color: #545454;
+}
+
+.landingPageFooterText {
+    color: white;
+}
+
+.landingPageFooterTextList {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.landingPageFooterTextList > li {
+    padding: .5vw;
+}
