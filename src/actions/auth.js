@@ -15,6 +15,7 @@ export const SIGN_UP_FAILURE = 'SIGN_UP_FAILURE'
 export const UPDATE_SIGN_UP_INFO = 'UPDATE_SIGN_UP_INFO'
 export const TOGGLE_SIGN_UP_HIDDEN = 'TOGGLE_SIGN_UP_HIDDEN'
 export const CLEAR_SIGN_UP_FORM = 'CLEAR_SIGN_UP_FORM'
+export const TOGGLE_CREATE_EVENT_HIDDEN = 'TOGGLE_CREATE_EVENT_HIDDEN'
 
 export const LOG_OFF = 'LOG_OFF'
 
@@ -110,4 +111,8 @@ export const clearSignUpForm = () => {
 
 export const clearLoginForm = () => {
   return { type: CLEAR_LOGIN_FORM }
+}
+
+export const toggleCreateEventHidden = () => {
+  return { type: TOGGLE_CREATE_EVENT_HIDDEN }
 }

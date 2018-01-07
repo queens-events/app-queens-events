@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { toggleCreateEventHidden } from '../../../actions'
 import { connect } from 'react-redux'
 import EventAddForm from './EventAddForm.jsx'
 import EventAddScheduleForm from './EventAddScheduleForm.jsx'
@@ -12,12 +13,16 @@ const mapDispatchToProps = dispatch => {
     onSubmit: event => {
       event.preventDefault();
       event.target.reset()
-      dispatch(loadSignUp())
+      dispatch(loadCreateEvent())
     },
     onChange: event => {
       const { name, value } = event.target
       dispatch(updateSignUpInfo({ name, value }))
     },
+    toggleCreateEvent: () => {
+      dispatch()
+      dispatch(toggle)
+    }
   })
 }
 
