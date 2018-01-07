@@ -10,3 +10,7 @@
 	align-content: space-between;
 	justify-content: space-around;
 }
+
+.eventList > * {
+	margin: 0.8em 0em;
+}

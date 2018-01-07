@@ -72,8 +72,8 @@ class SignUpForm extends Component {
                 value={user.confirm_password}
                 onChange={onChange}
               />
-              <div className="signUpButton">
-                <button>Create Account</button>
+              <div className="signUpButtonContainer">
+                <button className="signUpQEButton">Create Account</button>
               </div>
 
               { errors.failedSignUp ? this.onFail(errors.message) : null }

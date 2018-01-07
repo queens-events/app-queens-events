@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import EventList from '../event/eventList/EventList.jsx'
+import EventList from '../event/eventList/EventListContainer.jsx'
 import VenueList from '../venue/venueList/VenueList.jsx'
 import OrganizationList from '../organization/organizationList/OrganizationList.jsx'
 import homeStyle from './home.css'
@@ -26,8 +26,6 @@ class Home extends Component {
           </div>
         </div>
         <EventList />
-        <OrganizationList />
-        <VenueList />
       </div>
     );
   }
