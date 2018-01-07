@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import DropDown from '../../DropDown.jsx';
-import eventStyle from './event.css'
 import classNames from 'classnames'
 import EventAdd from '../eventAdd/EventAdd.jsx'
+
+import eventFiltersStyle from './eventFilters.css'
 
 class EventFilters extends Component {
   constructor(props) {

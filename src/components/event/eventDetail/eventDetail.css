@@ -1,0 +1,26 @@
+.eventDetailContainer {
+	width: 100%;
+	height: 81vh;
+	display: flex;
+	padding: 15px 0px 0px 0px;
+}
+
+.eventDetailLeftContainer {
+    display: flex;
+    height: 100%;
+    width: 30%;
+}
+
+.eventDetailImage {
+    width: 100%;
+    height: 300px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.eventDetailRightContainer {
+    display: flex;
+    height: 100%;
+    width: 70%;
+}
