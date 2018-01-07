@@ -12,8 +12,6 @@
 	border: 2px solid grey;
 	border-radius: 10px;
 	padding: 10px;
-	/* display: flex; */
-	/* background-color: red; */
 }
 
 .eventFilterButton {
@@ -33,20 +31,17 @@
 .eventContent {
 	width: 75%;
 	height: 100%;
-	/* background-color: green; */
 	overflow-y: scroll;
 }
 
 .eventFilterList {
 	width: 100%;
 	height: 20%;
-	/* background-color: orange; */
 }
 
 .eventFilterCategories {
 	width: 100%;
 	height: 25%;
-	/* background-color: green; */
 }
 
 .eventFilterCategoryContainer {
@@ -97,13 +92,11 @@
 .eventFilterTags {
 	width: 100%;
 	height: 15%;
-	/* background-color: orange; */
 }
 
 .eventFilterSortBy {
 	width: 100%;
 	height: 15%;
-	/* background-color: green; */
 }
 
 .eventFilterSortByContainer {
@@ -111,24 +104,13 @@
 	flex-wrap: wrap;
 }
 
-/* .sortByRadio {
-	margin: 0 10px 0 10px;
-} */
-
 input[type="radio"]{
 	margin: 0 10px 0 10px;
 }
 
-/* .eventFileterOrg {
-	width: 100%;
-	height: 10%;
-	background-color: orange;
-}  */
-
 .eventFilterVenue {
 	width: 100%;
 	height: 15%;
-	/* background-color: orange;  */
 }
 
 .eventFilterAddEvent {

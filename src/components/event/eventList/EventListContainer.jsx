@@ -12,8 +12,6 @@ const filterEvents = (events, filters) => {
   if (filters) {
     filteredEvents = filterEventsCategories(events, filters)
     filteredEvents = filterEventsTags(filteredEvents, filters)
-
-    console.log(filteredEvents)
   } 
   else {
     filteredEvents = events
