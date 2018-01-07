@@ -57,9 +57,9 @@ class EventAdd extends Component {
         <button onClick={this.toggleHidden.bind(this)} className="landingButton">
           Create Event
         </button>
- 
-        {!this.state.hidden ? <EventAddForm onSubmit={this.nextForm.bind(this)} /> : null}
-        {!this.state.scheduleHidden ? <EventAddScheduleForm onSubmit={this.toggleSchedule.bind(this)} /> : null}
+
+        {!this.state.hidden ? <EventAddForm onSubmit={this.nextForm.bind(this)} onChange={null} userEvent={{ eventName: "", eventDescription: "", eventCost: "" }} /> : null}
+        {!this.state.scheduleHidden ? <EventAddScheduleForm onSubmit={this.toggleSchedule.bind(this)} onChange={null}  /> : null}
       </div> 
     );
   }

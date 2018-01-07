@@ -30,13 +30,7 @@ class EventAddScheduleForm extends Component {
     return (
       <div className="popup">
         <form
-          onSubmit={event => {
-            event.preventDefault()
-            event.target.reset()
-            console.log(this.state);
-            let postData = this.state;
-            postData.date = undefined;
-          }}
+          onSubmit={onSubmit}
           className="container">
 
           <div id="eventStart">
@@ -67,7 +61,7 @@ class EventAddScheduleForm extends Component {
           </div>
 
           <div id="submitDate">
-            <button className="landingButton" onClick={this.onSubmit.bind(this)}><h1>Submit Event</h1></button>
+            <input type="submit" value="Submit Event" className="landingButton"></input>
           </div>
 
         </form>

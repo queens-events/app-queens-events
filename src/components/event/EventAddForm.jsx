@@ -43,7 +43,7 @@ class EventAddForm extends Component {
             <div>
               <textarea
                 name="description"
-                value={userevent.eventname}
+                value={userEvent.eventDescription}
                 onChange={onChange}
                 cols="52" rows="10"
                 placeholder="Describe your event here! Make sure to include external links." />
@@ -68,8 +68,8 @@ class EventAddForm extends Component {
                 name="tags"
                 listItems={['19+', 'Free', 'In the Community', 'Live Music', 'All ages']}
                 dropText="Select Tags"
-                onChange={event => { (this.state.tags.indexOf(event.target.textContent) === -1) ? this.setState({ tags: this.state.tags.concat([event.target.textContent]) }) : null }} />
-              {console.log(this.state.tags)}
+                />
+             
             </div>
           </div>
 
@@ -78,8 +78,8 @@ class EventAddForm extends Component {
             <div>
               $
                 <input
-                  name="cost"
-                  value={this.state.cost}
+                name="cost"
+                value={userEvent.eventCost}
                   onChange={onChange} />
             </div>
           </div>
@@ -107,7 +107,7 @@ class EventAddForm extends Component {
           </div>
 
           <div id="submitForm">
-            <button className="landingButton" onClick={this.onSubmit.bind(this)}><h1>Next</h1></button>
+            <input type="submit" value="Next" className="landingButton"></input>
           </div>
         </form>
       </div>
