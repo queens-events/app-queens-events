@@ -18,7 +18,14 @@ class EventAddForm extends Component {
 
           className="container">
 
-
+          <div className="createEventHeader">
+            <div className="createEventHeaderText">
+              <p>Create an Event</p>
+            </div>
+            <div className="createEventHeaderExit">
+              <p>&times;</p>
+            </div>
+          </div>
           <div id="eventName">
             <h1>Title:</h1>
             <div>
@@ -53,11 +60,15 @@ class EventAddForm extends Component {
           <div id="eventCategory">
             <h1>Category:</h1>
             <div>
-              <DropDown
+              {/*<DropDown
                 name="category"
                 listItems={['Concert', 'Public Lecture', 'Fundraiser']}
                 dropText="Choose Category"
-                onChange={onChange} />
+                onChange={onChange} />*/}
+              <select>
+                <option value="Concert">Concert</option>
+                <option value="Public Lecture">Public Lecture</option>
+              </select>
             </div>
           </div>
 
