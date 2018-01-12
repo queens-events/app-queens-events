@@ -18,7 +18,6 @@ const Main = () => {
     <Switch>
       <Route exact path='/' component={Home} />
       <Route path='/about' component={About} />
-      {/* <Route path='/events' component={Event} /> */}
       <Route path='/organizations' component={Organization} />
       <Route path='/venues' component={Venue} />
       <Route path='/profile' component={ProfilePage} />

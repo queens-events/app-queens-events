@@ -125,7 +125,7 @@
 
 .eventCardButton {
 	background-color: #2f9acc;
-    border: 2px solid #1c648c;
+    /* border: 2px solid #1c648c; */
     border-radius: 4px;
     font-size: 1.25em;
     color: #fff;

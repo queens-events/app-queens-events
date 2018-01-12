@@ -9,7 +9,6 @@ class Event extends Component {
       <Switch>
         <Route path='/events' component={EventMain} />
         <Route path='/events/:eventId' component={EventDetail} />
-        <Route path='/events/something' render={() => <div>Something</div>} />
       </Switch>
     )
   }
