@@ -40,7 +40,6 @@ class EventAdd extends Component {
         </button>
  
         {!this.props.createEventHidden ? <EventAddForm onSubmit={this.nextForm.bind(this)} /> : null}
-        {/* {!this.state.scheduleHidden ? <EventAddScheduleForm onSubmit={this.toggleSchedule.bind(this)} /> : null} */}
       </div> 
     );
   }
