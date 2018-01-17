@@ -1,4 +1,4 @@
-import React,{ Component } from 'react'
+import React, { Component } from 'react'
 import _ from 'lodash'
 import axios from 'axios'
 import moment from 'moment'
@@ -30,7 +30,7 @@ class EventList extends Component {
 
             let venue = event.venueString || event.venue
 
-            return <EventCard key={event.id} name={event.name} imageUrl={event.imageUrl} category={event.category} 
+            return <EventCard key={event.id} id={event.id} name={event.name} imageUrl={event.imageUrl} category={event.category} 
             venue={venue} date={date} month={month} startTime={startTime} endTime={endTime} />
             }) 
           }

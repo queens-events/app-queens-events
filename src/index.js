@@ -8,6 +8,8 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import queensEventsApp from './reducers'
 import App from './components/App.jsx'
 
+require('dotenv').config()
+
 let store = createStore(
   queensEventsApp,
   { auth: { user: {}, errors: {} }},

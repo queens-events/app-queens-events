@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import cardStyle from './eventCard.css'
 import classNames from 'classnames'
 
-const EventCard = ({name, imageUrl, category, venue, date, month, startTime, endTime}) => {
+const EventCard = ({id, name, imageUrl, category, venue, date, month, startTime, endTime}) => {
   let cardImageStyle = {
     backgroundImage: `url(${imageUrl})` || 'url(https://www.resortcollection.com/wp-content/uploads/2015/11/resort-collection-blog-oct15-weekend-events-panama-city-beach-hero-e1447883346302.jpg)'
   }
@@ -55,7 +56,9 @@ const EventCard = ({name, imageUrl, category, venue, date, month, startTime, end
             <p>{startTime}-{endTime}</p>
           </div>
           <div className="eventButtons">
-            <button className="eventCardButton">More Info</button>
+            <Link to={`/events/${id}`}>
+              <button className="eventCardButton">More Info</button>
+            </Link>
           </div>
         </div>
       </div>

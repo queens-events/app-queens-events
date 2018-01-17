@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import EventAddForm from './EventAddForm.jsx'
+import EventAddForm from './EventAddFormContainer.jsx'
 import EventAddScheduleForm from './EventAddScheduleForm.jsx'
 
 
 class EventAdd extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       hidden: true,
       scheduleHidden: true
@@ -36,12 +35,11 @@ class EventAdd extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.toggleHidden.bind(this)} className="landingButton">
+        <button onClick={this.props.toggleCreateEventForm} className="landingButton">
           Create Event
         </button>
  
-        {!this.state.hidden ? <EventAddForm onSubmit={this.nextForm.bind(this)} /> : null}
-        {!this.state.scheduleHidden ? <EventAddScheduleForm onSubmit={this.toggleSchedule.bind(this)} /> : null}
+        {!this.props.createEventHidden ? <EventAddForm onSubmit={this.nextForm.bind(this)} /> : null}
       </div> 
     );
   }
