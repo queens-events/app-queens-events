@@ -20,7 +20,14 @@ class EventAddForm extends Component {
   render() {
     let { onChange, onChangeTimePickerStart, onChangeTimePickerEnd, onChangeDatePicker,
       onSubmit, onDrop, newEvent, toggleCreateEventForm } = this.props
-    
+
+    if (newEvent.category == undefined && newEvent.tag == undefined && newEvent.venue == undefined && newEvent.recurrence == undefined) {
+      newEvent.category = "HEALTH"
+      newEvent.tag = "19+_SOCIALS"
+      newEvent.venue = "Venue1"
+      newEvent.recurrence = "None"
+    }
+
     return (
       <div className='popup'>
         <form className="container" onSubmit={onSubmit}>
@@ -39,6 +46,7 @@ class EventAddForm extends Component {
               <div>
                 <input
                   name="title"
+                  type="text"
                   value={newEvent.title}
                   onChange={onChange} />
               </div>
@@ -60,6 +68,7 @@ class EventAddForm extends Component {
               <div>
                 <textarea
                   name="description"
+                  type="text"
                   value={newEvent.description}
                   onChange={onChange}
                   cols="52" rows="10"
@@ -95,7 +104,7 @@ class EventAddForm extends Component {
             <div id="eventCost">
               <h1>Cost ($):</h1>
               <div>
-                  <input name="cost" type="number" size="5" value={newEvent.cost} onChange={onChange} />
+                  <input name="cost" type="number" value={newEvent.cost} onChange={onChange} />
               </div>
             </div>
 
@@ -150,7 +159,7 @@ class EventAddForm extends Component {
             <div id="eventRecurrence">
               <h1>Event Recurrence</h1>
               <div>
-                <select name="recurrence" value={newEvent.recurrence} onChange={onChange}>
+                <select name="recurrence" value={newEvent.recurrence} defaultValue="None" onChange={onChange}>
                   <option value="None">None</option>
                   <option value="Weekly">Weekly</option>
                   <option value="Daily">Daily</option>

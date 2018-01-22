@@ -23,9 +23,8 @@ const mapDispatchToProps = dispatch => {
       event.preventDefault()
       event.target.reset()
       console.log("Event Attempted to be posted!")
-      if (filledFields < 7) {
+      if (filledFields < 3) {
         alert("Please fill all fields")
-        console.log(filledFields)
       }
       else {
         dispatch(postEvent())
@@ -34,8 +33,8 @@ const mapDispatchToProps = dispatch => {
     },
     onChange: event => {
       console.log(event)
-      const { name, value } = event.target
-      if (name !== tempName) {
+      const { name, value, type } = event.target
+      if (name !== tempName && (type == "text" || type == "number" || type == "textarea")) {
         filledFields++
         tempName = name
       }
