@@ -95,7 +95,7 @@ class EventAddForm extends Component {
             <div id="eventCost">
               <h1>Cost ($):</h1>
               <div>
-                  <input name="cost" size="5" value={newEvent.cost} onChange={onChange} />
+                  <input name="cost" type="number" size="5" value={newEvent.cost} onChange={onChange} />
               </div>
             </div>
 
