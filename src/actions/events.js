@@ -35,6 +35,7 @@ export const postEvent = () => async (dispatch, getState) => {
   let formData = new FormData();
   let state = getState()
   let newEvent = getState().events.newEvent
+  console.log(newEvent)
   let imagefile = getState().events.fileToBeSent
 
   formData.append("eventImageFile", imagefile[0]);

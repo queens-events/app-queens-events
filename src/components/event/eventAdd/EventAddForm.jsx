@@ -4,8 +4,6 @@ import DayPickerInput from 'react-day-picker/DayPickerInput'
 import TimePicker from 'rc-time-picker'
 import moment from 'moment'
 
-import DropDown from '../../DropDown.jsx'
-
 import "react-day-picker/lib/style.css"
 import 'rc-time-picker/assets/index.css'
 import "./eventAdd.css"
@@ -18,7 +16,7 @@ class EventAddForm extends Component {
   constructor(props) {
     super(props)
   }
-
+  
   render() {
     let { onChange, onChangeTimePickerStart, onChangeTimePickerEnd, onChangeDatePicker,
       onSubmit, onDrop, newEvent, toggleCreateEventForm } = this.props
@@ -40,7 +38,7 @@ class EventAddForm extends Component {
               <h1>Title:</h1>
               <div>
                 <input
-                  name="name"
+                  name="title"
                   value={newEvent.title}
                   onChange={onChange} />
               </div>
@@ -66,7 +64,6 @@ class EventAddForm extends Component {
                   onChange={onChange}
                   cols="52" rows="10"
                   placeholder="Describe your event here! Make sure to include external links." />
-                {console.log(newEvent.description)}
               </div>
             </div>
 
@@ -96,13 +93,9 @@ class EventAddForm extends Component {
             </div>
 
             <div id="eventCost">
-              <h1>Cost:</h1>
+              <h1>Cost ($):</h1>
               <div>
-                $
-                      <input
-                  name="cost"
-                  value={newEvent.cost}
-                  onChange={onChange} />
+                  <input name="cost" size="5" value={newEvent.cost} onChange={onChange} />
               </div>
             </div>
 
@@ -150,12 +143,23 @@ class EventAddForm extends Component {
             <div id="eventDate">
               <h1>Date:</h1>
               <div>
-                <DayPickerInput placeholder="DD/MM/YYYY" format="DD/MM/YYYY" onDayChange={onChangeDatePicker} />
+                <DayPickerInput placeholder="DD/MM/YYYY" format="DD/MM/YYYY" onDayChange={onChangeDatePicker} value={newEvent.date} />
+              </div>
+            </div>
+
+            <div id="eventRecurrence">
+              <h1>Event Recurrence</h1>
+              <div>
+                <select name="recurrence" value={newEvent.recurrence} onChange={onChange}>
+                  <option value="None">None</option>
+                  <option value="Weekly">Weekly</option>
+                  <option value="Daily">Daily</option>
+                </select>
               </div>
             </div>
 
             <div id="submitDate">
-              <button className="landingButton"><h1>Submit Event</h1></button>
+              <button className="landingButton" type="submit"><h1>Submit Event</h1></button>
             </div>
           </div>
         </form>

@@ -22,7 +22,6 @@ class EventAdd extends Component {
     this.setState({
       scheduleHidden: !this.state.scheduleHidden
     })
-
   }
 
   nextForm() {

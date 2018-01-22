@@ -7,6 +7,9 @@ import {
 } from '../../../actions/index'
 import EventAddForm from './EventAddForm.jsx'
 
+let filledFields = 0
+let tempName = ""
+
 const mapStateToProps = state => {
   return state.events
 }
@@ -17,14 +20,25 @@ const mapDispatchToProps = dispatch => {
       dispatch({ type: TOGGLE_CREATE_EVENT_HIDDEN })
     },
     onSubmit: event => {
-      event.preventDefault();
+      event.preventDefault()
       event.target.reset()
-      console.log("Event Attempted to by posted!")
-      dispatch(postEvent())
+      console.log("Event Attempted to be posted!")
+      if (filledFields < 7) {
+        alert("Please fill all fields")
+        console.log(filledFields)
+      }
+      else {
+        dispatch(postEvent())
+        dispatch({ type: TOGGLE_CREATE_EVENT_HIDDEN })
+      }
     },
     onChange: event => {
       console.log(event)
-      const {name, value} = event.target
+      const { name, value } = event.target
+      if (name !== tempName) {
+        filledFields++
+        tempName = name
+      }
       console.log('Fired from onChange')
       dispatch(updateNewEventInfo({ name, value }))
     },

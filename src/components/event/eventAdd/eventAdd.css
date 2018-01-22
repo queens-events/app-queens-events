@@ -24,7 +24,7 @@ input {
 
 
 /*All display elements*/
-#eventName, #eventPhoto, #eventDescription, #eventCategory, #eventCost, #eventOrg, #eventVenue, #submitDate, #eventTags, #eventStart, #eventEnd, #eventDate{
+#eventName, #eventPhoto, #eventDescription, #eventCategory, #eventCost, #eventOrg, #eventVenue, #submitDate, #eventTags, #eventStart, #eventEnd, #eventDate, #eventRecurrence{
 	padding-left: 45px;
 }
 
