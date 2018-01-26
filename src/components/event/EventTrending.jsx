@@ -3,7 +3,7 @@ import EventCard from '../cards/EventCard.jsx'
 import eventListStyle from '../../../style/eventList.css'
 
 // TODO, create table and calendar to show information
-const EventTrending = () => {
+const EventListScroller = () => {
   return(
     <div className="eventListContainer">
       <h1>Trending Events</h1>
@@ -21,4 +21,4 @@ const EventTrending = () => {
   );
 }
 
-export default EventTrending
+export default EventListScroller

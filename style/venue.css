@@ -26,7 +26,6 @@
 }
 
 .venueRightData {
-	/*background-color: yellow;*/
 	height: 50%;
 	width: 70%;
 	padding: 20px 0 0 0;
@@ -43,7 +42,6 @@
 }
 
 .venueLeftData {
-	/*background-color: green;*/
 	height: 100%;
 	width: 100%;
 }
@@ -60,7 +58,6 @@
 	display: flex;
 	align-items: center;
 	font-size: 1em;
-	/*background-color: #7fff00; /*#66023c;*/
 	height:25%;
 	width: 100%;
 	padding: 0 10px 0 10px;
