@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Switch, Route, Link } from 'react-router-dom'
-import ProfileEdit from './ProfileEdit.jsx'
+import ProfileEdit from './ProfileEditContainer.jsx'
 import EventList from '../event/eventList/EventList.jsx'
 import OrganizationList from '../organization/organizationList/OrganizationList.jsx'
 import cardStyle from './profile.css'
