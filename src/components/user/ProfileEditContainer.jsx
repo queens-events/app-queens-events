@@ -2,8 +2,6 @@
 import {
   loadSignUp,
   updateSignUpInfo,
-  clearSignUpForm,
-  toggleSignUpHidden 
 } from '../../actions/index'
 import ProfileEdit from './ProfileEdit.jsx'
 
