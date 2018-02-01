@@ -13,7 +13,7 @@ class ProfileEdit extends Component {
 
     return (
 
-      <form className="profileChangeContainer" onSumbit={onSubmit}>
+      <form className="profileChangeContainer" onSubmit={onSubmit}>
 
         <div className="leftContainer">
 

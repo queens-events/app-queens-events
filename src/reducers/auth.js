@@ -11,12 +11,13 @@ import {
   UPDATE_SIGN_UP_INFO,
   CLEAR_SIGN_UP_FORM,
   TOGGLE_SIGN_UP_HIDDEN,
-  LOG_OFF
+  LOG_OFF,
+  TOGGLE_PROFILE_HIDDEN
 } from '../actions/auth.js'
 
 
 const auth = (state = { user: {}, errors: {}, 
-  loginHidden: true, signUpHidden: true }, action) => {
+  loginHidden: true, signUpHidden: true, profileHidden: true }, action) => {
   
     let username
     let email
@@ -101,6 +102,11 @@ const auth = (state = { user: {}, errors: {},
         errors: {}
       })
 
+    case TOGGLE_PROFILE_HIDDEN:
+        return Object.assign({}, state, {
+          profileHidden: !state.profileHidden
+        })
+   
     default:
       return state
   }

@@ -4,7 +4,7 @@ import Home from '../home/Home.jsx'
 import Event from '../event/main/EventMain.jsx'
 import EventDetail from '../event/eventDetail/EventDetailContainer.jsx'
 import Venue from '../venue/Venue.jsx'
-import ProfilePage from '../user/ProfilePage.jsx'
+import ProfilePage from '../user/ProfilePageContainer.jsx'
 import Organization from '../organization/Organization.jsx'
 
 const About = () => {

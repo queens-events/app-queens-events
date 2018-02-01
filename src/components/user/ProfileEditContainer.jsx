@@ -2,6 +2,7 @@
 import {
   loadSignUp,
   updateSignUpInfo,
+  TOGGLE_PROFILE_HIDDEN
 } from '../../actions/index'
 import ProfileEdit from './ProfileEdit.jsx'
 
