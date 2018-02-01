@@ -4,12 +4,7 @@ import './profileForm.css'
 class ProfileEdit extends Component {
 
   render() {
-    const {
-      onSubmit,
-      onChange,
-      user,
-      errors
-    } = this.props
+    let { onSubmit, onChange, user, errors } = this.props
 
     return (
 
@@ -21,22 +16,23 @@ class ProfileEdit extends Component {
 
           <div className="formLeftElement">
             <h2>First Name</h2>
-            <input value={user.firstName} onChange={onChange} />
+            <input name="firstName" value={user.firstName} onChange={onChange} />
+            {console.log(user.firstName)}
           </div>
 
           <div className="formLeftElement">
             <h2>Last Name</h2>
-            <input value={user.lastName} onChange={onChange} />
+            <input name="lastName" value={user.lastName} onChange={onChange} />
           </div>
 
           <div className="formLeftElement">
             <h2>Email</h2>
-            <input value={user.email} onChange={onChange} />
+            <input name="email" value={user.email} onChange={onChange} />
           </div>
 
           <div className="formLeftElement">
             <h2>Phone</h2>
-            <input placeholder="XXX-XXX-XXXX" value={user.phoneNumber} onChange={onChange} />
+            <input name="phoneNumber" placeholder="XXX-XXX-XXXX" value={user.phoneNumber} onChange={onChange} />
           </div>
 
           <div className="publicSelector">
@@ -49,7 +45,7 @@ class ProfileEdit extends Component {
 
           <div className="biography">
             <h2>Bio</h2>
-            <textarea rows="5" placeholder="Describe Yourself!" value={user.bio} onChange={onChange} />
+            <textarea name="biography" rows="5" placeholder="Describe Yourself!" value={user.bio} onChange={onChange} />
           </div>
 
         </div>
@@ -60,21 +56,21 @@ class ProfileEdit extends Component {
 
           <div className="formRightElement">
             <h2>Old Password</h2>
-            <input value={user.old_password} onChange={onchange} />
+            <input name="old_password" value={user.old_password} onChange={onchange} />
           </div>
 
           <div className="formRightElement">
             <h2>New Password</h2>
-            <input value={user.password} onChange={onChange} />
+            <input name="new_password" value={user.password} onChange={onChange} />
           </div>
 
           <div className="formRightElement">
             <h2>Confirm New Password</h2>
-            <input value={user.confirm_password} onChange={onChange} />
+            <input name="confirm_password" value={user.confirm_password} onChange={onChange} />
           </div>
 
           <div className="updateBtn">
-            <button className="landingButton" type="submit"><h1>Update</h1></button>
+            <button className="landingButton"><h1>Update Info</h1></button>
           </div>
         </div>
 

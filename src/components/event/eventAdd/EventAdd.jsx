@@ -39,6 +39,8 @@ class EventAdd extends Component {
           Create Event
         </button>
 
+        {!this.props.createEventHidden ? <EventAddForm onSubmit={this.nextForm.bind(this)} /> : null}
+
       </div> 
     );
   }

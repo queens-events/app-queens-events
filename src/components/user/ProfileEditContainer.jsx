@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => {
     onSubmit: event => {
       event.preventDefault();
       event.target.reset()
-      dispatch(loadSignUp())
+      dispatch(updateSignUpInfo())
     },
     onChange: event => {
       const {name, value} = event.target
