@@ -1,109 +1,111 @@
-import {
-  LOGIN_REQUEST,
-  LOGIN_SUCCESS,
-  LOGIN_FAILURE,
-  UPDATE_LOGIN_INFO,
-  CLEAR_LOGIN_FORM,
-  TOGGLE_LOGIN_HIDDEN,
-  SIGN_UP_REQUEST,
-  SIGN_UP_SUCCESS,
-  SIGN_UP_FAILURE,
-  UPDATE_SIGN_UP_INFO,
-  CLEAR_SIGN_UP_FORM,
-  TOGGLE_SIGN_UP_HIDDEN,
-  LOG_OFF
-} from '../actions/auth.js'
+import axios from 'axios'
+import validator from '../../../helpers/validator.js'
 
+export const LOGIN_REQUEST = 'LOGIN_REQUEST'
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
+export const LOGIN_FAILURE = 'LOGIN_FAILURE'
+export const UPDATE_LOGIN_INFO = 'UPDATE_LOGIN_INFO'
+export const TOGGLE_LOGIN_HIDDEN = 'TOGGLE_LOGIN_HIDDEN'
+export const CLEAR_LOGIN_FORM = 'CLEAR_LOGIN_FORM'
 
-const auth = (state = { user: {}, errors: {}, 
-  loginHidden: true, signUpHidden: true }, action) => {
-  
-    let username
-    let email
-    let password
-    let confirm_password
-  
-    switch(action.type) {
-    case LOGIN_SUCCESS:
-      return Object.assign({}, state, {
-        user: { email: action.user.email, token: action.user.token},
-        errors: {}
-      })
+export const SIGN_UP_REQUEST = 'SIGN_UP_REQUEST'
+export const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS'
+export const SIGN_UP_FAILURE = 'SIGN_UP_FAILURE'
+export const UPDATE_SIGN_UP_INFO = 'UPDATE_SIGN_UP_INFO'
+export const TOGGLE_SIGN_UP_HIDDEN = 'TOGGLE_SIGN_UP_HIDDEN'
+export const CLEAR_SIGN_UP_FORM = 'CLEAR_SIGN_UP_FORM'
 
-    case LOGIN_FAILURE:
-      return Object.assign({}, state, {
-        errors: { failedLogin: true, message: 'Your username and password do not match our records'}
-      })
+export const LOG_OFF = 'LOG_OFF'
 
-    case UPDATE_LOGIN_INFO:
-      let field = action.event.name;
-      let user = Object.assign({}, state.user)
-      user[field] = action.event.value;
+const fetchLogin = (postData) => {
+  return async (dispatch) => {
+    try {
+      const { email } = postData
+      const loginData = await axios.post('https://stopmissingout.ca/authenticate', postData)
 
-      return Object.assign({}, state, {
-        user,
-      })
+      if (loginData.data.success == true) {
+        const token = loginData.data.payload;
 
-    case TOGGLE_LOGIN_HIDDEN:
-      return Object.assign({}, state, {
-        loginHidden: !state.loginHidden
-      })
-
-    case CLEAR_LOGIN_FORM:
-      email = ''
-      password = ''
-    
-      return Object.assign({}, state, {
-        user: { email, password },
-        errors: {}
-      })
-
-    case SIGN_UP_SUCCESS:
-      return Object.assign({}, state, {
-        user: { email: action.user.email, token: action.user.token },
-        errors: {} 
-      })
-
-    case SIGN_UP_FAILURE:
-      return Object.assign({}, state, {
-        user: { email: action.user.email, password: action.user.password },
-        errors: { failedSignUp: true, message: action.errors.message }
-      })
-
-    case UPDATE_SIGN_UP_INFO:
-      field = action.event.name;
-      user = Object.assign({}, state.user)
-      user[field] = action.event.value;
-
-      return Object.assign({}, state, {
-        user,
-      })
-
-    case TOGGLE_SIGN_UP_HIDDEN:
-      return Object.assign({}, state, {
-        signUpHidden: !state.signUpHidden
-      })
-
-    case CLEAR_SIGN_UP_FORM:
-      username = ''
-      email = ''
-      password = ''
-      confirm_password = ''
-    
-      return Object.assign({}, state, {
-        user: { username, email, password, confirm_password },
-        errors: {}
-      })
-
-    case LOG_OFF:
-      return Object.assign({}, state, {
-        user: {},
-        errors: {}
-      })
-
-    default:
-      return state
+        // window.sessionStorage.accessToken = token;
+        
+        dispatch({ type: LOGIN_SUCCESS, user: { email, token } })
+      }
+      else {
+        dispatch({ type: LOGIN_FAILURE, user: { email: '', password: '' } })
+      }
+    } catch (err) {
+      console.log(err)
+    }
   }
 }
 
-export default auth
+export const loadLogin = () => (dispatch, getState) => {
+  const state = getState()
+  const loginData = state.auth.user
+  return dispatch(fetchLogin(loginData))
+}
+
+export const updateLoginInfo = (event) => {
+  return { type: UPDATE_LOGIN_INFO, event }
+}
+
+export const toggleLoginHidden = () => {
+  return { type: TOGGLE_LOGIN_HIDDEN }
+}
+
+const fetchSignUp = (postData) => {
+  return async (dispatch) => {
+    try {
+      let { email, password, confirm_password } = postData
+      const blankUser = {
+        email: '',
+        password: '',
+        confirm_password: ''
+      }
+
+      if (!validator.validateEmail(email)){
+        let message = "The email given is invalid (perhaps doesn not include @ or domain name)"
+        dispatch({ type: SIGN_UP_FAILURE, user: blankUser, errors: { message } })
+      }
+      else if (password !== confirm_password) {
+        let message = "Password and confirm password do not match."
+        dispatch({ type: SIGN_UP_FAILURE, user: blankUser, errors: { message } })
+      }
+      else {
+        const loginData = await axios.post('https://stopmissingout.ca/authenticate/signup', postData);
+
+        if (loginData.data.success == true) {
+          const token = loginData.data.payload;
+          dispatch({ type: SIGN_UP_SUCCESS, user: { email, token } })
+        }
+        else {
+          dispatch({ type: SIGN_UP_FAILURE, user: blankUser })
+        }
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  }
+}
+
+export const loadSignUp = () => (dispatch, getState) =>{
+  const state = getState()
+  const signUpData = state.auth.user
+  return dispatch(fetchSignUp(signUpData))
+}
+
+export const updateSignUpInfo = (event) => {
+  return { type: UPDATE_SIGN_UP_INFO, event }
+}
+
+export const toggleSignUpHidden = () => {
+  return { type: TOGGLE_SIGN_UP_HIDDEN }
+}
+
+export const clearSignUpForm = () => {
+  return { type: CLEAR_SIGN_UP_FORM }
+}
+
+export const clearLoginForm = () => {
+  return { type: CLEAR_LOGIN_FORM }
+}
