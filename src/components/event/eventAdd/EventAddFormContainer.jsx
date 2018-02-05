@@ -7,8 +7,33 @@ import {
 } from '../../../actions/index'
 import EventAddForm from './EventAddForm.jsx'
 
-let filledFields = 0
-let tempName = ""
+let formValid = false
+let fieldValidateErrors = { title: 'Please give your event a name', description: 'Please give your form a description', cost: 'Please give a numeric cost'}
+let titleValid, descriptionValid, costValid = false
+
+const validateField = (fieldName, value) => {
+
+  switch (fieldName) {
+    case 'title':
+      titleValid = value.length > 0 //&& Check if title is already taken would go here
+      fieldValidateErrors.title = titleValid ? '' : 'Please give your event a name'
+      break;
+
+    case 'description':
+      descriptionValid = value.length > 0
+      fieldValidateErrors.description = descriptionValid ? '' : 'Please give your event a description'
+      break;
+
+    case 'cost':
+      costValid = value.length > 0 && !isNaN(value)
+      fieldValidateErrors.cost = costValid ? '' : 'Please give a numeric cost'
+      break;
+  }
+
+  formValid = titleValid && descriptionValid && costValid
+  
+}
+
 
 const mapStateToProps = state => {
   return state.events
@@ -23,8 +48,9 @@ const mapDispatchToProps = dispatch => {
       event.preventDefault()
       event.target.reset()
       console.log("Event Attempted to be posted!")
-      if (filledFields < 3) {
-        alert("Please fill all fields")
+      if (!formValid) {
+        const errorMessage = 'Error(s): \n' + fieldValidateErrors.title + '\n' + fieldValidateErrors.description + '\n' + fieldValidateErrors.cost
+        alert(errorMessage)
       }
       else {
         dispatch(postEvent())
@@ -33,11 +59,8 @@ const mapDispatchToProps = dispatch => {
     },
     onChange: event => {
       console.log(event)
-      const { name, value, type } = event.target
-      if (name !== tempName && (type == "text" || type == "number" || type == "textarea")) {
-        filledFields++
-        tempName = name
-      }
+      const { name, value } = event.target
+      validateField(name, value)     
       console.log('Fired from onChange')
       dispatch(updateNewEventInfo({ name, value }))
     },
