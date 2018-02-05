@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import {
   TOGGLE_CREATE_EVENT_HIDDEN,
-} from '../../../actions/index'
+} from '../../../connectors/redux/actions/index'
 import EventAdd from './EventAdd.jsx'
 
 const mapStateToProps = state => {
@@ -12,7 +12,7 @@ const mapDispatchToProps = dispatch => {
   return ({
     toggleCreateEventForm: () => {
       dispatch({ type: TOGGLE_CREATE_EVENT_HIDDEN })
-    }
+    },
   })
 }
 

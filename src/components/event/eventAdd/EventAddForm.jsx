@@ -4,8 +4,6 @@ import DayPickerInput from 'react-day-picker/DayPickerInput'
 import TimePicker from 'rc-time-picker'
 import moment from 'moment'
 
-import DropDown from '../../DropDown.jsx'
-
 import "react-day-picker/lib/style.css"
 import 'rc-time-picker/assets/index.css'
 import "./eventAdd.css"

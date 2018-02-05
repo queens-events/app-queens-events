@@ -3,7 +3,7 @@ import {
   updateLoginInfo,
   clearLoginForm,
   toggleLoginHidden
-} from '../../../actions'
+} from '../../../connectors/redux/actions'
 import { connect } from 'react-redux'
 import LoginForm from './LoginForm.jsx'
 

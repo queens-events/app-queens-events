@@ -1,28 +1,32 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-import thunkMiddleware from 'redux-thunk'
-import { createStore, applyMiddleware } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension';
-import { BrowserRouter as Router } from 'react-router-dom'
-import queensEventsApp from './reducers'
-import App from './components/App.jsx'
+import { AppContainer } from 'react-hot-loader'
 
-require('dotenv').config()
+// Your top level component
+import App from './App'
 
-let store = createStore(
-  queensEventsApp,
-  { auth: { user: {}, errors: {} }},
-  composeWithDevTools(
-    applyMiddleware(thunkMiddleware)
-  )
-)
+// Export your top level component as JSX (for static rendering)
+export default App
 
-ReactDOM.render(
-  <Provider store={store}>
-    <Router>
-      <App />
-    </Router>
-  </Provider>,
-  document.getElementById('root')
-);
+// Render your app
+if (typeof document !== 'undefined') {
+  const renderMethod = module.hot ? ReactDOM.render : ReactDOM.hydrate
+  const render = Comp => {
+    renderMethod(
+      <AppContainer>
+        <Comp />
+      </AppContainer>,
+      document.getElementById('root'),
+    )
+  }
+
+  // Render!
+  render(App)
+
+  // Hot Module Replacement
+  if (module.hot) {
+    module.hot.accept('./App', () => {
+      render(require('./App').default)
+    })
+  }
+}
