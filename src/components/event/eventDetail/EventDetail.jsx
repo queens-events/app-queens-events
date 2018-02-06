@@ -1,13 +1,13 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+import { withRouteData } from 'react-static'
 import MapGL, { Marker } from 'react-map-gl'
-// import {render} from 'react-dom';
+import 'mapbox-gl/dist/mapbox-gl.css'
 import CityPin from './city-pin'
-import eventDetailStyle from './eventDetail.css'
+import './eventDetail.css'
 
 class EventDetail extends Component {
-  constructor(props) {
-    super(props);
-    console.log(props)
+  constructor (props) {
+    super(props)
 
     this.state = {
       viewport: {
@@ -19,27 +19,29 @@ class EventDetail extends Component {
         width: 400,
         height: 300,
       },
-      popupInfo: null
+      popupInfo: null,
     }
-    
+
     this.cardImageStyle = {
-      backgroundImage: `url(${this.props.imageUrl})` || 'url(https://www.resortcollection.com/wp-content/uploads/2015/11/resort-collection-blog-oct15-weekend-events-panama-city-beach-hero-e1447883346302.jpg)'
+      backgroundImage: `url(${this.props.event.imageUrl})` || `url(https://www.resortcollection.com/wp-content/uploads/2015/11/resort-collection-blog-oct15-weekend-events-panama-city-beach-hero-e1447883346302.jpg)`
     }
   }
 
-  componentWillMount() {
-    
+  _updateViewport (viewport) {
+    this.setState({ viewport })
   }
 
-  _updateViewport(viewport) {
-    this.setState({viewport});
-  }
+  render () {
+    const { viewport } = this.state
+    const {
+      name,
+      date,
+      month,
+      startTime,
+      endTime,
+    } = this.props.event
 
-  render() {
-    
-    const {viewport} = this.state;
-    
-    return(
+    return (
       <div className="eventDetailContainer">
         <div className="eventDetailLeftContainter">
           <div>
@@ -48,31 +50,31 @@ class EventDetail extends Component {
           <div className="eventDetailMapbox">
             <MapGL
               {...viewport}
-              mapStyle={"mapbox://styles/mapbox/streets-v10"}
+              mapStyle={'mapbox://styles/mapbox/streets-v10'}
               onViewportChange={this._updateViewport}
             >
               <Marker
                 longitude={44.231}
                 latitude={-76.4860} >
-                <CityPin size={20} onClick={() => this.setState({popupInfo: city})} />
+                <CityPin size={20} onClick={() => this.setState({ popupInfo: city })} />
               </Marker>
             </MapGL>
           </div>
         </div>
         <div className="eventDetailRightContainer">
           <div className="eventDetailTitle">
-            <h1>{this.props.name}</h1>
+            <h1>{name}</h1>
           </div>
           <div className="eventDetailTiming">
             {/* <div className="eventDetailDate"> */}
             <div className="eventDetailDate">
-              <h1>{this.props.date}</h1>  
+              <h1>{date}</h1>  
             </div>
             <div className="eventDetailMonth">
-              <p>{this.props.month}</p>
+              <p>{month}</p>
             </div>
             <div className="eventDetailStartEndTime">
-              <p>{this.props.startTime}-{this.props.endTime}</p>
+              <p>{startTime}-{endTime}</p>
             </div>
           </div>
           <div className="eventDetailDescription">
@@ -81,12 +83,12 @@ class EventDetail extends Component {
             </p>
           </div>
           <div className="eventDetailInfo">
+            Here's where the good stuff will be!ß
           </div>
         </div>
       </div>
-      
-    );
+    )
   }
 }
 
-export default EventDetail
+export default withRouteData(EventDetail)

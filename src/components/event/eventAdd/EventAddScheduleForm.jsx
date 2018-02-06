@@ -1,6 +1,5 @@
 ﻿import React, { Component } from 'react';
 import DayPickerInput from 'react-day-picker/DayPickerInput'
-import DropDown from '../../DropDown.jsx'
 
 import "react-day-picker/lib/style.css"
 import "./eventAdd.css"

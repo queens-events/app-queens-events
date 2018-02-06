@@ -1,6 +1,5 @@
 import axios from 'axios'
-import authHTTP from '../middleware/authHTTP'
-import validator from '../helpers/validator.js'
+import validator from '../../../helpers/validator.js'
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
@@ -22,13 +21,13 @@ const fetchLogin = (postData) => {
   return async (dispatch) => {
     try {
       const { email } = postData
-      const loginData = await axios.post('https://stopmissingout.ca/authenticate', postData);
+      const loginData = await axios.post('https://stopmissingout.ca/authenticate', postData)
 
       if (loginData.data.success == true) {
         const token = loginData.data.payload;
-        
+
         // window.sessionStorage.accessToken = token;
-        // right now everyone can see the token you have
+        
         dispatch({ type: LOGIN_SUCCESS, user: { email, token } })
       }
       else {

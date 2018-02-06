@@ -3,7 +3,7 @@ import {
   initFilters,
   TOGGLE_CATEGORY_FILTER,
   TOGGLE_TAG_FILTER
-} from '../../../actions/index'
+} from '../../../connectors/redux/actions/index'
 import EventFilters from './EventFilters.jsx'
 
 const mapStateToProps = state => {
@@ -20,7 +20,7 @@ const mapDispatchToProps = dispatch => {
     },
     toggleTag: (filterState) => {
       dispatch({ type: TOGGLE_TAG_FILTER, filterState })
-    }
+    },
   })
 }
 

@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux'
+
 import auth from './auth'
 import events from './events'
 
-const queensEventsApp = combineReducers({
+const reducer = combineReducers({
   auth,
-  events
+  events,
 })
 
-export default queensEventsApp
+export default reducer
