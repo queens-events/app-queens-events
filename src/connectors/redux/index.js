@@ -11,8 +11,6 @@ if (typeof window === 'undefined') {
 /* eslint-disable no-underscore-dangle */
 const store = createStore(
   reducer,
-  // {}, // initial state
-  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   { auth: { user: {}, errors: {} } },
   composeWithDevTools(
     applyMiddleware(thunkMiddleware)

@@ -1,7 +1,6 @@
-# React-Static - Redux Example
+# QueensEvents React App
+React app that runs queens events web app
+ 
+Make sure to install `brew install libpng` to get images to work with webpack
 
-This example is based on the most basic version of react-static available, and adds:
-
-- React Redux
-
-To get started, run `react-static create` and use the `redux` template.
+To get started, run `yarn start`

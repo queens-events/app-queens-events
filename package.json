@@ -1,7 +1,9 @@
 {
-  "name": "react-static-example-apollo-redux",
-  "version": "1.0.1",
+  "name": "app-queens-events",
+  "version": "1.0.0",
   "main": "index.js",
+  "repository": "https://github.com/queens-events/app-queens-events",
+  "author": "Stephen Peterkins",
   "license": "MIT",
   "scripts": {
     "start": "react-static start",
