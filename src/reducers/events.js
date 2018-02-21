@@ -10,7 +10,7 @@ import {
     TOGGLE_CREATE_EVENT_HIDDEN,
     UPDATE_NEW_EVENT_INFO
 } from '../actions/events'
-import { EVENT_FILE_TO_BE_SENT } from '../actions/index';
+import { EVENT_FILE_TO_BE_SENT, REQUEST_SINGLE_EVENT_SUCCESS } from '../actions/index';
 
 const events = (state = { events: { events: {}, filters: {} }, newEvent: {}, createEventHidden: true }, action) => {
     let categories;
@@ -35,6 +35,11 @@ const events = (state = { events: { events: {}, filters: {} }, newEvent: {}, cre
       case TOGGLE_CREATE_EVENT_HIDDEN:
         return Object.assign({}, state, {
           createEventHidden: !state.createEventHidden
+        })
+
+      case REQUEST_SINGLE_EVENT_SUCCESS:
+        return Object.assign({}, state, {
+          singleEvent: action.singleEvent
         })
 
       case EVENT_FILE_TO_BE_SENT:

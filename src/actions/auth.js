@@ -1,5 +1,5 @@
 import axios from 'axios'
-import validator from '../../../helpers/validator.js'
+import validator from '../helpers/validator.js'
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'

@@ -3,13 +3,12 @@ import {
   LOG_OFF, 
   toggleLoginHidden,
   toggleSignUpHidden
-} from '../../connectors/redux/actions/index'
+} from '../../actions/index'
 import Header from './Header.jsx'
 
-const mapStateToProps = state => { 
+const mapStateToProps = state => {
   return state.auth
 }
-
 
 const mapDispatchToProps = dispatch => {
   return ({

@@ -2,7 +2,7 @@ import {
   loadSignUp,
   updateSignUpInfo,
   clearSignUpForm,
-  toggleSignUpHidden } from '../../../connectors/redux/actions'
+  toggleSignUpHidden } from '../../../actions'
 import { connect } from 'react-redux'
 import SignUpForm from './SignUpForm.jsx'
 

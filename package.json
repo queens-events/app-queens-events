@@ -1,38 +1,49 @@
 {
   "name": "app-queens-events",
+  "description": "QueenEvents React App",
   "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/queens-events/app-queens-events",
-  "author": "Stephen Peterkins",
-  "license": "MIT",
-  "scripts": {
-    "start": "react-static start",
-    "stage": "react-static build --staging",
-    "build": "react-static build",
-    "serve": "serve dist -p 3000"
-  },
+  "author": "Stephen Peterkins <stephen@peterkins.ca>",
   "dependencies": {
-    "axios": "^0.16.2",
+    "@fortawesome/fontawesome": "^1.1.3",
+    "@fortawesome/fontawesome-free-solid": "^5.0.6",
+    "@fortawesome/react-fontawesome": "^0.0.17",
+    "axios": "^0.17.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
     "bootstrap": "3.3.7",
-    "classnames": "^2.2.5",
-    "json-loader": "^0.5.7",
-    "moment": "^2.20.1",
+    "gatsby": "latest",
+    "gatsby-cli": "^1.1.41",
+    "gatsby-link": "^1.6.34",
     "rc-time-picker": "^3.2.1",
-    "react": "^16.0.0",
+    "react": "^16.2.0",
     "react-day-picker": "^7.0.7",
-    "react-dom": "^16.0.0",
     "react-dropzone": "^4.2.7",
-    "react-map-gl": "^3.2.1",
+    "react-map-gl": "^3.2.0",
     "react-redux": "^5.0.6",
-    "react-router": "^4.2.0",
-    "react-static": "latest",
+    "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.2.0",
-    "webpack-dotenv-plugin": "^2.0.2"
+    "regenerator-runtime": "^0.11.1",
+    "slash": "^1.0.0",
+    "slug": "^0.9.1"
+  },
+  "keywords": [
+    "react",
+    "frontend",
+    "website"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
+    "start": "gatsby build",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "eslint-config-react-tools": "1.x.x",
-    "serve": "^6.1.0"
+    "prettier": "^1.10.2"
   }
 }

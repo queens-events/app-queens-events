@@ -16,7 +16,7 @@ import {
 
 
 const auth = (state = { user: {}, errors: {}, 
-  loginHidden: true, signUpHidden: true }, action) => {
+  loginHidden: false, signUpHidden: false }, action) => {
   
     let username
     let email

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import {
   loadSingleEvent,
-} from '../../../connectors/redux/actions/index'
+} from '../../../actions/index'
 import EventDetail from './EventDetail.jsx'
 
 const mapStateToProps = state => {

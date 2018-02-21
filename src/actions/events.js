@@ -1,5 +1,7 @@
 import axios from 'axios'
 import moment from 'moment'
+import 'regenerator-runtime/runtime';
+//import authHTTP from '../middleware/authHTTP'
 
 export const REQUEST_EVENTS_SUCCESS = 'REQUEST_EVENTS_SUCCESS'
 export const REQUEST_EVENTS_FAILED = 'REQUEST_EVENTS_FAILED'
@@ -77,23 +79,24 @@ export const postEvent = () => async (dispatch, getState) => {
 
   formData.append("eventImageFile", imagefile[0]);
 
-  const imageUpload = await axios.post('https://stopmissingout.ca/api/v1/events/image-upload', formData, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-      'x-access-token': process.env.QE_TOKEN,
-    },
+  let imageUpload = await axios.post('https://stopmissingout.ca/api/v1/events/image-upload', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        'x-access-token': process.env.QE_TOKEN
+      }
   })
 
   newEvent["imageUrl"] = imageUpload.data.payload.location
   newEvent["startTime"] = moment(`${newEvent.selectedDay.format("YYYY-MM-DD")} ${newEvent.startTime.format("HH:mm")}`, "YYYY-MM-DD HH:mm").format()
   newEvent["endTime"] = moment(`${newEvent.selectedDay.format("YYYY-MM-DD")} ${newEvent.endTime.format("HH:mm")}`, "YYYY-MM-DD HH:mm").format()
   newEvent["selectedDay"] = undefined
-
-  const newEventResponseDate = await axios.post('https://stopmissingout.ca/api/v1/events', newEvent, {
+  console.log(newEvent);
+  
+  let newEventResponseDate = await axios.post('https://stopmissingout.ca/api/v1/events', newEvent, {
     headers: {
       'Content-Type': 'application/json',
       'x-access-token': process.env.QE_TOKEN
-    },
+    }
   })
 
   console.log(newEventResponseDate)
