@@ -47,6 +47,7 @@ const mapDispatchToProps = dispatch => {
     onSubmit: event => {
       event.preventDefault()
       event.target.reset()
+<<<<<<< HEAD
       console.log("Event Attempted to be posted!")
       if (!formValid) {
         const errorMessage = 'Error(s): \n' + fieldValidateErrors.title + '\n' + fieldValidateErrors.description + '\n' + fieldValidateErrors.cost
@@ -62,19 +63,26 @@ const mapDispatchToProps = dispatch => {
       const { name, value } = event.target
       validateField(name, value)     
       console.log('Fired from onChange')
+=======
+
+      dispatch(postEvent())
+    },
+    onChange: event => {
+      const {name, value} = event.target
+>>>>>>> master
       dispatch(updateNewEventInfo({ name, value }))
     },
     onChangeTimePickerStart: value => {
-      dispatch(updateNewEventInfo({ name: "startTime" , value }))
+      dispatch(updateNewEventInfo({ name: "startTime", value }))
     },
     onChangeTimePickerEnd: value => {
-      dispatch(updateNewEventInfo({ name: "endTime" , value }))
+      dispatch(updateNewEventInfo({ name: "endTime", value }))
     },
     onChangeDatePicker: day => {
-      dispatch(updateNewEventInfo({name: "selectedDay", value: day}))
+      dispatch(updateNewEventInfo({ name: "selectedDay", value: day }))
     },
     onDrop: file => {
-      dispatch({type: EVENT_FILE_TO_BE_SENT, file})
+      dispatch({ type: EVENT_FILE_TO_BE_SENT, file})
     }
   })
 }

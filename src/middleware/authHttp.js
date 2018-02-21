@@ -1,14 +1,14 @@
 import axios from 'axios'
 
-const createAuthHttp = async (token) => {
-    const authHttp = axios.create({
-        baseURL: 'https://stopmissingout.ca',
-        headers: {
-            Authorization: token
-        }
-    });
+const createAuthHttp = async token => {
+  const authHttp = axios.create({
+    baseURL: 'https://stopmissingout.ca',
+    headers: {
+      Authorization: token,
+    },
+  })
 
-    return authHttp
+  return authHttp
 }
 
 export default createAuthHttp

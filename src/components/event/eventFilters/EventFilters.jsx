@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import DropDown from '../../DropDown.jsx';
 import classNames from 'classnames'
 import EventAdd from '../eventAdd/EventAddContainer.jsx'
 

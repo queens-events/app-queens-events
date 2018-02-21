@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import Link from 'gatsby-link'
 import { connect } from 'react-redux'
 import headerStyle from './header.css'
 
@@ -15,10 +15,10 @@ class Header extends Component {
   componentWillReceiveProps(nextProps) {
     const { user, errors } = nextProps
 
-    this.state = {
+    this.setState({
       user,
       errors
-    }
+    })
   }
 
   loggedInHeader() {
