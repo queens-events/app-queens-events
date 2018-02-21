@@ -4,7 +4,7 @@ import {
   updateNewEventInfo,
   EVENT_FILE_TO_BE_SENT,
   TOGGLE_CREATE_EVENT_HIDDEN,
-} from '../../../connectors/redux/actions/index'
+} from '../../../actions/index'
 import EventAddForm from './EventAddForm.jsx'
 
 const mapStateToProps = state => {
@@ -19,11 +19,11 @@ const mapDispatchToProps = dispatch => {
     onSubmit: event => {
       event.preventDefault();
       event.target.reset()
-      console.log("Event Attempted to by posted!")
+
       dispatch(postEvent())
     },
     onChange: event => {
-      const { name, value } = event.target
+      const {name, value} = event.target
       dispatch(updateNewEventInfo({ name, value }))
     },
     onChangeTimePickerStart: value => {
@@ -33,11 +33,11 @@ const mapDispatchToProps = dispatch => {
       dispatch(updateNewEventInfo({ name: "endTime", value }))
     },
     onChangeDatePicker: day => {
-      dispatch(updateNewEventInfo({ name: "selectedDay", value: day}))
+      dispatch(updateNewEventInfo({ name: "selectedDay", value: day }))
     },
     onDrop: file => {
-      dispatch({ type: EVENT_FILE_TO_BE_SENT, file })
-    },
+      dispatch({ type: EVENT_FILE_TO_BE_SENT, file})
+    }
   })
 }
 

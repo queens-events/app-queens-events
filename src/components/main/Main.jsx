@@ -10,19 +10,19 @@ import Organization from '../organization/Organization.jsx'
 const About = () => {
   return (
     <h1>THIS IS THE ABOUT PAGE</h1>
-  )
+  );
 }
 
 const Main = () => {
-  return (
+  return(
     <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/organizations" component={Organization} />
-      <Route path="/venues" component={Venue} />
-      <Route path="/profile" component={ProfilePage} />
-      <Route exact path="/events" component={Event} />
-      <Route path="/events/:eventID" component={EventDetail} />
+      <Route exact path='/' component={Home} />
+      <Route path='/about' component={About} />
+      <Route path='/organizations' component={Organization} />
+      <Route path='/venues' component={Venue} />
+      <Route path='/profile' component={ProfilePage} />
+      <Route exact path='/events' component={Event} />
+      <Route path='/events/:eventID' component={EventDetail} />
     </Switch>
   )
 }

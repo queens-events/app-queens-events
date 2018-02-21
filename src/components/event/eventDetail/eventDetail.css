@@ -7,26 +7,27 @@
 
 .eventDetailLeftContainer {
     display: flex;
-    height: 100%;
+    height: 50%;
     width: 30%;
 }
 
 .eventDetailImage {
     width: 100%;
-    height: 40vh;
+    /* height: 100%;  */
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
 }
 
 .eventDetailMapbox {
-    margin-top: 15px;
+    padding: 15px;
 }
 
 .eventDetailRightContainer {
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
+    /* overflow: hidden; */
     height: 100%;
     width: 70%;
     padding: 10px;
@@ -43,12 +44,20 @@
     margin: 0;
 }
 
+.eventDetailSubtitle {
+    max-width: 50%;
+    display: flex;
+    margin-top: 15px;
+    flex-directon: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .eventDetailTiming {
-    width: 100%;
+    /* width: 100%; */
     height: 10%;
     display: flex;
-    margin: 0;
-    padding: 15px 0px 15px 0px;
+    /* margin: 0; */
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-end;
@@ -68,19 +77,19 @@
 .eventDetailDate {
     height: 100%;
     margin-right: 10px;
-    /* justify-content: center;
-    align-items: center; */
+    justify-content: center;
+    align-items: center;
 }
 
 .eventDetailDate > h1 {
-    font-size: 4em;
+    font-size: 2em;
     color: #cc612f;
     margin: 0;
 }
 
 .eventDetailMonth {
     height: 100%;
-    font-size: 2em;
+    font-size: 1em;
     font-weight: bold;
     /* margin-top: 5px; */
     margin: 0;
@@ -89,22 +98,51 @@
 
 .eventDetailStartEndTime {
     height: 100%;
-    font-size: 1.9em;
+    font-size: 1em;
     margin-top: 5px;
     justify-content: flex-start;
     align-items: flex-end;
 }
 
+.eventDetailVenue {
+    display: flex;
+}
+
 .eventDetailDescription {
     width: 100%;
-    /* height: 50%; */
     margin-top: 15px;
 }
 
 .eventDetailInfo {
     width: 100%;
-    height: 30%;
-    border: 1px solid grey;
+    border: 1px solid lightgrey;
     border-radius: 5px;
     background-color: #e8e7de;
+}
+
+.eventDetailVenueContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.eventDetailVenueInfo {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    padding: 5px;
+}
+
+.venueInfoContainer {
+    padding: 5px;
+}
+
+.locationTitle {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.venueBold {
+    font-size: 1.5em;
+    font-weight: bold;
 }

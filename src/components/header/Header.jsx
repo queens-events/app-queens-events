@@ -1,35 +1,35 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-static'
+import Link from 'gatsby-link'
 import { connect } from 'react-redux'
-import './header.css'
+import headerStyle from './header.css'
 
 class Header extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     const { user, errors } = props
     this.state = { user, errors }
   }
 
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps(nextProps) {
     const { user, errors } = nextProps
 
     this.setState({
       user,
-      errors,
+      errors
     })
   }
 
-  loggedInHeader () {
+  loggedInHeader() {
     return (
       <div className="navbarRightBox">
-        <Link to="/" onClick={this.props.onClick}>
+        <Link to='/' onClick={this.props.onClick}>
           <div className="navbarLink">
             Log Off
           </div>
         </Link>
-        <Link to="/profile">
+        <Link to='/profile'>
           <div className="navbarLink">
             Profile
           </div>
@@ -38,8 +38,8 @@ class Header extends Component {
     )
   }
 
-  loggedOutHeader () {
-    return (
+  loggedOutHeader() {
+    return(
       <div className="navbarRightBox">
         <div className="navbarLink" onClick={this.props.toggleSignUpForm}>
           Sign Up
@@ -50,33 +50,33 @@ class Header extends Component {
       </div>
     )
   }
-  render () {
-    return (
+  render(){
+    return(
       <div className="header">
         <div className="navbarLeftBox">
-          <Link to="/">
+          <Link to='/'>
             <div className="navbarLogo" />
           </Link>
           <div className="navbarLeftLinks">
-            <Link to="/events">
+            <Link to='/events'>
               <div className="navbarLink">
                 Events
               </div>
             </Link>
 
-            <Link to="/organizations">
+            <Link to='/organizations'>
               <div className="navbarLink">
                 Organizations
               </div>
             </Link>
 
-            <Link to="/venues">
+            <Link to='/venues'>
               <div className="navbarLink">
                 Venues
               </div>
             </Link>
 
-            <Link to="/about">
+            <Link to ='/about'>
               <div className="navbarLink">
                 About
               </div>
@@ -85,7 +85,7 @@ class Header extends Component {
         </div>
         { this.state.user.token ? this.loggedInHeader() : this.loggedOutHeader() }
       </div>
-    )
+    );
   }
 }
 
@@ -94,7 +94,7 @@ Header.propTypes = {
   toggleSignUpForm: PropTypes.func.isRequired,
   onClick: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
-  user: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired
 }
 
 export default Header
