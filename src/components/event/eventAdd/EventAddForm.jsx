@@ -76,49 +76,52 @@ class EventAddForm extends Component {
               </div>
             </div>
 
-            <div id="eventCategory">
-              <h1>Category:</h1>
-              <div>
-                <select name="category" value={newEvent.category} onChange={onChange}>
-                  <option value="HEALTH">Health</option>
-                  <option value="EDUCATION">Education</option>
-                  <option value="SPORTS">Sports</option>
-                  <option value="CONCERTS">Concerts</option>
-                  <option value="ARTS_AND_THEATER">Arts and Theater</option>
-                  <option value="SOCIALS">Socials</option>
-                </select>
+            <div id="horizontal">
+            
+              <div id="eventCategory">
+                <h1>Category:</h1>
+                <div>
+                  <select name="category" value={newEvent.category} onChange={onChange}>
+                    <option value="HEALTH">Health</option>
+                    <option value="EDUCATION">Education</option>
+                    <option value="SPORTS">Sports</option>
+                    <option value="CONCERTS">Concerts</option>
+                    <option value="ARTS_AND_THEATER">Arts and Theater</option>
+                    <option value="SOCIALS">Socials</option>
+                  </select>
+                </div>
               </div>
-            </div>
 
-            <div id="eventTags">
-              <h1>Tags:</h1>
-              <div>
-                <select name="tags" value={newEvent.tag} onChange={onChange}>
-                  <option value="19+_SOCIALS">19+</option>
-                  <option value="ALL_AGES">All Ages</option>
-                  <option value="FREE">Free</option>
-                </select>
+              <div id="eventTags">
+                <h1>Tags:</h1>
+                <div>
+                  <select name="tags" value={newEvent.tag} onChange={onChange}>
+                    <option value="19+_SOCIALS">19+</option>
+                    <option value="ALL_AGES">All Ages</option>
+                    <option value="FREE">Free</option>
+                  </select>
+                </div>
               </div>
-            </div>
 
-            <div id="eventCost">
-              <h1>Cost ($):</h1>
-              <div>
-                  <input name="cost" value={newEvent.cost} onChange={onChange} />
+              <div id="eventCost">
+                <h1>Cost ($):</h1>
+                <div>
+                    <input name="cost" value={newEvent.cost} onChange={onChange} />
+                </div>
               </div>
-            </div>
 
-            <div id="eventVenue">
-              <h1>Venue:</h1>
-              <div>
-                <select name="venue" value={newEvent.venue} onChange={onChange}>
-                  <option value="Venue1">Venue1</option>
-                  <option value="Venue2">Venue2</option>
-                  <option value="Venue3">Venue3</option>
-                </select>
+              <div id="eventVenue">
+                <h1>Venue:</h1>
+                <div>
+                  <select name="venue" value={newEvent.venue} onChange={onChange}>
+                    <option value="Venue1">Venue1</option>
+                    <option value="Venue2">Venue2</option>
+                    <option value="Venue3">Venue3</option>
+                  </select>
+                </div>
               </div>
+            
             </div>
-
             <div id="eventStart">
               <h1>Starting Time:</h1>
               <div>
@@ -133,7 +136,7 @@ class EventAddForm extends Component {
                   />
               </div>
             </div>
-
+            
             <div id="eventEnd">
               <h1>Ending Time:</h1>
               <div>
