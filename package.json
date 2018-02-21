@@ -13,7 +13,6 @@
     "babel-polyfill": "^6.26.0",
     "bootstrap": "3.3.7",
     "gatsby": "^1.9.204",
-    "gatsby-cli": "^1.1.41",
     "gatsby-link": "^1.6.34",
     "rc-time-picker": "^3.2.1",
     "react": "^16.2.0",
