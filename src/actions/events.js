@@ -44,18 +44,6 @@ const fetchSingleEvent = eventID => async dispatch => {
 
     let singleEvent = response.data.payload
 
-    // let startDateTime = moment(singleEvent.startTime).add(5, 'hours')
-
-    // singleEvent.date = startDateTime.format('D')
-    // singleEvent.month = startDateTime.format('MMM')
-
-    // singleEvent.startTime = startDateTime.format('LT')
-    // singleEvent.endTime = moment(singleEvent.endTime).add(5, 'hours').format('LT')
-
-    // singleEvent.venue = singleEvent.venueString || singleEvent.venue
-
-    // console.log(singleEvent);
-
     singleEvent = eventFormatter.dateFormat(singleEvent)
 
     dispatch({ type: REQUEST_SINGLE_EVENT_SUCCESS, singleEvent })

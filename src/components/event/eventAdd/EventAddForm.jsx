@@ -44,6 +44,16 @@ class EventAddForm extends Component {
               </div>
             </div>
 
+            <div className="eventName">
+              <h1>Import with Facebook:</h1>
+              <form>
+                <div>
+                  <input type="text" name="fbEventID" />
+                  <button className="landingButton">Import</button>
+                </div>
+              </form>
+            </div>
+
             <div id="eventPhoto">
               <h1>Event Photo:</h1>
               <div>
