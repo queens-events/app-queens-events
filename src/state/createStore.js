@@ -1,14 +1,13 @@
 import { createStore as reduxCreateStore, applyMiddleware } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { composeWithDevTools } from 'redux-devtools-extension'
 
 import thunkMiddleware from 'redux-thunk'
 import queensEventsApp from '../reducers'
 
-const createStore = () => reduxCreateStore(
+const createStore = () =>
+  reduxCreateStore(
     queensEventsApp,
-    composeWithDevTools(
-        applyMiddleware(thunkMiddleware)
-    )
-)
+    composeWithDevTools(applyMiddleware(thunkMiddleware))
+  )
 
 export default createStore

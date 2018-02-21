@@ -1,11 +1,11 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
-import Body from '../components/main/BodyContainer.jsx'
+import Home from '../components/home/Home.jsx'
 
 const IndexPage = () => (
   <div>
-    <Body />
+    <Home />
   </div>
 )
 

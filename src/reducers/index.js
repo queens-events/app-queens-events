@@ -4,7 +4,7 @@ import events from './events'
 
 const queensEventsApp = combineReducers({
   auth,
-  events
+  events,
 })
 
 export default queensEventsApp

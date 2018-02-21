@@ -24,7 +24,7 @@ const Main = () => {
       <Route exact path='/events' component={Event} />
       <Route path='/events/:eventID' component={EventDetail} />
     </Switch>
-  );
+  )
 }
 
 export default Main

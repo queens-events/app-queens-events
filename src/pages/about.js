@@ -1,9 +1,9 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import Link from 'gatsby-link'
 
-class About extends Component{
+class About extends Component {
   render() {
-    return(
+    return (
       <div>
         <h1>This is the about page!</h1>
       </div>

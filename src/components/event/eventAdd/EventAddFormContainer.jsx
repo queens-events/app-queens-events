@@ -19,7 +19,7 @@ const mapDispatchToProps = dispatch => {
     onSubmit: event => {
       event.preventDefault();
       event.target.reset()
-      console.log("Event Attempted to by posted!")
+
       dispatch(postEvent())
     },
     onChange: event => {
@@ -27,16 +27,16 @@ const mapDispatchToProps = dispatch => {
       dispatch(updateNewEventInfo({ name, value }))
     },
     onChangeTimePickerStart: value => {
-      dispatch(updateNewEventInfo({ name: "startTime" , value }))
+      dispatch(updateNewEventInfo({ name: "startTime", value }))
     },
     onChangeTimePickerEnd: value => {
-      dispatch(updateNewEventInfo({ name: "endTime" , value }))
+      dispatch(updateNewEventInfo({ name: "endTime", value }))
     },
     onChangeDatePicker: day => {
-      dispatch(updateNewEventInfo({name: "selectedDay", value: day}))
+      dispatch(updateNewEventInfo({ name: "selectedDay", value: day }))
     },
     onDrop: file => {
-      dispatch({type: EVENT_FILE_TO_BE_SENT, file})
+      dispatch({ type: EVENT_FILE_TO_BE_SENT, file})
     }
   })
 }

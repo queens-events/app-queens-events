@@ -1,6 +1,6 @@
 const _ = require(`lodash`);
 const path = require(`path`);
-const slug = require(`slug`);
+// const slug = require(`slug`);
 const slash = require(`slash`);
 const axios = require(`axios`);
 
@@ -39,7 +39,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               })
           })
   
-          return
+          return null
         })
       )
     })

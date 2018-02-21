@@ -9,24 +9,24 @@ import eventStyle from '../components/event/main/event.css'
 class Event extends Component {
   render() {
     return (
-    //   <div>    
-    //     <Route
-    //       render={({ location }) => (
-    //       <div>
-    //       <Route exact path="/events"
-    //         render={() => 
-    //           <div className="eventContainer">
-    //             <EventFilters />
-    //             <div className="eventContent">
-    //               <EventList />
-    //             </div>
-    //           </div>
-    //         }
-    //       />
-    //       </div>
-    //     )}
-    //   />
-    // </div>
+      //   <div>
+      //     <Route
+      //       render={({ location }) => (
+      //       <div>
+      //       <Route exact path="/events"
+      //         render={() =>
+      //           <div className="eventContainer">
+      //             <EventFilters />
+      //             <div className="eventContent">
+      //               <EventList />
+      //             </div>
+      //           </div>
+      //         }
+      //       />
+      //       </div>
+      //     )}
+      //   />
+      // </div>
       <div className="eventContainer">
         <EventFilters />
         <div className="eventContent">

@@ -15,10 +15,10 @@ class Header extends Component {
   componentWillReceiveProps(nextProps) {
     const { user, errors } = nextProps
 
-    this.setState = {
+    this.setState({
       user,
       errors
-    }
+    })
   }
 
   loggedInHeader() {

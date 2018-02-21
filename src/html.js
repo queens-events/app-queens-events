@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 
 let stylesStr
 if (process.env.NODE_ENV === `production`) {
@@ -23,7 +23,7 @@ module.exports = class HTML extends React.Component {
           <title>Queen's Events</title>
         </head>
         <body>
-        {...this.props.bodyAttributes}
+          {...this.props.bodyAttributes}
           {this.props.preBodyComponents}
           <div
             key={`body`}

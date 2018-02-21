@@ -12,8 +12,6 @@ class Body extends Component {
     return (
       <div>
         <Main />
-        {/* {this.props.auth.loginHidden ? <Login /> : null }
-        {this.props.auth.signUpHidden ? <SignUp /> : null } */}
       </div>
     );
   }
