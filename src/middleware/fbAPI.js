@@ -1,26 +1,32 @@
 import axios from 'axios'
+import 'regenerator-runtime/runtime'
 
-export default fbAPI = () => {
-  const graphAPIString = "https://graph.facebook.com"
-  const eventFields = [
-    id,
-    cover,
-    description,
-    category,
-    start_time,
-    end_time,
-    place,name
-  ].join(',')
+const fbAPI = () => {
+  return {
+    eventFields: [
+      "id",
+      "name",
+      "cover",
+      "description",
+      "category",
+      "start_time",
+      "end_time",
+      "place",
+    ].join(','),
 
-  const api = axios.create({
-    baseURL: graphAPIString,
-    headers: {
-      Authorization: process.env.FB_ACCESS_TOKEN
-    }
-  })
+    api:
+      axios.create({
+        baseURL: "https://graph.facebook.com",
+        headers: {
+          Authorization: `Bearer ${process.env.FB_ACCESS_TOKEN}`
+        }
+      }),
 
-  getEventByID(fbEventID) = async () => {
-    const eventResponse = api.get(`/${fbEventID}?fields=${eventFields}`)
-    console.log(eventResponse)
+    async getEventByID(fbEventID) {
+      return await this.api.get(`/${fbEventID}?fields=${this.eventFields}`)
+    },
   }
 }
+
+
+export default fbAPI

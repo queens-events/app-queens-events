@@ -1,6 +1,8 @@
 import axios from 'axios'
 import moment from 'moment'
 import eventFormatter from '../helpers/event-formater'
+import fbAPI from '../middleware/fbAPI'
+
 import 'regenerator-runtime/runtime'
 // import authHTTP from '../middleware/authHTTP'
 
@@ -19,6 +21,8 @@ export const UPDATE_NEW_EVENT_INFO = 'UPDATE_NEW_EVENT_INFO'
 export const CREATE_EVENT = 'CREATE_EVENT'
 export const EDIT_EVENT = 'EDIT_EVENT'
 export const DELETE_EVENT = 'DELETE_EVENT'
+
+export const IMPORT_FB_EVENT = 'IMPORT_FB_EVENT'
 
 const fetchEvents = () => async dispatch => {
   try {
@@ -104,6 +108,13 @@ export const postEvent = () => async (dispatch, getState) => {
 
   // Remove this in final version
   console.log(newEventResponseDate)
+}
+
+export const importFBEvent = () => async (dispatch, getState) => {
+  const { fbEventID } = getState().events.newEvent
+  const api = fbAPI()
+  const fbEvent = await api.getEventByID(fbEventID)
+  console.log(fbEvent.data)
 }
 
 export const updateNewEventInfo = newEvent => ({

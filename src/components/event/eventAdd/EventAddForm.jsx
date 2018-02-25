@@ -19,8 +19,8 @@ class EventAddForm extends Component {
 
   render() {
     let { onChange, onChangeTimePickerStart, onChangeTimePickerEnd, onChangeDatePicker,
-      onSubmit, onDrop, newEvent, toggleCreateEventForm } = this.props
-    
+      onSubmit, onDrop, newEvent, toggleCreateEventForm, importFBEvent } = this.props
+
     return (
       <div className='popup'>
         <form className="container" onSubmit={onSubmit}>
@@ -46,12 +46,17 @@ class EventAddForm extends Component {
 
             <div className="eventName">
               <h1>Import with Facebook:</h1>
-              <form>
-                <div>
-                  <input type="text" name="fbEventID" />
-                  <button className="landingButton">Import</button>
-                </div>
-              </form>
+              <div>
+                <input
+                  type="text"
+                  name="fbEventID"
+                  value={newEvent.fbeventID}
+                  onChange={onChange}/>
+                <button
+                  type="button"
+                  onClick={importFBEvent}
+                  className="landingButton">Import</button>
+              </div>
             </div>
 
             <div id="eventPhoto">
@@ -163,7 +168,7 @@ class EventAddForm extends Component {
             </div>
 
             <div id="submitDate">
-              <button className="landingButton"><h1>Submit Event</h1></button>
+              <button type="submit" className="landingButton"><h1>Submit Event</h1></button>
             </div>
           </div>
         </form>

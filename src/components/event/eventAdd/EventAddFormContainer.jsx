@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import {
   postEvent,
+  importFBEvent,
   updateNewEventInfo,
   EVENT_FILE_TO_BE_SENT,
   TOGGLE_CREATE_EVENT_HIDDEN,
@@ -37,7 +38,10 @@ const mapDispatchToProps = dispatch => {
     },
     onDrop: file => {
       dispatch({ type: EVENT_FILE_TO_BE_SENT, file})
-    }
+    },
+    importFBEvent: () => {
+      dispatch(importFBEvent())
+    },
   })
 }
 
