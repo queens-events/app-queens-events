@@ -8,6 +8,7 @@ import {
   EDIT_EVENT,
   DELETE_EVENT,
   TOGGLE_CREATE_EVENT_HIDDEN,
+  TOGGLE_PREVIEW_EVENT_HIDDEN,
   UPDATE_NEW_EVENT_INFO,
 } from '../actions/events'
 import {
@@ -44,9 +45,15 @@ const events = (
       return Object.assign({}, state, {
         filters: Object.assign({}, state.filters, { tags: action.filterState }),
       })
+
     case TOGGLE_CREATE_EVENT_HIDDEN:
       return Object.assign({}, state, {
         createEventHidden: !state.createEventHidden,
+      })
+
+    case TOGGLE_PREVIEW_EVENT_HIDDEN:
+      return Object.assign({}, state, {
+        previewEventHidden: !state.previewEventHidden,
       })
 
     case REQUEST_SINGLE_EVENT_SUCCESS:

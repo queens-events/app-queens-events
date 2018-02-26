@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import EventAddForm from './EventAddFormContainer.jsx'
 import EventAddScheduleForm from './EventAddScheduleForm.jsx'
+import EventAddPreview from './EventAddPreviewContainer.jsx'
 
 
 class EventAdd extends Component {
@@ -39,7 +40,8 @@ class EventAdd extends Component {
           Create Event
         </button>
 
-        {!this.props.createEventHidden ? <EventAddForm onSubmit={this.nextForm.bind(this)} /> : null}
+        {/* {!this.props.createEventHidden ? <EventAddForm onSubmit={this.nextForm.bind(this)} /> : null} */}
+        {!this.props.previewEventHidden ? <EventAddPreview onSubmit={this.nextForm.bind(this)} /> : null}
       </div>
     );
   }
