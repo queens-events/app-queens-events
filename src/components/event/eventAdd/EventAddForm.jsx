@@ -1,14 +1,14 @@
 ﻿import React, { Component } from 'react'
 import Dropzone from 'react-dropzone'
 import DayPickerInput from 'react-day-picker/DayPickerInput'
-import TimePicker from 'rc-time-picker'
 import moment from 'moment'
+import TimePicker from 'react-times'
 
+import 'react-times/css/classic/default.css'
 import "react-day-picker/lib/style.css"
-import 'rc-time-picker/assets/index.css'
 import "./eventAdd.css"
 
-const format = 'h:mm a'
+const format = 'hh:mm'
 const now = moment().hour(0).minute(0)
 
 class EventAddForm extends Component {
@@ -127,12 +127,11 @@ class EventAddForm extends Component {
               <div>
                   <TimePicker
                     name="startTime"
-                    showSecond={false}
-                    defaultValue={now}
-                    value={newEvent.startTime}
-                    onChange={onChangeTimePickerStart}
+                    theme="classic"
                     format={format}
-                    use12Hours
+                    timeMode="24"
+                    value={newEvent.startTime}
+                    onTimeChange={onChangeTimePickerStart}
                   />
               </div>
             </div>
@@ -141,13 +140,12 @@ class EventAddForm extends Component {
               <h1>Ending Time:</h1>
               <div>
                   <TimePicker
-                    showSecond={false}
-                    defaultValue={now}
                     name="endTime"
-                    value={newEvent.endTime}
-                    onChange={onChangeTimePickerEnd}
+                    theme="classic"
                     format={format}
-                    use12Hours
+                    timeMode="24"
+                    value={newEvent.endTime}
+                    onTimeChange={onChangeTimePickerStart}
                   />
               </div>
             </div>
