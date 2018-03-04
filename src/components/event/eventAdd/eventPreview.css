@@ -13,70 +13,219 @@
 	height: 100%;
 	z-index: 1000 !important;
 	background-color: rgba(0,0,0, 0.5);
-	overflow-y: auto;
 	/* display: inline-block; */
 }
 
 .previewContainer {
-	/* display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	*/
 	display: grid;
-	grid-template-columns: 20% auto [last-column] 7%;
-	grid-template-rows: [first-row] 10% 40% auto;
+	grid-gap: 1em; /* 2 */
+	margin: 1em auto; /* 2, 3 */
+	max-width: 68em; /* 4 */
+	padding: 0 1em 1em; /* 2 */
 
 	border: 1px solid grey;
 	border-radius: 10px;
-	margin-top: 40px;
-	width: 80%; /* 60em*/
+
+	margin-top: 2em;
+	margin-bottom: 2em;
+
 	background: white;
+	overflow-y: auto;
 }
 
 .previewEventHeader {
-	grid-column-start: 1;
-	grid-column-end: 3;
 	font-size: 3em;
-	padding: 10px 0px 0px 20px;
+
+	justify-self: start;
+	align-self: start;
+
+	/* autoprefixer: off */
+	/* grid-column-start: 2;
+	grid-column-end: 3; */
+
+	/* autoprefixer: off */
+	/* grid-row-start: 2;
+	grid-row-end: 3; */
 }
 
 .previewEventHeaderExit {
 	font-size: 2em;
 	cursor: pointer;
-	margin: auto;
 
-	grid-column: last-column;
-	grid-row: first-row;
+	margin-top: .1em;
+
+	justify-self: end;
+	align-self: start;
+
+	/* grid-column: last-column;
+
+	/* autoprefixer: off */
+	/*grid-row-start: 1;
+	grid-row-end: first-row; */
 }
 
 .eventPic {
-	width: 100%;
+	/* autoprefixer: off */
+	/* grid-column: 2 / 3;
+	grid-row: 3 / 4; */
+	/* grid-row: 1fr; */
+	/* grid-auto-rows: min-content; 1 */
+	display: inherit;
+	/* width: 100%; */
+	/* height: 3em; */
 }
 
-.eventPreviewlImage {
+.eventPreviewImage {
     width: 100%;
-    /* height: 100%;  */
+	height: 100%;
+
+	background-image: url("https://www.resortcollection.com/wp-content/uploads/2015/11/resort-collection-blog-oct15-weekend-events-panama-city-beach-hero-e1447883346302.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
 }
 
-.eventName {
+.eventContent {
+	display: inherit;
 	width: 100%;
+
+	/* grid-column-start: 3;
+	grid-column-end: 5; */
+	/* autoprefixer: off */
+}
+
+@media (min-width: 34em) and (max-width: 49.9375em) {
+	.previewContainer {
+		grid-template-columns: 1fr;
+	}
+
+	.eventPic {
+		/* grid-auto-rows: min-content; */
+		height: 20em;
+		/* autoprefixer: off */
+		grid-row: 2 / 3;
+		grid-column: 1 / 3;
+	}
+
+	.eventContent {
+		/* autoprefixer: off */
+		grid-auto-rows: min-content;
+		grid-column: 1 / 3;
+	}
+}
+
+@media (min-width: 50em) {
+	.previewContainer {
+		/* autoprefixer: off */
+		grid-template-columns: 4fr 5fr;
+		/* grid-template-columns: 40% auto [last-column] 7%; */
+		/* grid-template-rows: 10% 40% auto; */
+		grid-template-rows: 1fr 2fr;
+	}
+
+	/**
+		* 1. Automatically create sidebar rows that are as short as their content will allow.
+		* 2. Make this element span two rows, allowing prose elements to flow to its left.
+		*/
+
+	.eventContent {
+		/* grid-auto-rows: min-content; 1 */
+		/* grid-row: span 2; 2 */
+		/* grid-row: 3 / 4;
+		grid-column-start: 3;
+		grid-column-end: 5; */
+
+		/* autoprefixer: off */
+		grid-row: 2 / 3;
+		grid-column: 2 / 3;
+	}
+
+	.eventPic {
+		/* grid-auto-rows: min-content; */
+		height: 20em;
+		/* autoprefixer: off */
+		grid-row: 2 / 3;
+		grid-column: 1 / 2;
+	}
+}
+
+.eventName {
+	justify-self: center;
+	align-self: center;
+}
+
+.eventName > h2 {
+	font-size: 3.5em;
+	justify-self: center;
+	align-self: center;
 }
 
 .eventVenue {
-	width: 100%;
+	justify-self: center;
+	align-self: center;
 }
 
 .eventStartTime {
-	width: 100%
+	justify-self: center;
+	align-self: center;
 }
 
-.eventEndTime {
-	width: 100%
+/* .eventEndTime {
+	justify-self: center;
+	align-self: center;
+} */
+
+.eventAdditionalInfo {
+	display: grid;
+	width: 100%;
+
+	/* autoprefixer: off */
+	grid-column-start: 1;
+	grid-column-end: 3;
+
+	/* grid-row-start: 4;
+	grid-row-end: 5; */
 }
 
 .eventDescription {
 	width: 100%;
+	font-size: 1.2em;
+}
+
+.eventLocation {
+	width: 100%;
+}
+
+.eventLocationTitle {
+	width: 100%
+}
+
+.eventLocationContent {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.eventDetails {
+	width: 100%;
+}
+
+.eventDetailsTitle {
+	width: 100%
+}
+
+.eventDetailsContent {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.submitButton {
+	grid-column: 2;
+	justify-self: end;
+	align-self: end;
+
+	background-color: #2f9acc;
+    border: 2px solid #1c648c;
+    border-radius: 4px;
+	font-size: 1.5em;
+	color: #fff;
 }
