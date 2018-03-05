@@ -5,6 +5,7 @@ import {
   updateNewEventInfo,
   EVENT_FILE_TO_BE_SENT,
   TOGGLE_CREATE_EVENT_HIDDEN,
+  TOGGLE_PREVIEW_EVENT_HIDDEN,
 } from '../../../actions/index'
 import EventAddForm from './EventAddForm.jsx'
 
@@ -16,6 +17,10 @@ const mapDispatchToProps = dispatch => {
   return ({
     toggleCreateEventForm: () => {
       dispatch({ type: TOGGLE_CREATE_EVENT_HIDDEN })
+    },
+    togglePreviewEventForm: () => {
+      dispatch({ type: TOGGLE_CREATE_EVENT_HIDDEN })
+      dispatch({ type: TOGGLE_PREVIEW_EVENT_HIDDEN })
     },
     onSubmit: event => {
       event.preventDefault();
@@ -41,6 +46,9 @@ const mapDispatchToProps = dispatch => {
     },
     importFBEvent: () => {
       dispatch(importFBEvent())
+
+      dispatch({ type: TOGGLE_CREATE_EVENT_HIDDEN })
+      dispatch({ type: TOGGLE_PREVIEW_EVENT_HIDDEN })
     },
   })
 }

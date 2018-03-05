@@ -16,6 +16,7 @@ input {
 	margin-top: 40px;
 	width: 700px;
 	background-color: white;
+	overflow-y: auto;
 }
 
 #eventName, #eventPhoto, #submitDate {

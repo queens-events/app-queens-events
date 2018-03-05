@@ -19,7 +19,8 @@ class EventAddForm extends Component {
 
   render() {
     let { onChange, onChangeTimePickerStart, onChangeTimePickerEnd, onChangeDatePicker,
-      onSubmit, onDrop, newEvent, toggleCreateEventForm, importFBEvent } = this.props
+      onSubmit, onDrop, newEvent, toggleCreateEventForm, togglePreviewEventForm,
+      importFBEvent } = this.props
 
     return (
       <div className='popup'>
@@ -168,7 +169,10 @@ class EventAddForm extends Component {
             </div>
 
             <div id="submitDate">
-              <button type="submit" className="landingButton"><h1>Submit Event</h1></button>
+              <button type="button"
+                  onClick={togglePreviewEventForm}
+                  className="landingButton">Preview</button>
+              <button type="submit" className="landingButton">Submit Event</button>
             </div>
           </div>
         </form>

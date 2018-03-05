@@ -9,7 +9,9 @@ import {
   DELETE_EVENT,
   TOGGLE_CREATE_EVENT_HIDDEN,
   TOGGLE_PREVIEW_EVENT_HIDDEN,
+  CLEAR_NEW_EVENT_INFO,
   UPDATE_NEW_EVENT_INFO,
+  UPDATE_NEW_EVENT_WITH_FB,
 } from '../actions/events'
 import {
   EVENT_FILE_TO_BE_SENT,
@@ -21,10 +23,12 @@ const events = (
     events: { events: {}, filters: {} },
     newEvent: {},
     createEventHidden: true,
+    previewEventHidden: true,
   },
   action
 ) => {
   let categories
+  let newEvent
 
   switch (action.type) {
     case REQUEST_EVENTS_SUCCESS:
@@ -68,11 +72,21 @@ const events = (
 
     case UPDATE_NEW_EVENT_INFO:
       const field = action.newEvent.name
-      const newEvent = Object.assign({}, state.newEvent)
+      newEvent = Object.assign({}, state.newEvent)
       newEvent[field] = action.newEvent.value
 
       return Object.assign({}, state, {
         newEvent,
+      })
+
+    case CLEAR_NEW_EVENT_INFO:
+      return Object.assign({}, state, {
+        newEvent: {}
+      })
+
+    case UPDATE_NEW_EVENT_WITH_FB:
+      return Object.assign({}, state, {
+        newEvent: action.newEventFromFB,
       })
 
     default:

@@ -8,6 +8,7 @@ import 'regenerator-runtime/runtime'
 
 export const REQUEST_EVENTS_SUCCESS = 'REQUEST_EVENTS_SUCCESS'
 export const REQUEST_EVENTS_FAILED = 'REQUEST_EVENTS_FAILED'
+
 export const INIT_FILTERS = 'INIT_FILTERS'
 export const TOGGLE_CATEGORY_FILTER = 'TOGGLE_CATEGORY_FILTER'
 export const TOGGLE_TAG_FILTER = 'TOGGLE_TAG_FILTER'
@@ -19,12 +20,15 @@ export const EVENT_FILE_TO_BE_SENT = 'EVENT_FILE_TO_BE_SENT'
 export const REQUEST_SINGLE_EVENT_SUCCESS = 'REQUEST_SINGLE_EVENT_SUCCESS'
 export const REQUEST_SINGLE_EVENT_FAILURE = 'REQUEST_SINGLE_EVENT_FAILURE'
 
-export const UPDATE_NEW_EVENT_INFO = 'UPDATE_NEW_EVENT_INFO'
 export const CREATE_EVENT = 'CREATE_EVENT'
 export const EDIT_EVENT = 'EDIT_EVENT'
 export const DELETE_EVENT = 'DELETE_EVENT'
 
+export const UPDATE_NEW_EVENT_INFO = 'UPDATE_NEW_EVENT_INFO'
+export const CLEAR_NEW_EVENT_INFO = 'CLEAR_NEW_EVENT_INFO'
+
 export const IMPORT_FB_EVENT = 'IMPORT_FB_EVENT'
+export const UPDATE_NEW_EVENT_WITH_FB = 'UPDATE_NEW_EVENT_WITH_FB'
 
 const fetchEvents = () => async dispatch => {
   try {
@@ -115,8 +119,35 @@ export const postEvent = () => async (dispatch, getState) => {
 export const importFBEvent = () => async (dispatch, getState) => {
   const { fbEventID } = getState().events.newEvent
   const api = fbAPI()
-  const fbEvent = await api.getEventByID(fbEventID)
-  console.log(fbEvent.data)
+
+  try {
+    const fbEvent = await api.getEventByID(fbEventID)
+    console.log(fbEvent.data)
+
+    const { name, description, cover, category, place, start_time, end_time } = fbEvent.data
+
+    let newEventFromFB = {
+      title: name,
+      description: description,
+      image_url: cover.source,
+      category: category || '',
+      venue_string: place.name,
+      city: place.location.city,
+      country: place.location.country,
+      state: place.location.state,
+      address: place.location.street,
+      zip: place.location.zip,
+      startTime: start_time,
+      endTime: end_time,
+    }
+
+    newEventFromFB = eventFormatter.dateFormat(newEventFromFB)
+
+    dispatch({ type: UPDATE_NEW_EVENT_WITH_FB, newEventFromFB })
+
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 export const updateNewEventInfo = newEvent => ({

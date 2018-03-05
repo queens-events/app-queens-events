@@ -64,26 +64,34 @@
 	grid-row-end: first-row; */
 }
 
-.eventPic {
+/* .eventPic {
 	/* autoprefixer: off */
 	/* grid-column: 2 / 3;
 	grid-row: 3 / 4; */
 	/* grid-row: 1fr; */
 	/* grid-auto-rows: min-content; 1 */
-	display: inherit;
 	/* width: 100%; */
-	/* height: 3em; */
-}
+	/* height: 3em;
+} */
 
 .eventPreviewImage {
-    width: 100%;
+	display: inherit;
+
+	width: 100%;
 	height: 100%;
 
-	background-image: url("https://www.resortcollection.com/wp-content/uploads/2015/11/resort-collection-blog-oct15-weekend-events-panama-city-beach-hero-e1447883346302.jpg");
+	/* background-image: url("https://www.resortcollection.com/wp-content/uploads/2015/11/resort-collection-blog-oct15-weekend-events-panama-city-beach-hero-e1447883346302.jpg"); */
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
 }
+
+.eventPreviewImage > img {
+	justify-self: center;
+
+	max-height: 100%;
+	max-width: 100%;
+  }
 
 .eventContent {
 	display: inherit;
@@ -97,13 +105,15 @@
 @media (min-width: 34em) and (max-width: 49.9375em) {
 	.previewContainer {
 		grid-template-columns: 1fr;
+		/* grid-template-rows: repeat(3, 1fr); */
 	}
 
-	.eventPic {
+	.eventPreviewImage {
 		/* grid-auto-rows: min-content; */
-		height: 20em;
+		height: 40vh;
 		/* autoprefixer: off */
-		grid-row: 2 / 3;
+		/* grid-row: 2 / 3; */
+		/* grid-row: 2 / 4; */
 		grid-column: 1 / 3;
 	}
 
@@ -128,6 +138,14 @@
 		* 2. Make this element span two rows, allowing prose elements to flow to its left.
 		*/
 
+	.eventPreviewImage {
+		/* grid-auto-rows: min-content; */
+		/* height: 20em; */
+		/* autoprefixer: off */
+		grid-row: 2 / 3;
+		grid-column: 1 / 2;
+	}
+
 	.eventContent {
 		/* grid-auto-rows: min-content; 1 */
 		/* grid-row: span 2; 2 */
@@ -138,14 +156,6 @@
 		/* autoprefixer: off */
 		grid-row: 2 / 3;
 		grid-column: 2 / 3;
-	}
-
-	.eventPic {
-		/* grid-auto-rows: min-content; */
-		height: 20em;
-		/* autoprefixer: off */
-		grid-row: 2 / 3;
-		grid-column: 1 / 2;
 	}
 }
 

@@ -12,10 +12,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return ({
     toggleCreateEventForm: () => {
-
-      // REMEMBER TO CHANGE THIS BACK
-      dispatch({ type: TOGGLE_PREVIEW_EVENT_HIDDEN })
-    }
+      dispatch({ type: TOGGLE_CREATE_EVENT_HIDDEN })
+    },
   })
 }
 

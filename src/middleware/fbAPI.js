@@ -12,6 +12,7 @@ const fbAPI = () => {
       "start_time",
       "end_time",
       "place",
+      "ticket_uri",
     ].join(','),
 
     api:

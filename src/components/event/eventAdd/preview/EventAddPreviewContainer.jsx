@@ -5,7 +5,8 @@ import {
   updateNewEventInfo,
   EVENT_FILE_TO_BE_SENT,
   TOGGLE_PREVIEW_EVENT_HIDDEN,
-} from '../../../actions/index'
+  CLEAR_NEW_EVENT_INFO,
+} from '../../../../actions/index'
 import EventAddPreview from './EventAddPreviewModal.jsx'
 
 const mapStateToProps = state => {
@@ -16,6 +17,7 @@ const mapDispatchToProps = dispatch => {
   return ({
     togglePreviewEventForm: () => {
       dispatch({ type: TOGGLE_PREVIEW_EVENT_HIDDEN })
+      dispatch({ type: CLEAR_NEW_EVENT_INFO })
     },
     onSubmit: event => {
       event.preventDefault();
