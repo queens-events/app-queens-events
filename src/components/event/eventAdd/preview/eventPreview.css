@@ -4,7 +4,6 @@
   	left: 0;
   	right: 0;
   	bottom: 0;
-	/* margin: auto; */
 
 	display: flex;
 	justify-content: space-around;
@@ -13,7 +12,6 @@
 	height: 100%;
 	z-index: 1000 !important;
 	background-color: rgba(0,0,0, 0.5);
-	/* display: inline-block; */
 }
 
 .previewContainer {
@@ -38,14 +36,6 @@
 
 	justify-self: start;
 	align-self: start;
-
-	/* autoprefixer: off */
-	/* grid-column-start: 2;
-	grid-column-end: 3; */
-
-	/* autoprefixer: off */
-	/* grid-row-start: 2;
-	grid-row-end: 3; */
 }
 
 .previewEventHeaderExit {
@@ -56,23 +46,7 @@
 
 	justify-self: end;
 	align-self: start;
-
-	/* grid-column: last-column;
-
-	/* autoprefixer: off */
-	/*grid-row-start: 1;
-	grid-row-end: first-row; */
 }
-
-/* .eventPic {
-	/* autoprefixer: off */
-	/* grid-column: 2 / 3;
-	grid-row: 3 / 4; */
-	/* grid-row: 1fr; */
-	/* grid-auto-rows: min-content; 1 */
-	/* width: 100%; */
-	/* height: 3em;
-} */
 
 .eventPreviewImage {
 	display: inherit;
@@ -80,7 +54,6 @@
 	width: 100%;
 	height: 100%;
 
-	/* background-image: url("https://www.resortcollection.com/wp-content/uploads/2015/11/resort-collection-blog-oct15-weekend-events-panama-city-beach-hero-e1447883346302.jpg"); */
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -96,10 +69,6 @@
 .eventContent {
 	display: inherit;
 	width: 100%;
-
-	/* grid-column-start: 3;
-	grid-column-end: 5; */
-	/* autoprefixer: off */
 }
 
 @media (min-width: 34em) and (max-width: 49.9375em) {
@@ -109,11 +78,8 @@
 	}
 
 	.eventPreviewImage {
-		/* grid-auto-rows: min-content; */
 		height: 40vh;
 		/* autoprefixer: off */
-		/* grid-row: 2 / 3; */
-		/* grid-row: 2 / 4; */
 		grid-column: 1 / 3;
 	}
 
@@ -128,8 +94,6 @@
 	.previewContainer {
 		/* autoprefixer: off */
 		grid-template-columns: 4fr 5fr;
-		/* grid-template-columns: 40% auto [last-column] 7%; */
-		/* grid-template-rows: 10% 40% auto; */
 		grid-template-rows: 1fr 2fr;
 	}
 
@@ -139,20 +103,12 @@
 		*/
 
 	.eventPreviewImage {
-		/* grid-auto-rows: min-content; */
-		/* height: 20em; */
 		/* autoprefixer: off */
 		grid-row: 2 / 3;
 		grid-column: 1 / 2;
 	}
 
 	.eventContent {
-		/* grid-auto-rows: min-content; 1 */
-		/* grid-row: span 2; 2 */
-		/* grid-row: 3 / 4;
-		grid-column-start: 3;
-		grid-column-end: 5; */
-
 		/* autoprefixer: off */
 		grid-row: 2 / 3;
 		grid-column: 2 / 3;
@@ -180,11 +136,6 @@
 	align-self: center;
 }
 
-/* .eventEndTime {
-	justify-self: center;
-	align-self: center;
-} */
-
 .eventAdditionalInfo {
 	display: grid;
 	width: 100%;
@@ -192,9 +143,6 @@
 	/* autoprefixer: off */
 	grid-column-start: 1;
 	grid-column-end: 3;
-
-	/* grid-row-start: 4;
-	grid-row-end: 5; */
 }
 
 .eventDescription {
