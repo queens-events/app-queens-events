@@ -40,12 +40,12 @@ class EventAddForm extends Component {
               <div>
                 <input
                   name="name"
-                  value={newEvent.title}
+                  value={newEvent.name}
                   onChange={onChange} />
               </div>
             </div>
 
-            <div className="eventName">
+            <div id="eventName">
               <h1>Import with Facebook:</h1>
               <div>
                 <input
@@ -80,7 +80,6 @@ class EventAddForm extends Component {
                   onChange={onChange}
                   cols="52" rows="10"
                   placeholder="Describe your event here! Make sure to include external links." />
-                {console.log(newEvent.description)}
               </div>
             </div>
 

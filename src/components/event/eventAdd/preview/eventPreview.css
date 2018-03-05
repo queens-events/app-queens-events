@@ -228,7 +228,14 @@
 	grid-template-columns: 1fr 1fr 1fr;
 }
 
-.submitButton {
+.buttonContainer {
+	grid-column: 1 / 4;
+
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+}
+
+.editButton {
 	grid-column: 2;
 	justify-self: end;
 	align-self: end;
@@ -237,5 +244,20 @@
     border: 2px solid #1c648c;
     border-radius: 4px;
 	font-size: 1.5em;
+	width: 4.2em;
+	color: #fff;
+	margin-right: .25em;
+}
+
+.submitButton {
+	grid-column: 3;
+	justify-self: end;
+	align-self: end;
+
+	background-color: #2f9acc;
+    border: 2px solid #1c648c;
+    border-radius: 4px;
+	font-size: 1.5em;
+	width: 4.2em;
 	color: #fff;
 }

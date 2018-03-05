@@ -10,8 +10,8 @@ export default {
     singleEvent.dateOrdinal = startDateTime.format('Do')
     singleEvent.month = startDateTime.format('MMM')
 
-    singleEvent.startTime = startDateTime.format('LT')
-    singleEvent.endTime = moment(singleEvent.endTime)
+    singleEvent.startTimeFormatted = startDateTime.format('LT')
+    singleEvent.endTimeFormatted = moment(singleEvent.endTime)
       .add(5, 'hours')
       .format('LT')
 

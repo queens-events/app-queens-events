@@ -124,10 +124,10 @@ export const importFBEvent = () => async (dispatch, getState) => {
     const fbEvent = await api.getEventByID(fbEventID)
     console.log(fbEvent.data)
 
-    const { name, description, cover, category, place, start_time, end_time } = fbEvent.data
+    const { name, description, cover, category, place, start_time, end_time, ticket_uri } = fbEvent.data
 
     let newEventFromFB = {
-      title: name,
+      name: name,
       description: description,
       image_url: cover.source,
       category: category || '',
@@ -139,6 +139,7 @@ export const importFBEvent = () => async (dispatch, getState) => {
       zip: place.location.zip,
       startTime: start_time,
       endTime: end_time,
+      ticket_uri: ticket_uri,
     }
 
     newEventFromFB = eventFormatter.dateFormat(newEventFromFB)

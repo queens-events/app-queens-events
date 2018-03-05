@@ -43,8 +43,8 @@ class EventDetail extends Component {
       name,
       date,
       month,
-      startTime,
-      endTime,
+      startTimeFormatted,
+      endTimeFormatted,
     } = this.props.event
 
     return (
@@ -66,7 +66,7 @@ class EventDetail extends Component {
                 <p>{month}</p>
               </div>
               <div className="eventDetailStartEndTime">
-                <p>{startTime}-{endTime}</p>
+                <p>{startTimeFormatted}-{endTimeFormatted}</p>
               </div>
             </div>
             <div className="eventDetailVenue">
@@ -139,7 +139,7 @@ class EventDetail extends Component {
                   <div className="venueInfoContainer">
                     <div className="venueBold">Time</div>
                     <div className="venueStreetAddress">
-                      {startTime}-{endTime}
+                      {startTimeFormatted}-{endTimeFormatted}
                     </div>
                   </div>
                 </div>
