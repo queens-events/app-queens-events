@@ -5,11 +5,15 @@ import signUpStyle from './signUpForm.css'
 //const SignUpForm = ({onSubmit, onChange, errors, user}) => {
 class SignUpForm extends Component {
   onFail(errorMessage) {
+/*  var x = document.getElementById("snackbar")
+    x.className = "show";
+    setTimeout(function(){x.className = x.className.replace("show", "");}, 8000); */
     return(
-      <div className="alert alert-danger">
+    <div id="snackbar">
         <strong>Failed Login!</strong> {errorMessage}
-      </div>
+    </div>
     )
+
   }
   
   render(){
@@ -42,21 +46,27 @@ class SignUpForm extends Component {
           </div>
           <div className="signUpForm">
             <div className="signUpFormContainer">
-              <p>Username</p>
+              <div className="signUpFormText">
+              <h4>Username</h4>
+            </div>
               <input
                 className="userFormInput"
                 name="username"
                 value={user.username}
                 onChange={onChange}
                 />
-              <p>Email</p>
+                <div className="signUpFormText">
+              <h4>Email</h4>
+              </div>
               <input
                 className="userFormInput"
                 name="email"
                 value={user.email}
                 onChange={onChange}
                 />
-              <p>Password</p>
+                <div className="signUpFormText">
+              <h4>Password</h4>
+              </div>
               <input
                 className="userFormInput"
                 name="password"
@@ -64,7 +74,9 @@ class SignUpForm extends Component {
                 value={user.password}
                 onChange={onChange}
               />
-              <p>Confirm Password</p>
+              <div className="signUpFormText">
+              <h4>Confirm Password</h4>
+              </div>
               <input
                 className="userFormInput"
                 name="confirm_password"

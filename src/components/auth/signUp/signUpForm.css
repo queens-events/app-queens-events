@@ -1,13 +1,60 @@
-.errorResponse {
-	height: 600px;
+/*TODO add a toast for error */
+/*what does errorResponse even do? */
+
+
+/*.errorResponse {
+	height: 100px;
+}*/
+
+#snackbar {
+	visibility: hidden;
+	min-width: 2em;
+	margin-left: -25%;
+	color: #b94a48;
+	background-color: #f2dede;
+	border-color: #eed3d7;
+	border-radius: 0.4em;
+	border: 0.1em solid;
+	text-align: center;
+	padding: 0.3em;
+	position: fixed;
+	z-index: 1000;
+	left: 50%;
+	bottom: 1em; 
+	font-size: 1.5em
+}
+
+#snackbar.show{
+	visibility: visible;
+	animation: fadein 0.5s, fadeout 2s 6.0s;
+}
+@keyframes fadein{
+	from {bottom: 0; opacity: 0;}
+	to {bottom: 1em; opacity: 1;}
+}
+
+@keyframes fadeout {
+	from {bottom: 1em; opacity: 1;}
+	to {bottom: 1em; opacity: 0;}
 }
 
 .userFormInput {
     border: 0;
     outline: 0;
     background: transparent;
-    border-bottom: 2px solid #5d9fd2;
+    border-bottom: 0.1em solid #cccccc;
 }
+.userFormInput:focus{
+	border-bottom: 0.1em solid #2F9BCC;
+}
+
+.signUpFormText {
+	padding-top: 1em;
+}
+.signUpFormText:focus{
+	color: red;
+}
+
 
 .popupSignUp {
 	position: fixed;
@@ -29,35 +76,30 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
-	border: 1px solid grey;
-	border-radius: 10px;
-	margin-top: 40px;
-	width: 600px;
-	height: 500px;
+	border: 0.1em solid grey;
+	border-radius: 0.5em;
+	margin-top: 6em;
+	width: 45em;
+	height: 38em;
 	overflow: hidden;
 	background-color: white;
 }
 
 .signUpHeader {
-	height: 20%;
+	height: 15%;
 	width: 100%;
 	display: flex;
 	/* background-color: #5d9fd2; */
 }
 
-.signUpHeader > p {
-	height: 20%;
-	width: 100%;
-	display: flex;
-	padding: 10px 0px 0px 20px;
-	/* background-color: #5d9fd2; */
-}
 
 .signUpHeaderText {
 	width: 93%;
 	font-size: 3em;
-	padding: 10px 0px 0px 20px; /* 20px */
+	padding: 0.4em 0px 0px 5.5em; /* 20px */
 	margin: auto;
+	font-weight: bold;
+
 }
 
 .signUpHeaderExit {
@@ -69,13 +111,13 @@
 }
 
 .signUpForm {
-	height: 70%;
+	height: 100%;
 	width: 100%;
 }
 
 .signUpFormContainer {
 	margin: auto;
-	padding: 0px 20px 0px 20px;
+	padding: 0px 1.5em 0px 1em;
 }
 
 .signUpFormContainer > p {
@@ -85,13 +127,25 @@
 .signUpButtonContainer {
 	height: 10%;
 	width: 100%;
-	margin-top: 10px;
+	margin-top: 1.9em;
 }
 
 .signUpQEButton {
-	background-color: #2f9acc;
-	border: 2px solid #1c648c;
-	border-radius: 4px;
+	background-color: #FFFFFF;
+	border-radius: 0.3em;
 	font-size: 1.25em;
-	color: #fff;
+	color: #2F9BCC;
+	height: 3em;
+	box-shadow: 0px 0.1em 1.5em rgba(0, 0, 0, 0.3);
+  	transition: all 0.3s ease 0s;
+  	cursor: pointer;
+  	outline: none;
+  	border: 0.1em solid #2F9BCC;
+}
+
+.signUpQEButton:hover{
+	 background-color: #2F9BCC;
+  box-shadow: 0px 0.1em 1.5em rgba(0, 0, 0, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
 }
