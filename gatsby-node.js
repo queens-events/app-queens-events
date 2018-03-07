@@ -7,7 +7,7 @@ const axios = require(`axios`);
 exports.modifyBabelrc = ({ babelrc }) => (
   Object.assign({}, babelrc, {
     plugins: babelrc.plugins.concat([
-      'transform-decorators-legacy', 
+      'transform-decorators-legacy',
       'transform-regenerator',
     ]),
   })
@@ -38,7 +38,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 },
               })
           })
-  
+
           return null
         })
       )
