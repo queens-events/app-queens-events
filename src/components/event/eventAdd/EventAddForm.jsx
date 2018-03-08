@@ -19,6 +19,7 @@ class EventAddForm extends Component {
   
   render() {
     let { onChange, onChangeTimePickerStart, onChangeTimePickerEnd, onChangeDatePicker,
+<<<<<<< HEAD
       onSubmit, onDrop, newEvent, toggleCreateEventForm } = this.props
 
     if (newEvent.category == undefined && newEvent.tag == undefined && newEvent.venue == undefined && newEvent.recurrence == undefined) {
@@ -27,6 +28,10 @@ class EventAddForm extends Component {
       newEvent.venue = "Venue1"
       newEvent.recurrence = "None"
     }
+=======
+      onSubmit, onDrop, newEvent, toggleCreateEventForm, togglePreviewEventForm,
+      importFBEvent } = this.props
+>>>>>>> master
 
     return (
       <div className='popup'>
@@ -45,10 +50,30 @@ class EventAddForm extends Component {
               <h1>Title:</h1>
               <div>
                 <input
+<<<<<<< HEAD
                   name="title"
                   type="text"
                   value={newEvent.title}
+=======
+                  name="name"
+                  value={newEvent.name}
+>>>>>>> master
                   onChange={onChange} />
+              </div>
+            </div>
+
+            <div id="eventName">
+              <h1>Import with Facebook:</h1>
+              <div>
+                <input
+                  type="text"
+                  name="fbEventID"
+                  value={newEvent.fbeventID}
+                  onChange={onChange}/>
+                <button
+                  type="button"
+                  onClick={importFBEvent}
+                  className="landingButton">Import</button>
               </div>
             </div>
 
@@ -169,7 +194,14 @@ class EventAddForm extends Component {
             </div>
 
             <div id="submitDate">
+<<<<<<< HEAD
               <button className="landingButton" type="submit"><h1>Submit Event</h1></button>
+=======
+              <button type="button"
+                  onClick={togglePreviewEventForm}
+                  className="landingButton">Preview</button>
+              <button type="submit" className="landingButton">Submit Event</button>
+>>>>>>> master
             </div>
           </div>
         </form>
