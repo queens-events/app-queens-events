@@ -33,10 +33,10 @@ class EventAddForm extends Component {
         <form className="container" onSubmit={onSubmit}>
           <div className="createEventHeader">
             <div className="createEventHeaderText">
-              <p>Create an Event</p>
+              <h1>Create an Event</h1>
             </div>
             <div className="createEventHeaderExit" onClick={toggleCreateEventForm}>
-              <p>&times;</p>
+              <h1>&times;</h1>
             </div>
           </div>
 
