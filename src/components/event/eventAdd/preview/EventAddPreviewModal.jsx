@@ -10,6 +10,7 @@ class EventAddPreview extends Component {
       image_url,
       category,
       tags,
+      recurrence,
       venue,
       cost,
       city,
@@ -59,6 +60,10 @@ class EventAddPreview extends Component {
           <div className="eventContent">
             <div className="eventName">
               <h2>{name}</h2>
+            </div>
+
+            <div className="eventRecurrence">
+              <p>{recurrence || '--'}</p>
             </div>
 
             <div className="eventVenue">
@@ -128,6 +133,10 @@ class EventAddPreview extends Component {
                 <div>
                   <h3>Event Tags</h3>
                   {tags || '--'}
+                </div>
+                <div>
+                  <h3>Event Recurrence</h3>
+                  {recurrence || '--'}
                 </div>
                 <div>
                   <h3>Website</h3>
