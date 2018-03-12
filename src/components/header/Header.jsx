@@ -57,6 +57,8 @@ class Header extends Component {
           <Link to='/'>
             <div className="navbarLogo" />
           </Link>
+
+
           <div className="navbarLeftLinks">
             <Link to='/events'>
               <div className="navbarLink">
@@ -81,7 +83,9 @@ class Header extends Component {
                 About
               </div>
             </Link>
+
           </div>
+
         </div>
         { this.state.user.token ? this.loggedInHeader() : this.loggedOutHeader() }
       </div>

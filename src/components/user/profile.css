@@ -1,3 +1,6 @@
+body{
+	background-color: white;
+}
 .profileContainer {
 	display: flex;
 	flex-direction: row;
@@ -19,9 +22,13 @@
 
 .profileElement {
 	font-size: 24px;
-	padding: 5px 10px 5px 10px;
+	position: absolute;
+	padding: 10px 30px 10px 30px;
 	text-align: center;
 	border: 1px solid grey;
+
+
+
 }
 
 .profileUserImage {
@@ -44,4 +51,3 @@ a, a:hover {
 	color: black;
 	text-decoration: none;
 }
-
