@@ -48,7 +48,7 @@
 	border-bottom: 0.1em solid #2F9BCC;
 }
 
-.signUpFormText {
+.signUpForm p {
 	padding-top: 1em;
 }
 .signUpFormText:focus{

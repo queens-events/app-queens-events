@@ -19,8 +19,9 @@ class EventAddForm extends Component {
 
   render() {
     let { onChange, onChangeTimePickerStart, onChangeTimePickerEnd, onChangeDatePicker,
-      onSubmit, onDrop, newEvent, toggleCreateEventForm } = this.props
-    
+      onSubmit, onDrop, newEvent, toggleCreateEventForm, togglePreviewEventForm,
+      importFBEvent } = this.props
+
     return (
       <div className='popup'>
         <form className="container" onSubmit={onSubmit}>
@@ -39,8 +40,23 @@ class EventAddForm extends Component {
               <div>
                 <input
                   name="name"
-                  value={newEvent.title}
+                  value={newEvent.name}
                   onChange={onChange} />
+              </div>
+            </div>
+
+            <div id="eventName">
+              <h1>Import with Facebook:</h1>
+              <div>
+                <input
+                  type="text"
+                  name="fbEventID"
+                  value={newEvent.fbeventID}
+                  onChange={onChange}/>
+                <button
+                  type="button"
+                  onClick={importFBEvent}
+                  className="landingButton">Import</button>
               </div>
             </div>
 
@@ -64,7 +80,6 @@ class EventAddForm extends Component {
                   onChange={onChange}
                   cols="52" rows="10"
                   placeholder="Describe your event here! Make sure to include external links." />
-                {console.log(newEvent.description)}
               </div>
             </div>
 
@@ -153,7 +168,10 @@ class EventAddForm extends Component {
             </div>
 
             <div id="submitDate">
-              <button className="landingButton"><h1>Submit Event</h1></button>
+              <button type="button"
+                  onClick={togglePreviewEventForm}
+                  className="landingButton">Preview</button>
+              <button type="submit" className="landingButton">Submit Event</button>
             </div>
           </div>
         </form>

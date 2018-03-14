@@ -1,24 +1,34 @@
 import axios from 'axios'
 import moment from 'moment'
 import eventFormatter from '../helpers/event-formater'
+import fbAPI from '../middleware/fbAPI'
+
 import 'regenerator-runtime/runtime'
 // import authHTTP from '../middleware/authHTTP'
 
 export const REQUEST_EVENTS_SUCCESS = 'REQUEST_EVENTS_SUCCESS'
 export const REQUEST_EVENTS_FAILED = 'REQUEST_EVENTS_FAILED'
+
 export const INIT_FILTERS = 'INIT_FILTERS'
 export const TOGGLE_CATEGORY_FILTER = 'TOGGLE_CATEGORY_FILTER'
 export const TOGGLE_TAG_FILTER = 'TOGGLE_TAG_FILTER'
+
 export const TOGGLE_CREATE_EVENT_HIDDEN = 'TOGGLE_CREATE_EVENT_HIDDEN'
+export const TOGGLE_PREVIEW_EVENT_HIDDEN = 'TOGGLE_PREVIEW_EVENT_HIDDEN'
 export const EVENT_FILE_TO_BE_SENT = 'EVENT_FILE_TO_BE_SENT'
 
 export const REQUEST_SINGLE_EVENT_SUCCESS = 'REQUEST_SINGLE_EVENT_SUCCESS'
 export const REQUEST_SINGLE_EVENT_FAILURE = 'REQUEST_SINGLE_EVENT_FAILURE'
 
-export const UPDATE_NEW_EVENT_INFO = 'UPDATE_NEW_EVENT_INFO'
 export const CREATE_EVENT = 'CREATE_EVENT'
 export const EDIT_EVENT = 'EDIT_EVENT'
 export const DELETE_EVENT = 'DELETE_EVENT'
+
+export const UPDATE_NEW_EVENT_INFO = 'UPDATE_NEW_EVENT_INFO'
+export const CLEAR_NEW_EVENT_INFO = 'CLEAR_NEW_EVENT_INFO'
+
+export const IMPORT_FB_EVENT = 'IMPORT_FB_EVENT'
+export const UPDATE_NEW_EVENT_WITH_FB = 'UPDATE_NEW_EVENT_WITH_FB'
 
 const fetchEvents = () => async dispatch => {
   try {
@@ -43,18 +53,6 @@ const fetchSingleEvent = eventID => async dispatch => {
     )
 
     let singleEvent = response.data.payload
-
-    // let startDateTime = moment(singleEvent.startTime).add(5, 'hours')
-
-    // singleEvent.date = startDateTime.format('D')
-    // singleEvent.month = startDateTime.format('MMM')
-
-    // singleEvent.startTime = startDateTime.format('LT')
-    // singleEvent.endTime = moment(singleEvent.endTime).add(5, 'hours').format('LT')
-
-    // singleEvent.venue = singleEvent.venueString || singleEvent.venue
-
-    // console.log(singleEvent);
 
     singleEvent = eventFormatter.dateFormat(singleEvent)
 
@@ -116,6 +114,41 @@ export const postEvent = () => async (dispatch, getState) => {
 
   // Remove this in final version
   console.log(newEventResponseDate)
+}
+
+export const importFBEvent = () => async (dispatch, getState) => {
+  const { fbEventID } = getState().events.newEvent
+  const api = fbAPI()
+
+  try {
+    const fbEvent = await api.getEventByID(fbEventID)
+    console.log(fbEvent.data)
+
+    const { name, description, cover, category, place, start_time, end_time, ticket_uri } = fbEvent.data
+
+    let newEventFromFB = {
+      name: name,
+      description: description,
+      image_url: cover.source,
+      category: category || '',
+      venue_string: place.name,
+      city: place.location.city,
+      country: place.location.country,
+      state: place.location.state,
+      address: place.location.street,
+      zip: place.location.zip,
+      startTime: start_time,
+      endTime: end_time,
+      ticket_uri: ticket_uri,
+    }
+
+    newEventFromFB = eventFormatter.dateFormat(newEventFromFB)
+
+    dispatch({ type: UPDATE_NEW_EVENT_WITH_FB, newEventFromFB })
+
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 export const updateNewEventInfo = newEvent => ({

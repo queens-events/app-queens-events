@@ -39,14 +39,18 @@ class LoginForm extends Component {
             </div>
             <div className="loginForm">
               <div className="loginFormContainer">
-                <p>Username/Email</p>
+                <div className="loginText">
+                  <p>Username/Email</p>
+                  </div>
                 <input
                 className="userFormInput"
                 name="email"
                 value={user.email}
                 onChange={onChange}
                 />
-                <p>Password</p>
+                <div className="loginText">
+                  <p>Password</p>
+                </div>
                 <input
                 className="userFormInput"
                 name="password"
@@ -57,7 +61,8 @@ class LoginForm extends Component {
                 <div className="loginButtonContainer">
                   <button className="loginQEButton">Login</button>
                 </div>
-                <p>Don't have an account? Create One</p>
+                <p>Don't have an account?  <Link to='/login'>
+           Create One  </Link></p>
 
                 { errors.failedLogin ? this.onFail(errors.message) : null }
               </div>
