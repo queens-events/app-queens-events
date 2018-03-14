@@ -12,6 +12,9 @@
 .landingPageFooterText {
     color: white;
 }
+.landingPageFooterTextList :hover{
+    background-color: white;
+}
 
 .landingPageFooterTextList {
     list-style-type: none;
