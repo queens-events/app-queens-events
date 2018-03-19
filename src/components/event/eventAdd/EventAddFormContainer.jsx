@@ -76,7 +76,6 @@ const mapDispatchToProps = dispatch => {
       dispatch(updateNewEventInfo({ name, value }))
     },
     onChangeTimePickerStart: value => {
-      console.log(value)
       dispatch(updateNewEventInfo({ name: "startTime", value }))
     },
     onChangeTimePickerEnd: value => {
