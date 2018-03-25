@@ -9,6 +9,34 @@ import {
 } from '../../../actions/index'
 import EventAddForm from './EventAddForm.jsx'
 
+let formValid = false
+let fieldValidateErrors = { title: 'Please give your event a name', description: 'Please give your form a description', cost: 'Please give a numeric cost'}
+let titleValid, descriptionValid, costValid = false
+
+const validateField = (fieldName, value) => {
+
+  switch (fieldName) {
+    case 'title':
+      titleValid = value.length > 0 //&& Check if title is already taken would go here
+      fieldValidateErrors.title = titleValid ? '' : 'Please give your event a name'
+      break;
+
+    case 'description':
+      descriptionValid = value.length > 0
+      fieldValidateErrors.description = descriptionValid ? '' : 'Please give your event a description'
+      break;
+
+    case 'cost':
+      costValid = value.length > 0 && !isNaN(value)
+      fieldValidateErrors.cost = costValid ? '' : 'Please give a numeric cost'
+      break;
+  }
+
+  formValid = titleValid && descriptionValid && costValid
+  
+}
+
+
 const mapStateToProps = state => {
   return state.events
 }
@@ -23,8 +51,23 @@ const mapDispatchToProps = dispatch => {
       dispatch({ type: TOGGLE_PREVIEW_EVENT_HIDDEN })
     },
     onSubmit: event => {
-      event.preventDefault();
+      event.preventDefault()
       event.target.reset()
+      console.log("Event Attempted to be posted!")
+      if (!formValid) {
+        const errorMessage = 'Error(s): \n' + fieldValidateErrors.title + '\n' + fieldValidateErrors.description + '\n' + fieldValidateErrors.cost
+        alert(errorMessage)
+      }
+      else {
+        dispatch(postEvent())
+        dispatch({ type: TOGGLE_CREATE_EVENT_HIDDEN })
+      }
+    },
+    onChange: event => {
+      console.log(event)
+      const { name, value } = event.target
+      validateField(name, value)     
+      console.log('Fired from onChange')
 
       dispatch(postEvent())
     },

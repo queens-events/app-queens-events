@@ -1,14 +1,14 @@
 ﻿import React, { Component } from 'react'
 import Dropzone from 'react-dropzone'
 import DayPickerInput from 'react-day-picker/DayPickerInput'
-import TimePicker from 'rc-time-picker'
 import moment from 'moment'
+import TimePicker from 'react-times'
 
+import 'react-times/css/classic/default.css'
 import "react-day-picker/lib/style.css"
-import 'rc-time-picker/assets/index.css'
 import "./eventAdd.css"
 
-const format = 'h:mm a'
+const format = 'hh:mm'
 const now = moment().hour(0).minute(0)
 
 class EventAddForm extends Component {
@@ -16,36 +16,34 @@ class EventAddForm extends Component {
   constructor(props) {
     super(props)
   }
-
+  
   render() {
     let { onChange, onChangeTimePickerStart, onChangeTimePickerEnd, onChangeDatePicker,
       onSubmit, onDrop, newEvent, toggleCreateEventForm, togglePreviewEventForm,
       importFBEvent } = this.props
+
+    if (newEvent.category == undefined && newEvent.tag == undefined && newEvent.venue == undefined && newEvent.recurrence == undefined) {
+      newEvent.category = "HEALTH"
+      newEvent.tag = "19+_SOCIALS"
+      newEvent.venue = "Venue1"
+      newEvent.recurrence = "None"
+    }
 
     return (
       <div className='popup'>
         <form className="container" onSubmit={onSubmit}>
           <div className="createEventHeader">
             <div className="createEventHeaderText">
-              <p>Create an Event</p>
+              <h1>Create an Event</h1>
             </div>
             <div className="createEventHeaderExit" onClick={toggleCreateEventForm}>
-              <p>&times;</p>
+              <h1>&times;</h1>
             </div>
           </div>
 
-          <div className="createEventForm">
-            <div id="eventName">
-              <h1>Title:</h1>
-              <div>
-                <input
-                  name="name"
-                  value={newEvent.name}
-                  onChange={onChange} />
-              </div>
-            </div>
-
-            <div id="eventName">
+          <div className="createEventBody">
+           
+            <div id="eventImport">
               <h1>Import with Facebook:</h1>
               <div>
                 <input
@@ -59,9 +57,20 @@ class EventAddForm extends Component {
                   className="landingButton">Import</button>
               </div>
             </div>
+          
+            <div id="eventName">
+              <h1>Title:</h1>
+              <div>
+                <input
+                  name="name"
+                  type="text"
+                  value={newEvent.name}
+                  onChange={onChange} />
+              </div>
+            </div>
 
-            <div id="eventPhoto">
-              <h1>Event Photo:</h1>
+            <div id="eventImage">
+              <h1>Event Image:</h1>
               <div>
                 <Dropzone onDrop={(files) => onDrop(files)}>
                   <div>Try dropping some files here, or click to select files to upload.</div>
@@ -69,13 +78,12 @@ class EventAddForm extends Component {
               </div>
             </div>
 
-            <div id="photoView"></div>
-
             <div id="eventDescription">
               <h1>Description:</h1>
               <div>
                 <textarea
                   name="description"
+                  type="text"
                   value={newEvent.description}
                   onChange={onChange}
                   cols="52" rows="10"
@@ -108,14 +116,14 @@ class EventAddForm extends Component {
               </div>
             </div>
 
-            <div id="eventCost">
-              <h1>Cost:</h1>
+            <div id="eventRecurrence">
+              <h1>Event Recurrence</h1>
               <div>
-                $
-                      <input
-                  name="cost"
-                  value={newEvent.cost}
-                  onChange={onChange} />
+                <select name="recurrence" value={newEvent.recurrence} defaultValue="None" onChange={onChange}>
+                  <option value="None">None</option>
+                  <option value="Weekly">Weekly</option>
+                  <option value="Daily">Daily</option>
+                </select>
               </div>
             </div>
 
@@ -130,49 +138,62 @@ class EventAddForm extends Component {
               </div>
             </div>
 
-            <div id="eventStart">
-              <h1>Starting Time:</h1>
+            <div id="eventCost">
+              <h1>Cost ($):</h1>
               <div>
-                  <TimePicker
-                    name="startTime"
-                    showSecond={false}
-                    defaultValue={now}
-                    value={newEvent.startTime}
-                    onChange={onChangeTimePickerStart}
-                    format={format}
-                    use12Hours
-                  />
-              </div>
-            </div>
-
-            <div id="eventEnd">
-              <h1>Ending Time:</h1>
-              <div>
-                  <TimePicker
-                    showSecond={false}
-                    defaultValue={now}
-                    name="endTime"
-                    value={newEvent.endTime}
-                    onChange={onChangeTimePickerEnd}
-                    format={format}
-                    use12Hours
-                  />
+                <input name="cost" value={newEvent.cost} onChange={onChange} size="4" />
               </div>
             </div>
 
             <div id="eventDate">
               <h1>Date:</h1>
               <div>
-                <DayPickerInput placeholder="DD/MM/YYYY" format="DD/MM/YYYY" onDayChange={onChangeDatePicker} />
+                <DayPickerInput placeholder="DD/MM/YYYY" format="DD/MM/YYYY" onDayChange={onChangeDatePicker} value={newEvent.date} />
+              </div>
+            </div>            
+
+            <div id="eventStart">
+              <h1>Starting Time:</h1>
+              <div>
+                  <TimePicker
+                    name="startTime"
+                    theme="classic"
+                    format={format}
+                    timeMode="24"
+                    value={newEvent.startTime}
+                    onTimeChange={onChangeTimePickerStart}
+                  />
               </div>
             </div>
-
-            <div id="submitDate">
-              <button type="button"
-                  onClick={togglePreviewEventForm}
-                  className="landingButton">Preview</button>
-              <button type="submit" className="landingButton">Submit Event</button>
+            
+            <div id="eventEnd">
+              <h1>Ending Time:</h1>
+              <div>
+                  <TimePicker
+                    name="endTime"
+                    theme="classic"
+                    format={format}
+                    timeMode="24"
+                    value={newEvent.endTime}
+                    onTimeChange={onChangeTimePickerStart}
+                  />
+              </div>
             </div>
+          </div>
+
+          <div className="createEventFooter">
+            <div id="eventPreview">
+              <button
+                type="button"
+                onClick={togglePreviewEventForm}
+                className="landingButton">Preview</button>
+            </div>
+
+            <div id="eventSubmit">
+              <button
+                type="submit"
+                className="landingButton">Submit Event</button>
+             </div>
           </div>
         </form>
       </div>

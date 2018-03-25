@@ -1,49 +1,3 @@
-input, textarea, #eventCost {
-	font-size: 20px;
-}
-
-input {
-	margin-left: 5px;
-	width: 220px;
-}
-
-.container {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	border: 1px solid grey;
-	border-radius: 10px;
-	margin-top: 40px;
-	width: 700px;
-	background-color: white;
-	overflow-y: auto;
-}
-
-#eventName, #eventPhoto, #submitDate {
-	flex-grow: 1;
-}
-
-
-/*All display elements*/
-#eventName, #eventPhoto, #eventDescription, #eventCategory, #eventCost, #eventOrg, #eventVenue, #submitDate, #eventTags, #eventStart, #eventEnd, #eventDate{
-	padding-left: 45px;
-}
-
-#submitForm {
-	padding-top: 45px;
-	font-weight: bold;
-	flex-grow: 10;
-	text-align: center;
-}
-
-#submitForm > .landingButton {
-	width: 400px !important;
-}
-
-#submitDate {
-	text-align: center;
-}
-
 .popup {
 	position: fixed;
 	top: 0;
@@ -58,29 +12,138 @@ input {
 	overflow-y: auto;
 }
 
-.createEventHeader {
-	height: 20%;
- 	width: 100%;
- 	display: flex;
+.container {
+	display: grid;
+	grid-template-areas: 
+		"head"
+		"body"
+		"body"
+		"body"
+		"body"
+		"foot";
+	border: 1px solid grey;
+	border-radius: 10px;
+	margin-top: 40px;
+	min-width: 300px;
+	max-width: 700px;
+	background-color: white;
+	overflow-y: auto;
 }
 
-.createEventHeader > p {
-	height: 20%;
- 	width: 100%;
- 	display: flex;
- 	padding: 10px 0px 0px 20px;
+.createEventHeader {
+	grid-area: head;
+	padding-top: 15px;
+	border-radius: 5px;
+	background-color: #2f9acc;
+	color: #fff;
+	display: grid;
+	grid-template-columns: 90% 10%; 
 }
+
 .createEventHeaderText {
-	width: 93%;
- 	font-size: 3em;
- 	padding: 10px 0px 0px 20px; /* 20px */
- 	margin: auto;
+	grid-column-start: 1;
+	grid-column-end: 2;
 }
 
 .createEventHeaderExit {
-	width: 7%;
- 	font-size: 2em;
- 	justify-content: center;
- 	cursor: pointer;
- 	margin: auto;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	cursor: pointer;
+}
+
+.createEventBody {
+	grid-area: body;
+	display: grid;
+	grid-template-areas: 
+		"a a a a a a a a a a"
+		"b b b b b b b b b b"
+		"c c c c d d d d d d"
+		"c c c c d d d d d d"
+		"e e e e e . f f f f"
+		"g g g g g . h h h h"
+		"i i i i i . j j j j"
+		"k k k k . . l l l l";
+}
+
+#eventImport {
+	grid-area: a;
+}
+
+#eventName {
+	grid-area: b;
+}
+
+#eventImage {
+	grid-area: c;
+}
+
+#eventDescription {
+	grid-area: d;
+}
+
+#eventCategory {
+	grid-area: e;
+}
+
+#eventTags {
+	grid-area: f;
+}
+
+#eventRecurrence {
+	grid-area: g;
+}
+
+#eventVenue {
+	grid-area: h;
+}
+
+#eventCost {
+	grid-area: i;
+}
+
+#eventDate {
+	grid-area: j;
+}
+
+#eventStart {
+	grid-area: k;
+}
+
+#eventEnd {
+	grid-area: l;
+}
+
+.createEventFooter {
+	grid-area: foot;
+	display: grid;
+	padding-top: 20px;
+	grid-template-areas: 
+		"prev submit";
+}
+
+#eventPreview {
+	grid-area: prev;
+	align-items: center;
+}
+
+#eventSubmit {
+	grid-area: submit;
+	align-items: center;
+}
+
+::-webkit-scrollbar {
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: #a5b4ce;
+	border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+	background-color: #32ace5;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: #2f9acc;
 }
